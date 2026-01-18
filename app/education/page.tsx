@@ -47,6 +47,8 @@ import {
   Star,
   CalendarIcon,
   CheckCircle2,
+  Brush,
+  Camera,
 } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
@@ -164,7 +166,7 @@ export default function EducationPage() {
     <main className="min-h-screen bg-white">
       <Navigation />
 
-      {/* Power Hero Section */}
+      {/* 1. Power Hero Section */}
       <section className="relative h-[90vh] w-full overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
@@ -204,8 +206,109 @@ export default function EducationPage() {
         </div>
       </section>
 
-      {/* Compact Booking Menu (The List) */}
-      <section id="curriculums" className="bg-white py-20 lg:py-32">
+      {/* 2. Why Train With Me Section (Moved Up) */}
+      <section className="bg-stone-50 py-20 lg:py-32">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mb-16 text-center">
+            <p className="mb-3 text-sm font-medium uppercase tracking-widest text-zinc-500">
+              The Amor Advantage
+            </p>
+            <h2 className="font-serif text-3xl text-black md:text-4xl">
+              Why Train With Me?
+            </h2>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-3">
+            {features.map((feature) => (
+              <div key={feature.title} className="text-center">
+                <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#FDF2F8] shadow-sm">
+                  <feature.icon className="h-7 w-7 text-[#FF69B4]" />
+                </div>
+                <h3 className="mb-3 font-serif text-xl text-black">
+                  {feature.title}
+                </h3>
+                <p className="text-zinc-600">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Visual Curriculum Gallery */}
+      <section className="bg-white py-20 lg:py-32">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-16 text-center">
+            <p className="mb-3 text-sm font-medium uppercase tracking-widest text-zinc-500">
+              The Experience
+            </p>
+            <h2 className="font-serif text-3xl text-black md:text-5xl">
+              What You Will Master
+            </h2>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {/* Slot 1: Technique */}
+            <div className="group relative aspect-[3/4] overflow-hidden rounded-3xl">
+              <Image
+                src="/images/brow-photo.jpg"
+                alt="Precision Blending & Skin Prep"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6">
+                <p className="text-sm font-medium uppercase tracking-widest text-white/70">
+                  Technique
+                </p>
+                <h3 className="mt-1 font-serif text-xl font-bold text-white">
+                  Precision Blending & Skin Prep
+                </h3>
+              </div>
+            </div>
+
+            {/* Slot 2: The Kit */}
+            <div className="group relative aspect-[3/4] overflow-hidden rounded-3xl">
+              <Image
+                src="/images/bridal-hero.jpg"
+                alt="Kit Audit & Hygiene Standards"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6">
+                <p className="text-sm font-medium uppercase tracking-widest text-white/70">
+                  The Kit
+                </p>
+                <h3 className="mt-1 font-serif text-xl font-bold text-white">
+                  Kit Audit & Hygiene Standards
+                </h3>
+              </div>
+            </div>
+
+            {/* Slot 3: Business */}
+            <div className="group relative aspect-[3/4] overflow-hidden rounded-3xl">
+              <Image
+                src="/images/GroupPhotoMakeup.jpg"
+                alt="Content Creation & Client Photos"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6">
+                <p className="text-sm font-medium uppercase tracking-widest text-white/70">
+                  Business
+                </p>
+                <h3 className="mt-1 font-serif text-xl font-bold text-white">
+                  Content Creation & Client Photos
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Choose Your Lesson (Pricing List) */}
+      <section id="curriculums" className="bg-white py-24 lg:py-36 border-t border-zinc-100">
         <div className="mx-auto max-w-3xl px-6">
           <div className="mb-16 text-center">
             <p className="mb-3 text-sm font-medium uppercase tracking-widest text-zinc-500">
@@ -234,7 +337,7 @@ export default function EducationPage() {
                           {curriculum.duration}
                         </p>
                       </div>
-                      <span className="text-lg font-semibold text-black">
+                      <span className="text-lg font-bold text-black md:text-2xl">
                         {curriculum.price}
                       </span>
                     </div>
@@ -270,35 +373,7 @@ export default function EducationPage() {
         </div>
       </section>
 
-      {/* Why Train With Me Section */}
-      <section className="bg-stone-50 py-20 lg:py-28">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="mb-16 text-center">
-            <p className="mb-3 text-sm font-medium uppercase tracking-widest text-zinc-500">
-              The Amor Advantage
-            </p>
-            <h2 className="font-serif text-3xl text-black md:text-4xl">
-              Why Train With Me?
-            </h2>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-3">
-            {features.map((feature) => (
-              <div key={feature.title} className="text-center">
-                <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#FDF2F8] shadow-sm">
-                  <feature.icon className="h-7 w-7 text-[#FF69B4]" />
-                </div>
-                <h3 className="mb-3 font-serif text-xl text-black">
-                  {feature.title}
-                </h3>
-                <p className="text-zinc-600">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Inquiry Dialog */}
+      {/* Inquiry Dialog (Standalone) */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-lg">
           {isSubmitted ? (
@@ -509,70 +584,7 @@ export default function EducationPage() {
         </DialogContent>
       </Dialog>
 
-      {/* Photo Boxes Section */}
-      <section className="pb-20 pt-10 bg-stone-50 lg:pb-32">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
-              <Image
-                src="/images/bridal-hero.jpg"
-                alt="Bridal Makeup Education"
-                fill
-                className="object-cover transition-transform duration-500 hover:scale-105"
-              />
-            </div>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
-              <Image
-                src="/images/GroupPhotoMakeup.jpg"
-                alt="Makeup Masterclass"
-                fill
-                className="object-cover transition-transform duration-500 hover:scale-105"
-              />
-            </div>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
-              <Image
-                src="/images/DarkerSkinComplexion.jpg"
-                alt="Color Theory and Skin Prep"
-                fill
-                className="object-cover transition-transform duration-500 hover:scale-105"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section id="contact" className="bg-black py-20 text-white lg:py-28">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <h2 className="font-serif text-3xl md:text-4xl">
-            Ready to Elevate Your Skills?
-          </h2>
-          <p className="mx-auto mt-4 max-w-lg text-zinc-400">
-            Whether you want to perfect your personal glam or launch your career
-            as an MUA, I&apos;m here to guide you every step of the way.
-          </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button
-              onClick={() => setIsOpen(true)}
-              size="lg"
-              className="bg-white text-black transition-all duration-200 hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98]"
-            >
-              Send an Inquiry
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-white bg-transparent text-white transition-all duration-200 hover:bg-white/10"
-            >
-              <Link href="/">Back to Home</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
       <Footer />
     </main>
   );
 }
-
