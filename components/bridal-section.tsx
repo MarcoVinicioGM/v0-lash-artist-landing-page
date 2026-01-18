@@ -93,8 +93,8 @@ export function BridalSection() {
   };
 
   return (
-    <section id="bridal" className="bg-[#FDF2F8] py-20 md:py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="bridal" className="bg-[#FDF2F8] section-padding">
+      <div className="container-max">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Content */}
           <motion.div
@@ -133,7 +133,7 @@ export function BridalSection() {
                 variant="outline"
                 className="border-black bg-transparent text-black transition-all duration-200 hover:bg-black/5 hover:scale-[1.02] active:scale-[0.98]"
               >
-                <a href="#services">Book Bridal Trial ($125)</a>
+                <a href="/services">Book Bridal Trial</a>
               </Button>
               <Dialog open={isOpen} onOpenChange={setIsOpen}>
                 <DialogTrigger asChild>

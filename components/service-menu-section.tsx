@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -75,12 +76,12 @@ const services = {
 
 type TabId = keyof typeof services;
 
-export function ServiceMenuSection() {
+export function ServiceMenuSection({ showPrices = true }: { showPrices?: boolean }) {
   const [activeTab, setActiveTab] = useState<TabId>("makeup");
 
   return (
-    <section id="services" className="bg-white py-20 md:py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="services" className="bg-white section-padding">
+      <div className="container-max">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -92,7 +93,7 @@ export function ServiceMenuSection() {
             Our Services
           </p>
           <h2 className="font-serif text-4xl font-bold md:text-5xl">
-            The Menu
+            {showPrices ? "The Full Menu" : "The Menu"}
           </h2>
         </motion.div>
 
@@ -138,7 +139,7 @@ export function ServiceMenuSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="group relative overflow-hidden rounded-2xl bg-gray-50"
+                className="group relative overflow-hidden rounded-2xl bg-gray-50 flex flex-col h-full"
               >
                 {/* Image */}
                 <div className="relative aspect-[4/3] overflow-hidden">
@@ -159,24 +160,41 @@ export function ServiceMenuSection() {
                 </div>
 
                 {/* Content */}
-                <div className="flex items-center justify-between p-5">
-                  <div>
+                <div className="flex flex-col flex-1 p-5">
+                  <div className="flex items-start justify-between mb-2">
                     <h3 className="font-serif text-lg font-semibold">
                       {service.name}
                     </h3>
-                    {"description" in service && (
-                      <p className="mt-1 text-sm text-black/60">
-                        {service.description}
-                      </p>
+                    {showPrices && (
+                      <p className="text-lg font-bold">${service.price}</p>
                     )}
-                    <p className="mt-2 text-lg font-bold">${service.price}</p>
                   </div>
-                  <Button
-                    size="icon"
-                    className="h-10 w-10 rounded-full bg-black text-white hover:bg-black/80"
-                  >
-                    <ArrowRight className="h-4 w-4" />
-                  </Button>
+                  
+                  {"description" in service && (
+                    <p className="text-sm text-black/60 mb-6">
+                      {service.description}
+                    </p>
+                  )}
+
+                  <div className="mt-auto">
+                    {showPrices ? (
+                      <Button
+                        className="w-full bg-black text-white hover:bg-black/80"
+                      >
+                        Book Appointment
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="outline"
+                        asChild
+                        className="w-full border-black text-black hover:bg-black hover:text-white"
+                      >
+                        <Link href="/services">
+                          View Details
+                        </Link>
+                      </Button>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             ))}

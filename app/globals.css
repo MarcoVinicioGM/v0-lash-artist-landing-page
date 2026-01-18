@@ -1,7 +1,17 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@plugin "tailwindcss-debug-screens";
 
 @custom-variant dark (&:is(.dark *));
+
+@layer components {
+  .section-padding {
+    @apply px-6 py-12 md:px-12 md:py-24 lg:px-24;
+  }
+  .container-max {
+    @apply max-w-[1400px] mx-auto;
+  }
+}
 
 :root {
   --background: oklch(1 0 0);

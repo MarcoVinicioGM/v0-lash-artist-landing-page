@@ -10,12 +10,13 @@ export function Footer() {
   return (
     <footer className="bg-black py-16 text-white md:py-20">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-12 lg:grid-cols-4">
           {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="col-span-2 md:col-span-1 lg:col-span-1"
           >
             <h3 className="mb-4 font-serif text-2xl font-bold">
               AMOR GLAM BEAUTY
@@ -70,6 +71,7 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
+            className="col-span-1"
           >
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider">
               Quick Links
@@ -116,6 +118,7 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
+            className="col-span-1"
           >
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider">
               Information
@@ -147,14 +150,6 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/ingredients"
-                  className="transition-colors hover:text-white"
-                >
-                  Ingredients
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/track-order"
                   className="transition-colors hover:text-white"
                 >
@@ -170,6 +165,7 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
+            className="col-span-2 md:col-span-1 lg:col-span-1"
           >
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider">
               Join the Love List

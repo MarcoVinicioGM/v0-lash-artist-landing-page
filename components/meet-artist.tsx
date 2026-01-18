@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 
 export function MeetTheArtist() {
   return (
-    <section className="bg-white py-20 lg:py-32 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="bg-white overflow-hidden section-padding">
+      <div className="container-max">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center">
           {/* Image Column */}
           <motion.div

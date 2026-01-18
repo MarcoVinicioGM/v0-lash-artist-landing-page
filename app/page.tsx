@@ -15,7 +15,7 @@ export default function HomePage() {
       <Navigation />
       <HeroSection />
       <MeetTheArtist />
-      <ServiceMenuSection />
+      <ServiceMenuSection showPrices={false} />
       <ShopSection />
       <BridalSection />
       <InstagramSection />

@@ -8,10 +8,10 @@ import { Heart } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen">
-      <div className="grid min-h-screen md:grid-cols-2">
+    <section className="relative min-h-screen overflow-hidden">
+      <div className="grid min-h-screen lg:grid-cols-2">
         {/* Left Side - Services */}
-        <div className="relative flex min-h-[50vh] items-center justify-center overflow-hidden bg-black md:min-h-screen">
+        <div className="relative flex min-h-[60vh] items-center justify-center overflow-hidden bg-black lg:min-h-screen">
           <Image
             src="/images/anna-glammed.jpeg"
             alt="Anna - Lead Makeup Artist"
@@ -19,7 +19,10 @@ export function HeroSection() {
             className="object-cover opacity-60"
             priority
           />
-          <div className="relative z-10 px-8 text-center text-white">
+          <div className="relative z-10 px-8 py-10 text-center text-white lg:bg-transparent lg:pr-32 lg:-translate-y-12 2xl:pr-0 2xl:translate-y-0">
+            {/* Background overlay for mobile readability */}
+            <div className="absolute inset-0 -z-10 bg-black/40 backdrop-blur-sm lg:hidden" />
+            
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -32,7 +35,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="mb-6 font-serif text-4xl font-bold md:text-5xl lg:text-6xl"
+              className="mb-6 font-serif text-4xl font-bold md:text-5xl lg:text-5xl xl:text-6xl"
             >
               <span className="text-balance">Unforgettable</span>
               <br />
@@ -48,14 +51,14 @@ export function HeroSection() {
                 size="lg"
                 className="bg-white text-black hover:bg-white/90"
               >
-                <Link href="#services">Book Appointments</Link>
+                <Link href="/services">Book Appointments</Link>
               </Button>
             </motion.div>
           </div>
         </div>
 
         {/* Right Side - Products */}
-        <div className="relative flex min-h-[50vh] items-center justify-center overflow-hidden bg-[#FDF2F8] md:min-h-screen">
+        <div className="relative flex min-h-[60vh] items-center justify-center overflow-hidden bg-[#FDF2F8] lg:min-h-screen">
           <Image
             src="/images/lash-glue.png"
             alt="Amor Collection products"
@@ -63,7 +66,10 @@ export function HeroSection() {
             className="object-cover opacity-40"
             priority
           />
-          <div className="relative z-10 px-8 text-center">
+          <div className="relative z-10 px-8 py-10 text-center lg:bg-transparent lg:pl-32 lg:-translate-y-12 2xl:pl-0 2xl:translate-y-0">
+            {/* Background overlay for mobile readability */}
+            <div className="absolute inset-0 -z-10 bg-white/40 backdrop-blur-sm lg:hidden" />
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -76,7 +82,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="mb-6 font-serif text-4xl font-bold text-black md:text-5xl lg:text-6xl"
+              className="mb-6 font-serif text-4xl font-bold text-black md:text-5xl lg:text-5xl xl:text-6xl"
             >
               <span className="text-balance">The Amor</span>
               <br />
@@ -108,7 +114,7 @@ export function HeroSection() {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.5, duration: 0.5 }}
-        className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2"
+        className="hidden lg:block absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 lg:scale-75 2xl:scale-100"
       >
         <div className="rounded-none bg-white px-8 py-6 shadow-2xl md:px-12 md:py-8 border border-zinc-100">
           <h1 className="whitespace-nowrap font-serif text-xl font-bold tracking-wide md:text-2xl lg:text-3xl">

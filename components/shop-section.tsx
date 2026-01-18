@@ -14,8 +14,8 @@ const features = [
 
 export function ShopSection() {
   return (
-    <section id="shop" className="bg-black py-20 md:py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="shop" className="bg-black section-padding">
+      <div className="container-max">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Product Image */}
           <motion.div

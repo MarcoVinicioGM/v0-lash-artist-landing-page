@@ -167,14 +167,14 @@ export default function EducationPage() {
       <Navigation />
 
       {/* 1. Power Hero Section */}
-      <section className="relative h-[90vh] w-full overflow-hidden">
+      <section className="relative h-[60vh] xl:h-[85vh] w-full overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
             src="/images/anna-makeup-room.jpg"
             alt="Anna Garcia - Master Your Own Face"
             fill
-            className="object-cover object-center"
+            className="object-cover object-[center_20%]"
             priority
           />
           {/* Dark Gradient Overlay */}

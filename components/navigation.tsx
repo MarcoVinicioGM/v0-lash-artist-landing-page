@@ -38,7 +38,7 @@ export function Navigation() {
   }, []);
 
   const navLinks = [
-    { href: "#services", label: "Services", hasSubmenu: true },
+    { href: "/services", label: "Services", hasSubmenu: true, isPage: true },
     { href: "#shop", label: "Shop", hasSubmenu: true },
     { href: "#bridal", label: "Bridal", hasSubmenu: false },
     { href: "/education", label: "Education", hasSubmenu: false, isPage: true },
@@ -150,9 +150,8 @@ export function Navigation() {
         </div>
       </nav>
 
-      {/* Mobile Sheet Menu - Slides from Left */}
       <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-        <SheetContent side="left" className="w-[85%] max-w-sm bg-white p-0">
+        <SheetContent side="left" className="flex flex-col h-full w-[85%] max-w-sm bg-white p-0">
           <SheetHeader className="border-b px-6 py-4">
             <SheetTitle className="font-serif text-lg font-normal tracking-wide">
               Menu
@@ -160,7 +159,7 @@ export function Navigation() {
           </SheetHeader>
 
           <div className="flex-1 overflow-y-auto">
-            {/* Navigation Links */}
+            {/* Navigation Links - Top */}
             <nav className="flex flex-col">
               {navLinks.map((link) => (
                 <SheetClose asChild key={link.href}>
@@ -187,9 +186,11 @@ export function Navigation() {
                 </SheetClose>
               ))}
             </nav>
+          </div>
 
-            {/* Studio Info */}
-            <div className="mt-8 border-t border-zinc-100 px-6 pt-6">
+          <div className="mt-auto">
+            {/* Studio Info & Social Icons - Bottom portion */}
+            <div className="border-t border-zinc-100 px-6 py-6">
               <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-zinc-400">
                 Studio Info
               </p>
@@ -249,35 +250,35 @@ export function Navigation() {
                 </a>
               </div>
             </div>
-          </div>
 
-          <SheetFooter className="border-t p-6">
-            <div className="flex w-full flex-col gap-3">
-              <SheetClose asChild>
-                <Button
-                  asChild
-                  className="w-full bg-black text-white hover:bg-black/90"
-                >
-                  <a href="#shop" onClick={(e) => handleNavClick(e, "#shop")}>
-                    Shop Products
-                  </a>
-                </Button>
-              </SheetClose>
-              <SheetClose asChild>
-                <Button
-                  asChild
-                  className="w-full bg-black text-white hover:bg-black/90"
-                >
-                  <a
-                    href="#services"
-                    onClick={(e) => handleNavClick(e, "#services")}
+            <SheetFooter className="border-t p-6">
+              <div className="flex w-full flex-col gap-3">
+                <SheetClose asChild>
+                  <Button
+                    asChild
+                    className="w-full bg-black text-white hover:bg-black/90"
                   >
-                    Book Now
-                  </a>
-                </Button>
-              </SheetClose>
-            </div>
-          </SheetFooter>
+                    <a href="#shop" onClick={(e) => handleNavClick(e, "#shop")}>
+                      Shop Products
+                    </a>
+                  </Button>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Button
+                    asChild
+                    className="w-full bg-black text-white hover:bg-black/90"
+                  >
+                    <a
+                      href="#services"
+                      onClick={(e) => handleNavClick(e, "#services")}
+                    >
+                      Book Now
+                    </a>
+                  </Button>
+                </SheetClose>
+              </div>
+            </SheetFooter>
+          </div>
         </SheetContent>
       </Sheet>
     </header>

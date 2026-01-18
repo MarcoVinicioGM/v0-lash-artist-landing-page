@@ -23,8 +23,8 @@ const reviews = [
 
 export function LoveLetters() {
   return (
-    <section className="bg-white py-20 lg:py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="bg-white section-padding overflow-hidden">
+      <div className="container-max">
         <div className="mb-16 text-center">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-[#FF69B4] mb-3">
             Testimonials
@@ -34,7 +34,7 @@ export function LoveLetters() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:overflow-visible overflow-x-auto scrollbar-hide flex md:flex-row flex-nowrap snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0">
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 scrollbar-hide md:grid md:grid-cols-3 md:overflow-visible pb-4">
           {reviews.map((review, i) => (
             <motion.div
               key={i}
@@ -42,7 +42,7 @@ export function LoveLetters() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-stone-50 p-8 md:p-10 rounded-none border border-stone-100 flex flex-col justify-between min-w-[85vw] md:min-w-0 snap-center"
+              className="bg-stone-50 p-8 md:p-10 rounded-none border border-stone-100 flex flex-col justify-between min-w-[100%] md:min-w-0 snap-center"
             >
               <div>
                 <div className="flex gap-1 mb-6 text-[#FF69B4]">
