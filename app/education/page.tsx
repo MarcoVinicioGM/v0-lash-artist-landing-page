@@ -1,13 +1,39 @@
+"use client";
+
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import {
@@ -19,13 +45,27 @@ import {
   Briefcase,
   ArrowRight,
   Star,
+  CalendarIcon,
+  CheckCircle2,
 } from "lucide-react";
+import { format } from "date-fns";
+import { cn } from "@/lib/utils";
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { motion } from "framer-motion";
 
-export const metadata: Metadata = {
-  title: "Education | Amor Glam Beauty",
-  description:
-    "Private 1-on-1 makeup lessons and MUA coaching with Anna Garcia. Master the art of beauty with personalized training.",
-};
+const lessonFormSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z.string().min(10, "Please enter a valid phone number"),
+  preferredDate: z.date({ required_error: "Please select a preferred date" }),
+  lessonType: z.string().min(1, "Please select a lesson type"),
+  skillLevel: z.string().min(1, "Please select your skill level"),
+  details: z.string().optional(),
+});
+
+type LessonFormData = z.infer<typeof lessonFormSchema>;
 
 const curriculums = [
   {
@@ -38,7 +78,6 @@ const curriculums = [
       "Learn how to do your own full face for events and daily wear. We audit your kit and teach you the 'Amor' techniques. You'll leave with a personalized face chart and shopping list.",
     price: "$250",
     action: "Book Lesson",
-    href: "#contact",
   },
   {
     id: "mua-intensive",
@@ -50,7 +89,6 @@ const curriculums = [
       "For the artist ready to start their business. Learn sanitation, skin prep, color theory, and business basics. Includes a full kit audit, portfolio building tips, and a certificate of completion.",
     price: "$550",
     action: "Apply for Mentorship",
-    href: "#contact",
   },
 ];
 
@@ -74,6 +112,54 @@ const features = [
 ];
 
 export default function EducationPage() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    control,
+    reset,
+    setValue,
+    formState: { errors, isSubmitting },
+  } = useForm<LessonFormData>({
+    resolver: zodResolver(lessonFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      lessonType: "",
+      skillLevel: "",
+      details: "",
+    },
+  });
+
+  const onSubmit = (data: LessonFormData) => {
+    const webhookPayload = {
+      ...data,
+      preferredDate: data.preferredDate.toISOString(),
+      submittedAt: new Date().toISOString(),
+    };
+
+    console.log(
+      "Lesson Inquiry Request:",
+      JSON.stringify(webhookPayload, null, 2),
+    );
+
+    setIsSubmitted(true);
+    setTimeout(() => {
+      setIsOpen(false);
+      setIsSubmitted(false);
+      reset();
+    }, 2500);
+  };
+
+  const handleBookNow = (title: string) => {
+    setValue("lessonType", title);
+    setIsOpen(true);
+  };
+
   return (
     <main className="min-h-screen bg-white">
       <Navigation />
@@ -98,7 +184,7 @@ export default function EducationPage() {
           {/* Trust Signal Pill */}
           <div className="mb-8 animate-fade-in-up">
             <span className="inline-flex items-center gap-1 rounded-full bg-white/20 px-4 py-1.5 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/30">
-              <Star className="mr-1 h-3 w-3 fill-current text-yellow-400" />
+              <Star className="mr-1 h-3.5 w-3.5 fill-[#FF69B4] text-[#FF69B4]" />
               1,000+ Bookings Served
             </span>
           </div>
@@ -168,13 +254,11 @@ export default function EducationPage() {
                       </p>
                       <div className="pt-2">
                         <Button
-                          asChild
+                          onClick={() => handleBookNow(curriculum.title)}
                           className="w-full bg-black text-white hover:bg-black/90 md:w-auto"
                         >
-                          <a href={curriculum.href}>
-                            {curriculum.action}
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                          </a>
+                          {curriculum.action}
+                          <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
                       </div>
                     </div>
@@ -201,8 +285,8 @@ export default function EducationPage() {
           <div className="grid gap-8 md:grid-cols-3">
             {features.map((feature) => (
               <div key={feature.title} className="text-center">
-                <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-sm">
-                  <feature.icon className="h-7 w-7 text-black" />
+                <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#FDF2F8] shadow-sm">
+                  <feature.icon className="h-7 w-7 text-[#FF69B4]" />
                 </div>
                 <h3 className="mb-3 font-serif text-xl text-black">
                   {feature.title}
@@ -213,6 +297,217 @@ export default function EducationPage() {
           </div>
         </div>
       </section>
+
+      {/* Inquiry Dialog */}
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-lg">
+          {isSubmitted ? (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="flex flex-col items-center justify-center py-8 text-center"
+            >
+              <CheckCircle2 className="mb-4 h-16 w-16 text-[#FF69B4]" />
+              <h3 className="mb-2 font-serif text-2xl font-bold">Inquiry Sent!</h3>
+              <p className="text-muted-foreground">
+                Thank you for your interest. Anna will be in touch within 24-48
+                hours.
+              </p>
+            </motion.div>
+          ) : (
+            <>
+              <DialogHeader>
+                <DialogTitle className="font-serif text-2xl">
+                  Lesson Inquiry
+                </DialogTitle>
+                <DialogDescription>
+                  Start your journey to mastering the Amor Glam signature look.
+                </DialogDescription>
+              </DialogHeader>
+
+              <form onSubmit={handleSubmit(onSubmit)} className="mt-4 space-y-4">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <div className="space-y-2">
+                    <Label htmlFor="lesson-name">Full Name</Label>
+                    <Input
+                      id="lesson-name"
+                      placeholder="Jane Doe"
+                      {...register("name")}
+                    />
+                    {errors.name && (
+                      <p className="text-xs text-red-500">
+                        {errors.name.message}
+                      </p>
+                    )}
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="lesson-phone">Phone Number</Label>
+                    <Input
+                      id="lesson-phone"
+                      placeholder="(504) 555-1234"
+                      {...register("phone")}
+                    />
+                    {errors.phone && (
+                      <p className="text-xs text-red-500">
+                        {errors.phone.message}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="lesson-email">Email Address</Label>
+                  <Input
+                    id="lesson-email"
+                    type="email"
+                    placeholder="jane@example.com"
+                    {...register("email")}
+                  />
+                  {errors.email && (
+                    <p className="text-xs text-red-500">
+                      {errors.email.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <div className="space-y-2">
+                    <Label>Preferred Date</Label>
+                    <Controller
+                      name="preferredDate"
+                      control={control}
+                      render={({ field }) => (
+                        <Popover
+                          open={isCalendarOpen}
+                          onOpenChange={setIsCalendarOpen}
+                        >
+                          <PopoverTrigger asChild>
+                            <Button
+                              variant="outline"
+                              className={cn(
+                                "w-full justify-start text-left font-normal bg-transparent",
+                                !field.value && "text-muted-foreground",
+                              )}
+                            >
+                              <CalendarIcon className="mr-2 h-4 w-4" />
+                              {field.value
+                                ? format(field.value, "PPP")
+                                : "Select a date"}
+                            </Button>
+                          </PopoverTrigger>
+                          <PopoverContent className="w-auto p-0" align="start">
+                            <Calendar
+                              mode="single"
+                              selected={field.value}
+                              onSelect={(date) => {
+                                field.onChange(date);
+                                setIsCalendarOpen(false);
+                              }}
+                              disabled={(date) => date < new Date()}
+                              initialFocus
+                            />
+                          </PopoverContent>
+                        </Popover>
+                      )}
+                    />
+                    {errors.preferredDate && (
+                      <p className="text-xs text-red-500">
+                        {errors.preferredDate.message}
+                      </p>
+                    )}
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Skill Level</Label>
+                    <Controller
+                      name="skillLevel"
+                      control={control}
+                      render={({ field }) => (
+                        <Select
+                          onValueChange={field.onChange}
+                          value={field.value}
+                        >
+                          <SelectTrigger className="bg-transparent">
+                            <SelectValue placeholder="Select level" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="beginner">
+                              Beginner (Do my own face)
+                            </SelectItem>
+                            <SelectItem value="intermediate">
+                              Intermediate (Aspiring MUA)
+                            </SelectItem>
+                            <SelectItem value="pro">
+                              Professional (Working MUA)
+                            </SelectItem>
+                          </SelectContent>
+                        </Select>
+                      )}
+                    />
+                    {errors.skillLevel && (
+                      <p className="text-xs text-red-500">
+                        {errors.skillLevel.message}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label>Lesson Type</Label>
+                  <Controller
+                    name="lessonType"
+                    control={control}
+                    render={({ field }) => (
+                      <Select
+                        onValueChange={field.onChange}
+                        value={field.value}
+                      >
+                        <SelectTrigger className="bg-transparent">
+                          <SelectValue placeholder="Select lesson" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {curriculums.map((c) => (
+                            <SelectItem key={c.id} value={c.title}>
+                              {c.title}
+                            </SelectItem>
+                          ))}
+                          <SelectItem value="custom">
+                            Custom Mentorship
+                          </SelectItem>
+                        </SelectContent>
+                      </Select>
+                    )}
+                  />
+                  {errors.lessonType && (
+                    <p className="text-xs text-red-500">
+                      {errors.lessonType.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="lesson-details">
+                    What do you hope to learn? (Optional)
+                  </Label>
+                  <Textarea
+                    id="lesson-details"
+                    placeholder="e.g. Winged liner, skin prep for oily skin, color theory..."
+                    rows={3}
+                    {...register("details")}
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-black text-white hover:bg-black/80"
+                >
+                  {isSubmitting ? "Sending..." : "Submit Inquiry"}
+                </Button>
+              </form>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
 
       {/* Photo Boxes Section */}
       <section className="pb-20 pt-10 bg-stone-50 lg:pb-32">
@@ -258,11 +553,11 @@ export default function EducationPage() {
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
-              asChild
+              onClick={() => setIsOpen(true)}
               size="lg"
               className="bg-white text-black transition-all duration-200 hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98]"
             >
-              <Link href="/#contact">Send an Inquiry</Link>
+              Send an Inquiry
             </Button>
             <Button
               asChild
