@@ -5,19 +5,19 @@ import { Star } from "lucide-react";
 
 const reviews = [
   {
-    text: "Anna made me feel like the most beautiful version of myself. Her attention to detail is unmatched, and the glam lasted all night through dancing and tears.",
-    author: "Sarah J.",
+    text: "Anna did my makeup as well as my entire bridal party for my wedding, bridal shower, and rehearsal! From someone who doesn't trust many people to do my makeup, she was an absolute breeze to work with.",
+    author: "Sierra B.",
     category: "Bridal Client",
   },
   {
-    text: "The ultimate professional. I've never had my skin look so flawless yet natural. She really understands lighting and how makeup translates to camera.",
-    author: "Michelle R.",
-    category: "Editorial Project",
+    text: "The best MUA! Makeup is always flawless and lasts 12+ hours. She listens to what you want and executes it perfectly. I always feel so stunning after leaving her chair. Book with Anna!",
+    author: "Morgan P.",
+    category: "Full Glam Client",
   },
   {
-    text: "Mastered exactly what I wanted even when I didn't know how to describe it. Anna is truly an artist in every sense of the word. Highly recommend!",
-    author: "Ashley D.",
-    category: "Full Glam Session",
+    text: "I've been going to Anna for six years now, and she's the only person I trust. Even though I live in Texas now, I still go to her for any important events when I'm back home!",
+    author: "Deidra S.",
+    category: "Long-term Client",
   },
 ];
 
