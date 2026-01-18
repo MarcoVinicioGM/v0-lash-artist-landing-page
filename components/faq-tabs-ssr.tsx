@@ -1,7 +1,5 @@
 "use client";
 
-import { Suspense } from "react";
-import { useSearchParams } from "next/navigation";
 import {
   Accordion,
   AccordionContent,
@@ -18,14 +16,12 @@ interface FAQItem {
 interface FAQTabsProps {
   policies: FAQItem[];
   faqs: FAQItem[];
+  activeTab: string;
 }
 
-function FAQTabsContent({ policies, faqs }: FAQTabsProps) {
-  const searchParams = useSearchParams();
-  const defaultTab = searchParams.get("tab") || "policies";
-
+export function FAQTabs({ policies, faqs, activeTab }: FAQTabsProps) {
   return (
-    <Tabs defaultValue={defaultTab} className="w-full">
+    <Tabs defaultValue={activeTab} className="w-full">
       <TabsList className="grid w-full grid-cols-2 mb-8 bg-zinc-100 p-1">
         <TabsTrigger value="policies" className="font-medium">Policies</TabsTrigger>
         <TabsTrigger value="faqs" className="font-medium">Common Questions</TabsTrigger>
@@ -61,13 +57,5 @@ function FAQTabsContent({ policies, faqs }: FAQTabsProps) {
         </Accordion>
       </TabsContent>
     </Tabs>
-  );
-}
-
-export function FAQTabs(props: FAQTabsProps) {
-  return (
-    <Suspense fallback={<div className="h-64 flex items-center justify-center text-zinc-400">Loading details...</div>}>
-      <FAQTabsContent {...props} />
-    </Suspense>
   );
 }

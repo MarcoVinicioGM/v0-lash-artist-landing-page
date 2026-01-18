@@ -34,7 +34,7 @@ export function LoveLetters() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:overflow-visible overflow-x-auto scrollbar-hide flex md:flex-row flex-nowrap snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0">
           {reviews.map((review, i) => (
             <motion.div
               key={i}
@@ -42,7 +42,7 @@ export function LoveLetters() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-stone-50 p-8 md:p-10 rounded-3xl flex flex-col justify-between"
+              className="bg-stone-50 p-8 md:p-10 rounded-3xl flex flex-col justify-between min-w-[85vw] md:min-w-0 snap-center"
             >
               <div>
                 <div className="flex gap-1 mb-6 text-[#FF69B4]">

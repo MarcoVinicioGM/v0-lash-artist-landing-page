@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
-import { FAQTabs } from "@/components/faq-tabs";
+import { FAQTabs } from "@/components/faq-tabs-ssr";
 
 export const metadata: Metadata = {
   title: "Studio Concierge | Amor Glam Beauty",
@@ -38,7 +38,14 @@ const faqs = [
   },
 ];
 
-export default function FAQPage() {
+export default async function FAQPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const params = await searchParams;
+  const activeTab = (params.tab as string) || "policies";
+
   return (
     <main className="min-h-screen bg-white">
       <Navigation />
@@ -53,7 +60,7 @@ export default function FAQPage() {
           </p>
         </header>
 
-        <FAQTabs policies={policies} faqs={faqs} />
+        <FAQTabs policies={policies} faqs={faqs} activeTab={activeTab} />
       </div>
 
       <Footer />

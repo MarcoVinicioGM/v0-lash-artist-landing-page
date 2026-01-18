@@ -172,11 +172,10 @@ export function Footer() {
             transition={{ delay: 0.3 }}
           >
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider">
-              Join the Amor Glam Club
+              Join the Love List
             </h4>
             <p className="mb-4 text-sm text-white/60">
-              Get exclusive offers, beauty tips, and early access to new
-              products.
+              Get beauty tips, product drops, and little love notes from Anna.
             </p>
             <form className="flex gap-2">
               <Input
@@ -194,8 +193,15 @@ export function Footer() {
           </motion.div>
         </div>
 
+        {/* Signature */}
+        <div className="mt-16 text-center">
+          <span className="font-serif italic text-3xl text-white/90 block mb-2">
+            With love, Anna
+          </span>
+        </div>
+
         {/* Bottom Bar */}
-        <div className="mt-16 border-t border-white/10 pt-8 text-center text-sm text-white/40">
+        <div className="mt-8 border-t border-white/10 pt-8 text-center text-sm text-white/40">
           <p>
             &copy; {new Date().getFullYear()} Amor Glam Beauty. All rights
             reserved.

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Heart } from "lucide-react";
 
 export function HeroSection() {
   return (
@@ -92,7 +93,10 @@ export function HeroSection() {
                 variant="outline"
                 className="border-black bg-transparent text-black hover:bg-black hover:text-white"
               >
-                <Link href="#shop">Shop Essentials</Link>
+                <Link href="#shop">
+                  <Heart className="mr-2 h-4 w-4 fill-current text-[#FF69B4]" />
+                  Shop Essentials
+                </Link>
               </Button>
             </motion.div>
           </div>

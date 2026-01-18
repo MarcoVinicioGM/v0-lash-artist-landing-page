@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Check, ShoppingBag } from "lucide-react";
+import { Check, ShoppingBag, Heart } from "lucide-react";
 
 const features = [
   "Long-wear formula (8+ hours)",
@@ -80,7 +80,7 @@ export function ShopSection() {
                 size="lg"
                 className="bg-white text-black hover:bg-white/90"
               >
-                <ShoppingBag className="mr-2 h-4 w-4" />
+                <Heart className="mr-2 h-4 w-4 fill-current text-[#FF69B4]" />
                 Add to Cart
               </Button>
             </div>

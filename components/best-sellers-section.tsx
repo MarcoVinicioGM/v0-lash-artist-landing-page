@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { ShoppingBag } from "lucide-react"
+import { ShoppingBag, Heart } from "lucide-react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 
@@ -88,7 +88,7 @@ export function BestSellersSection() {
                   className="absolute bottom-4 left-1/2 -translate-x-1/2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 bg-black text-white hover:bg-pink-600 rounded-full"
                   size="sm"
                 >
-                  <ShoppingBag className="h-4 w-4 mr-2" />
+                  <Heart className="h-4 w-4 mr-2 fill-current text-white" />
                   Add to Cart
                 </Button>
               </div>
