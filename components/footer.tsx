@@ -123,10 +123,26 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-white/60">
               <li>
                 <Link
-                  href="/policies"
+                  href="/faq?tab=policies"
                   className="transition-colors hover:text-white"
                 >
                   Policies
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/faq?tab=faqs"
+                  className="transition-colors hover:text-white"
+                >
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/education"
+                  className="transition-colors hover:text-white"
+                >
+                  Education
                 </Link>
               </li>
               <li>
@@ -143,22 +159,6 @@ export function Footer() {
                   className="transition-colors hover:text-white"
                 >
                   Track Order
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/faq"
-                  className="transition-colors hover:text-white"
-                >
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/education"
-                  className="transition-colors hover:text-white"
-                >
-                  Education
                 </Link>
               </li>
             </ul>
