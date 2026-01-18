@@ -77,7 +77,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-white/60">
               <li>
                 <Link
-                  href="#services"
+                  href="/#services"
                   className="transition-colors hover:text-white"
                 >
                   Services
@@ -85,7 +85,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="#shop"
+                  href="/#shop"
                   className="transition-colors hover:text-white"
                 >
                   Shop
@@ -93,7 +93,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="#bridal"
+                  href="/#bridal"
                   className="transition-colors hover:text-white"
                 >
                   Bridal
@@ -101,7 +101,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="#gallery"
+                  href="/#gallery"
                   className="transition-colors hover:text-white"
                 >
                   Gallery

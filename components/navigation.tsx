@@ -4,6 +4,7 @@ import React from "react";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -25,6 +26,8 @@ import {
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,22 +50,29 @@ export function Navigation() {
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string,
   ) => {
-    e.preventDefault();
-    setIsSheetOpen(false);
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      setIsSheetOpen(false);
 
-    // Small delay to allow sheet to close before scrolling
-    setTimeout(() => {
-      const element = document.querySelector(href);
-      if (element) {
-        const offset = 80;
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - offset;
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        });
+      if (pathname !== "/") {
+        router.push("/" + href);
+        return;
       }
-    }, 300);
+
+      // Small delay to allow sheet to close before scrolling
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          const offset = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 300);
+    }
   };
 
   return (
@@ -122,7 +132,13 @@ export function Navigation() {
             size="sm"
             className="hidden bg-[#FF69B4] text-white hover:bg-[#FF69B4]/90 md:inline-flex"
           >
-            <Link href="#services">Book</Link>
+            <a
+              href="#services"
+              onClick={(e) => handleNavClick(e, "#services")}
+              className="cursor-pointer"
+            >
+              Book
+            </a>
           </Button>
           <Button variant="ghost" size="icon" className="relative">
             <ShoppingBag className="h-5 w-5" />
@@ -159,7 +175,7 @@ export function Navigation() {
                     <a
                       href={link.href}
                       onClick={(e) => handleNavClick(e, link.href)}
-                      className="flex items-center justify-between border-b border-zinc-100 px-6 py-4 font-serif text-base transition-colors hover:bg-zinc-50"
+                      className="flex items-center justify-between border-b border-zinc-100 px-6 py-4 font-serif text-base transition-colors hover:bg-zinc-50 cursor-pointer"
                     >
                       {link.label}
                       {link.hasSubmenu && (
