@@ -72,23 +72,25 @@ type LessonFormData = z.infer<typeof lessonFormSchema>;
 const curriculums = [
   {
     id: "personal-glam",
+    slug: "personal-glam",
     title: "The Personal Glam Lesson",
     duration: "2 Hours",
     target: "Everyday Women",
     details: "Hands-on • Bring your own makeup bag",
     description:
       "Learn how to do your own full face for events and daily wear. We audit your kit and teach you the 'Amor' techniques. You'll leave with a personalized face chart and shopping list.",
-    action: "Book Lesson",
+    action: "View Course Details",
   },
   {
     id: "mua-intensive",
+    slug: "mua-intensive",
     title: "The Aspiring MUA Intensive",
     duration: "4 Hours",
     target: "Career",
     details: "Model Required • Certification included",
     description:
       "For the artist ready to start their business. Learn sanitation, skin prep, color theory, and business basics. Includes a full kit audit, portfolio building tips, and a certificate of completion.",
-    action: "Apply for Mentorship",
+    action: "View Course Details",
   },
 ];
 
@@ -352,11 +354,13 @@ export default function EducationPage() {
                       </p>
                       <div className="pt-2">
                         <Button
-                          onClick={() => handleBookNow(curriculum.title)}
+                          asChild
                           className="w-full bg-black text-white hover:bg-black/90 md:w-auto"
                         >
-                          {curriculum.action}
-                          <ArrowRight className="ml-2 h-4 w-4" />
+                          <Link href={`/education/${curriculum.slug}`}>
+                            {curriculum.action}
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                          </Link>
                         </Button>
                       </div>
                     </div>
