@@ -12,8 +12,8 @@ export function HeroSection() {
         {/* Left Side - Services */}
         <div className="relative flex min-h-[50vh] items-center justify-center overflow-hidden bg-black md:min-h-screen">
           <Image
-            src="/images/anna-glammed.jpeg"
-            alt="Anna - Lead Makeup Artist"
+            src="/images/hero-services.jpg"
+            alt="Glamorous bridal makeup"
             fill
             className="object-cover opacity-60"
             priority
@@ -47,7 +47,7 @@ export function HeroSection() {
                 size="lg"
                 className="bg-white text-black hover:bg-white/90"
               >
-                <Link href="#services">Book Appointments</Link>
+                <Link href="#services">Book Services</Link>
               </Button>
             </motion.div>
           </div>
@@ -56,7 +56,7 @@ export function HeroSection() {
         {/* Right Side - Products */}
         <div className="relative flex min-h-[50vh] items-center justify-center overflow-hidden bg-[#FDF2F8] md:min-h-screen">
           <Image
-            src="/images/lash-glue.png"
+            src="/images/hero-product.jpg"
             alt="Amor Collection products"
             fill
             className="object-cover opacity-40"
@@ -89,8 +89,7 @@ export function HeroSection() {
               <Button
                 asChild
                 size="lg"
-                variant="outline"
-                className="border-black bg-transparent text-black hover:bg-black hover:text-white"
+                className="bg-black text-white hover:bg-black/90"
               >
                 <Link href="#shop">Shop Essentials</Link>
               </Button>

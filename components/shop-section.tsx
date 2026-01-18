@@ -26,7 +26,7 @@ export function ShopSection() {
           >
             <div className="relative aspect-square overflow-hidden rounded-3xl bg-zinc-900">
               <Image
-                src="/images/lash-glue.png"
+                src="/images/product-lash-glue.jpg"
                 alt="Amor Glam Professional Lash Adhesive"
                 fill
                 className="object-cover"

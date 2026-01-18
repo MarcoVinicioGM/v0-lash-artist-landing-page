@@ -7,17 +7,17 @@ import { Button } from "@/components/ui/button"
 const styles = [
   {
     name: "Soft Girl",
-    image: "/images/anna-profile.jpg",
+    image: "/images/style-soft-girl.jpg",
     description: "Delicate, natural-looking lashes for an effortlessly beautiful everyday look.",
   },
   {
     name: "Hybrid",
-    image: "/images/blonde.jpg",
+    image: "/images/style-hybrid.jpg",
     description: "The perfect balance of volume and natural. Versatile for any occasion.",
   },
   {
     name: "Volume",
-    image: "/images/famous-person-glammed.jpg",
+    image: "/images/style-volume.jpg",
     description: "Bold, dramatic fullness that makes a statement. For the fearless.",
   },
 ]

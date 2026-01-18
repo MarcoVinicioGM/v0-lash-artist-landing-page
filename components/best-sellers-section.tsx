@@ -8,28 +8,28 @@ import { Button } from "@/components/ui/button"
 const products = [
   {
     name: "Wispy Classic Tray",
-    image: "/images/lash-glue.png",
+    image: "/images/product-lash-tray-1.jpg",
     price: 24.99,
     originalPrice: null,
     badge: "Best Seller",
   },
   {
     name: "Volume Fan Tray",
-    image: "/images/lash-glue.png",
+    image: "/images/product-lash-tray-2.jpg",
     price: 19.99,
     originalPrice: 28.99,
     badge: "Sale",
   },
   {
     name: "Mink Collection",
-    image: "/images/lash-glue.png",
+    image: "/images/product-lash-tray-3.jpg",
     price: 34.99,
     originalPrice: null,
     badge: null,
   },
   {
     name: "Hybrid Mix Tray",
-    image: "/images/lash-glue.png",
+    image: "/images/product-lash-tray-4.jpg",
     price: 22.99,
     originalPrice: null,
     badge: "Best Seller",

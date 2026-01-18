@@ -8,28 +8,28 @@ import { Button } from "@/components/ui/button"
 const looks = [
   {
     name: "The Cindy",
-    image: "/images/bridal-hero.jpg",
+    image: "/images/look-cindy.jpg",
     fullness: "Full",
     curl: "D",
     style: "Hollywood Glam",
   },
   {
     name: "The Jasmynn",
-    image: "/images/microblading-new.jpg",
+    image: "/images/look-jasmynn.jpg",
     fullness: "Medium",
     curl: "CC",
     style: "Anime",
   },
   {
     name: "The Sophia",
-    image: "/images/DarkerSkinComplexion.jpg",
+    image: "/images/look-sophia.jpg",
     fullness: "Light",
     curl: "C",
     style: "Natural Cat",
   },
   {
     name: "The Maya",
-    image: "/images/GroupPhotoMakeup.jpg",
+    image: "/images/look-maya.jpg",
     fullness: "Medium",
     curl: "D",
     style: "Fox Eye",

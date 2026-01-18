@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React from "react"
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -13,14 +13,7 @@ import {
   SheetFooter,
   SheetClose,
 } from "@/components/ui/sheet";
-import {
-  ShoppingBag,
-  Menu,
-  ChevronRight,
-  MapPin,
-  Mail,
-  Instagram,
-} from "lucide-react";
+import { ShoppingBag, Menu, ChevronRight, MapPin, Mail, Instagram } from "lucide-react";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,17 +31,15 @@ export function Navigation() {
     { href: "#services", label: "Services", hasSubmenu: true },
     { href: "#shop", label: "Shop", hasSubmenu: true },
     { href: "#bridal", label: "Bridal", hasSubmenu: false },
+    { href: "/education", label: "Education", hasSubmenu: false, isPage: true },
     { href: "#gallery", label: "Gallery", hasSubmenu: false },
     { href: "#contact", label: "Contact", hasSubmenu: false },
   ];
 
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string,
-  ) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setIsSheetOpen(false);
-
+    
     // Small delay to allow sheet to close before scrolling
     setTimeout(() => {
       const element = document.querySelector(href);
@@ -67,7 +58,9 @@ export function Navigation() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-white"
+        isScrolled
+          ? "bg-white/95 backdrop-blur-md shadow-sm"
+          : "bg-white"
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
@@ -83,8 +76,8 @@ export function Navigation() {
         </Button>
 
         {/* Logo - Centered on mobile */}
-        <Link
-          href="/"
+        <Link 
+          href="/" 
           className="absolute left-1/2 -translate-x-1/2 font-serif text-xl font-bold tracking-wide md:static md:translate-x-0"
         >
           AMOR GLAM
@@ -93,14 +86,24 @@ export function Navigation() {
         {/* Desktop Navigation */}
         <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
-              className="text-sm font-medium tracking-wide text-foreground/80 transition-colors hover:text-foreground cursor-pointer"
-            >
-              {link.label}
-            </a>
+            link.isPage ? (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium tracking-wide text-foreground/80 transition-colors hover:text-foreground"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-sm font-medium tracking-wide text-foreground/80 transition-colors hover:text-foreground cursor-pointer"
+              >
+                {link.label}
+              </a>
+            )
           ))}
         </div>
 
@@ -130,26 +133,36 @@ export function Navigation() {
               Menu
             </SheetTitle>
           </SheetHeader>
-
+          
           <div className="flex-1 overflow-y-auto">
             {/* Navigation Links */}
             <nav className="flex flex-col">
               {navLinks.map((link) => (
                 <SheetClose asChild key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className="flex items-center justify-between border-b border-zinc-100 px-6 py-4 font-serif text-base transition-colors hover:bg-zinc-50"
-                  >
-                    {link.label}
-                    {link.hasSubmenu && (
+                  {link.isPage ? (
+                    <Link
+                      href={link.href}
+                      className="flex items-center justify-between border-b border-zinc-100 px-6 py-4 font-serif text-base transition-colors hover:bg-zinc-50"
+                    >
+                      {link.label}
                       <ChevronRight className="h-4 w-4 text-zinc-400" />
-                    )}
-                  </a>
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      onClick={(e) => handleNavClick(e, link.href)}
+                      className="flex items-center justify-between border-b border-zinc-100 px-6 py-4 font-serif text-base transition-colors hover:bg-zinc-50"
+                    >
+                      {link.label}
+                      {link.hasSubmenu && (
+                        <ChevronRight className="h-4 w-4 text-zinc-400" />
+                      )}
+                    </a>
+                  )}
                 </SheetClose>
               ))}
             </nav>
-
+            
             {/* Studio Info */}
             <div className="mt-8 border-t border-zinc-100 px-6 pt-6">
               <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-zinc-400">
@@ -162,15 +175,12 @@ export function Navigation() {
                 </div>
                 <div className="flex items-center gap-3 text-sm text-zinc-600">
                   <Mail className="h-4 w-4 text-zinc-400" />
-                  <a
-                    href="mailto:hello@amorglambeauty.com"
-                    className="hover:text-black"
-                  >
+                  <a href="mailto:hello@amorglambeauty.com" className="hover:text-black">
                     hello@amorglambeauty.com
                   </a>
                 </div>
               </div>
-
+              
               {/* Social Icons */}
               <div className="mt-6 flex gap-3">
                 <a
@@ -187,12 +197,8 @@ export function Navigation() {
                   rel="noopener noreferrer"
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 transition-colors hover:bg-[#FF69B4] hover:text-white"
                 >
-                  <svg
-                    className="h-5 w-5"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
                   </svg>
                 </a>
                 <a
@@ -201,12 +207,8 @@ export function Navigation() {
                   rel="noopener noreferrer"
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 transition-colors hover:bg-[#FF69B4] hover:text-white"
                 >
-                  <svg
-                    className="h-5 w-5"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                   </svg>
                 </a>
               </div>
@@ -220,7 +222,10 @@ export function Navigation() {
                   asChild
                   className="w-full bg-black text-white hover:bg-black/90"
                 >
-                  <a href="#shop" onClick={(e) => handleNavClick(e, "#shop")}>
+                  <a
+                    href="#shop"
+                    onClick={(e) => handleNavClick(e, "#shop")}
+                  >
                     Shop Products
                   </a>
                 </Button>

@@ -6,44 +6,43 @@ import { Instagram, Play } from "lucide-react";
 
 const galleryItems = [
   // TikTok slots (9:16 vertical)
-  {
-    type: "tiktok",
+  { 
+    type: "tiktok", 
     label: "Latest TikTok",
     placeholder: true,
-    aspectRatio: "aspect-[9/16]",
+    aspectRatio: "aspect-[9/16]"
   },
-  {
-    type: "tiktok",
+  { 
+    type: "tiktok", 
     label: "Latest TikTok",
     placeholder: true,
-    aspectRatio: "aspect-[9/16]",
+    aspectRatio: "aspect-[9/16]"
   },
   // Instagram slots (1:1 square)
-  {
-    type: "instagram",
-    src: "/images/DarkerSkinComplexion.jpg",
+  { 
+    type: "instagram", 
+    src: "/images/insta-1.jpg", 
     alt: "Client makeup look",
-    aspectRatio: "aspect-square",
+    aspectRatio: "aspect-square"
   },
-  {
-    type: "instagram",
-    src: "/images/GroupPhotoMakeup.jpg",
+  { 
+    type: "instagram", 
+    src: "/images/insta-2.jpg", 
     alt: "Eye makeup detail",
-    aspectRatio: "aspect-square",
+    aspectRatio: "aspect-square"
   },
-  // AI Image 1
-  {
-    type: "instagram",
-    src: "/images/blonde.jpg",
-    alt: "Blonde makeup look",
-    aspectRatio: "aspect-square",
+  // Editorial wide shots
+  { 
+    type: "editorial", 
+    src: "/images/insta-3.jpg", 
+    alt: "Bridal editorial shot",
+    aspectRatio: "aspect-[4/3]"
   },
-  // AI Image 2
-  {
-    type: "instagram",
-    src: "/images/bridal-hero.jpg",
-    alt: "Bridal makeup look",
-    aspectRatio: "aspect-square",
+  { 
+    type: "editorial", 
+    src: "/images/insta-5.jpg", 
+    alt: "Full glam editorial",
+    aspectRatio: "aspect-[4/3]"
   },
 ];
 
@@ -88,12 +87,8 @@ export function InstagramSection() {
               </div>
               {/* Hover overlay */}
               <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-all duration-300 group-hover:bg-black/40">
-                <svg
-                  className="h-8 w-8 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                <svg className="h-8 w-8 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
                 </svg>
               </div>
             </div>
@@ -119,12 +114,8 @@ export function InstagramSection() {
               </div>
               {/* Hover overlay */}
               <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-all duration-300 group-hover:bg-black/40">
-                <svg
-                  className="h-8 w-8 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                <svg className="h-8 w-8 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
                 </svg>
               </div>
             </div>
@@ -140,7 +131,7 @@ export function InstagramSection() {
           >
             <div className="relative aspect-square">
               <Image
-                src="/images/DarkerSkinComplexion.jpg"
+                src="/images/insta-1.jpg"
                 alt="Client makeup look"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -161,7 +152,7 @@ export function InstagramSection() {
           >
             <div className="relative aspect-square">
               <Image
-                src="/images/GroupPhotoMakeup.jpg"
+                src="/images/insta-2.jpg"
                 alt="Eye makeup detail"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -172,18 +163,18 @@ export function InstagramSection() {
             </div>
           </motion.div>
 
-          {/* Instagram 3 - Square */}
+          {/* Editorial 1 - Wide */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="group relative col-span-1 overflow-hidden rounded-2xl"
+            className="group relative col-span-2 overflow-hidden rounded-2xl"
           >
-            <div className="relative aspect-square">
+            <div className="relative aspect-[16/9]">
               <Image
-                src="/images/blonde.jpg"
-                alt="Blonde makeup look"
+                src="/images/insta-3.jpg"
+                alt="Bridal editorial shot"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -193,18 +184,18 @@ export function InstagramSection() {
             </div>
           </motion.div>
 
-          {/* Instagram 4 - Square */}
+          {/* Editorial 2 - Wide (spans bottom) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
-            className="group relative col-span-1 overflow-hidden rounded-2xl"
+            className="group relative col-span-2 overflow-hidden rounded-2xl md:col-span-4"
           >
-            <div className="relative aspect-square">
+            <div className="relative aspect-[21/9]">
               <Image
-                src="/images/bridal-hero.jpg"
-                alt="Bridal makeup look"
+                src="/images/insta-5.jpg"
+                alt="Full glam editorial"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />

@@ -62,11 +62,7 @@ export function FaqSection() {
         >
           <Accordion type="single" collapsible className="w-full">
             {faqItems.map((item) => (
-              <AccordionItem
-                key={item.id}
-                value={item.id}
-                className="border-zinc-200"
-              >
+              <AccordionItem key={item.id} value={item.id} className="border-zinc-200">
                 <AccordionTrigger className="font-serif text-base font-normal hover:no-underline">
                   {item.question}
                 </AccordionTrigger>

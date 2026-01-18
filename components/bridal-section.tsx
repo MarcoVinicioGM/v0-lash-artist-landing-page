@@ -79,10 +79,7 @@ export function BridalSection() {
       submittedAt: new Date().toISOString(),
     };
 
-    console.log(
-      "Bridal Quote Request:",
-      JSON.stringify(webhookPayload, null, 2),
-    );
+    console.log("Bridal Quote Request:", JSON.stringify(webhookPayload, null, 2));
 
     setIsSubmitted(true);
     setTimeout(() => {
@@ -156,8 +153,8 @@ export function BridalSection() {
                         Thank You!
                       </h3>
                       <p className="text-muted-foreground">
-                        We&apos;ll be in touch within 24-48 hours to discuss
-                        your special day.
+                        We&apos;ll be in touch within 24-48 hours to discuss your
+                        special day.
                       </p>
                     </motion.div>
                   ) : (
@@ -171,15 +168,14 @@ export function BridalSection() {
                           custom package just for you.
                         </DialogDescription>
                       </DialogHeader>
-
+                      
                       <Alert className="border-[#FF69B4]/20 bg-[#FDF2F8]">
                         <Info className="h-4 w-4 text-[#FF69B4]" />
                         <AlertDescription className="text-sm text-black/70">
-                          We highly recommend booking a Bridal Trial ($125)
-                          before finalizing your wedding day contract.
+                          We highly recommend booking a Bridal Trial ($125) before finalizing your wedding day contract.
                         </AlertDescription>
                       </Alert>
-
+                      
                       <form
                         onSubmit={handleSubmit(onSubmit)}
                         className="mt-4 space-y-4"
@@ -247,7 +243,7 @@ export function BridalSection() {
                                     variant="outline"
                                     className={cn(
                                       "w-full justify-start text-left font-normal bg-transparent",
-                                      !field.value && "text-muted-foreground",
+                                      !field.value && "text-muted-foreground"
                                     )}
                                   >
                                     <CalendarIcon className="mr-2 h-4 w-4" />
