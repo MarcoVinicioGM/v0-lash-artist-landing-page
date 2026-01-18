@@ -38,6 +38,7 @@ export function Navigation() {
     { href: "#services", label: "Services", hasSubmenu: true },
     { href: "#shop", label: "Shop", hasSubmenu: true },
     { href: "#bridal", label: "Bridal", hasSubmenu: false },
+    { href: "/education", label: "Education", hasSubmenu: false, isPage: true },
     { href: "#gallery", label: "Gallery", hasSubmenu: false },
     { href: "#contact", label: "Contact", hasSubmenu: false },
   ];
@@ -92,16 +93,26 @@ export function Navigation() {
 
         {/* Desktop Navigation */}
         <div className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
-              className="text-sm font-medium tracking-wide text-foreground/80 transition-colors hover:text-foreground cursor-pointer"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.isPage ? (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium tracking-wide text-foreground/80 transition-colors hover:text-foreground"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-sm font-medium tracking-wide text-foreground/80 transition-colors hover:text-foreground cursor-pointer"
+              >
+                {link.label}
+              </a>
+            ),
+          )}
         </div>
 
         {/* CTA Buttons */}
@@ -136,16 +147,26 @@ export function Navigation() {
             <nav className="flex flex-col">
               {navLinks.map((link) => (
                 <SheetClose asChild key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className="flex items-center justify-between border-b border-zinc-100 px-6 py-4 font-serif text-base transition-colors hover:bg-zinc-50"
-                  >
-                    {link.label}
-                    {link.hasSubmenu && (
+                  {link.isPage ? (
+                    <Link
+                      href={link.href}
+                      className="flex items-center justify-between border-b border-zinc-100 px-6 py-4 font-serif text-base transition-colors hover:bg-zinc-50"
+                    >
+                      {link.label}
                       <ChevronRight className="h-4 w-4 text-zinc-400" />
-                    )}
-                  </a>
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      onClick={(e) => handleNavClick(e, link.href)}
+                      className="flex items-center justify-between border-b border-zinc-100 px-6 py-4 font-serif text-base transition-colors hover:bg-zinc-50"
+                    >
+                      {link.label}
+                      {link.hasSubmenu && (
+                        <ChevronRight className="h-4 w-4 text-zinc-400" />
+                      )}
+                    </a>
+                  )}
                 </SheetClose>
               ))}
             </nav>
