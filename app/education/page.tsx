@@ -171,7 +171,7 @@ export default function EducationPage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/anna-glammed.jpeg"
+            src="/images/anna-makeup-room.jpg"
             alt="Anna Garcia - Master Your Own Face"
             fill
             className="object-cover object-center"
@@ -269,7 +269,7 @@ export default function EducationPage() {
             {/* Slot 2: The Kit */}
             <div className="group relative aspect-[3/4] overflow-hidden rounded-3xl">
               <Image
-                src="/images/bridal-hero.jpg"
+                src="/images/bridal-alt.jpg"
                 alt="Kit Audit & Hygiene Standards"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -288,7 +288,7 @@ export default function EducationPage() {
             {/* Slot 3: Business */}
             <div className="group relative aspect-[3/4] overflow-hidden rounded-3xl">
               <Image
-                src="/images/GroupPhotoMakeup.jpg"
+                src="/images/wedding-group.jpg"
                 alt="Content Creation & Client Photos"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"

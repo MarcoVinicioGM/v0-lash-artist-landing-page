@@ -17,7 +17,7 @@ export function MeetTheArtist() {
             className="relative aspect-[3/4] md:aspect-[4/5] overflow-hidden rounded-3xl"
           >
             <Image
-              src="/images/anna-profile.jpg"
+              src="/images/anna-outside.jpg"
               alt="Anna Garcia - Editorial Portrait"
               fill
               className="object-cover filter grayscale"

@@ -27,21 +27,21 @@ const galleryItems = [
   },
   {
     type: "instagram",
-    src: "/images/GroupPhotoMakeup.jpg",
+    src: "/images/wedding-group.jpg",
     alt: "Eye makeup detail",
     aspectRatio: "aspect-square",
   },
   // AI Image 1
   {
     type: "instagram",
-    src: "/images/blonde.jpg",
+    src: "/images/anna-profile.jpg",
     alt: "Blonde makeup look",
     aspectRatio: "aspect-square",
   },
   // AI Image 2
   {
     type: "instagram",
-    src: "/images/bridal-hero.jpg",
+    src: "/images/microblading-alt.jpg",
     alt: "Bridal makeup look",
     aspectRatio: "aspect-square",
   },
@@ -161,7 +161,7 @@ export function InstagramSection() {
           >
             <div className="relative aspect-square">
               <Image
-                src="/images/GroupPhotoMakeup.jpg"
+                src="/images/wedding-group.jpg"
                 alt="Eye makeup detail"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -182,7 +182,7 @@ export function InstagramSection() {
           >
             <div className="relative aspect-square">
               <Image
-                src="/images/blonde.jpg"
+                src="/images/anna-profile.jpg"
                 alt="Blonde makeup look"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -203,7 +203,7 @@ export function InstagramSection() {
           >
             <div className="relative aspect-square">
               <Image
-                src="/images/bridal-hero.jpg"
+                src="/images/microblading-alt.jpg"
                 alt="Bridal makeup look"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
