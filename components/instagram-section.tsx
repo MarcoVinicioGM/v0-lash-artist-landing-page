@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
 
 const images = [
-  { src: "/images/insta-1.jpg", alt: "Client makeup look" },
-  { src: "/images/insta-2.jpg", alt: "Eye makeup detail" },
-  { src: "/images/insta-3.jpg", alt: "Bridal makeup" },
-  { src: "/images/insta-4.jpg", alt: "Perfect brows" },
-  { src: "/images/insta-5.jpg", alt: "Full glam look" },
-  { src: "/images/insta-6.jpg", alt: "Glowing skin" },
+  { src: "/images/blonde.jpg", alt: "Client makeup look" },
+  { src: "/images/anna-glammed.jpeg", alt: "Eye makeup detail" },
+  { src: "/images/muslim-wedding.jpg", alt: "Bridal makeup" },
+  { src: "/images/brow-photo.jpg", alt: "Perfect brows" },
+  { src: "/images/wedding-example.jpg", alt: "Full glam look" },
+  { src: "/images/famous-person-glammed.jpg", alt: "Glowing skin" },
 ];
 
 export function InstagramSection() {

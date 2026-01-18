@@ -12,8 +12,8 @@ export function HeroSection() {
         {/* Left Side - Services */}
         <div className="relative flex min-h-[50vh] items-center justify-center overflow-hidden bg-black md:min-h-screen">
           <Image
-            src="/images/hero-services.jpg"
-            alt="Glamorous bridal makeup"
+            src="/images/anna-glammed.jpeg"
+            alt="Anna - Lead Makeup Artist"
             fill
             className="object-cover opacity-60"
             priority
@@ -56,7 +56,7 @@ export function HeroSection() {
         {/* Right Side - Products */}
         <div className="relative flex min-h-[50vh] items-center justify-center overflow-hidden bg-[#FDF2F8] md:min-h-screen">
           <Image
-            src="/images/hero-product.jpg"
+            src="/images/lash-glue.png"
             alt="Amor Collection products"
             fill
             className="object-cover opacity-40"

@@ -224,7 +224,7 @@ export function BridalSection() {
           >
             <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
               <Image
-                src="/images/bridal-hero.jpg"
+                src="/images/bridal-new.jpg"
                 alt="Beautiful bride with flawless makeup"
                 fill
                 className="object-cover"
