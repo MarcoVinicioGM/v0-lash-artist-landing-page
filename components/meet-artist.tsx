@@ -14,7 +14,7 @@ export function MeetTheArtist() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative aspect-[3/4] md:aspect-[4/5] overflow-hidden rounded-none"
+            className="relative aspect-[4/5] h-[400px] md:h-auto md:aspect-[4/5] overflow-hidden rounded-none"
           >
             <Image
               src="/images/anna-outside.jpg"

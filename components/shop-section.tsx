@@ -24,7 +24,7 @@ export function ShopSection() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="relative aspect-[3/4] overflow-hidden rounded-none bg-zinc-900">
+            <div className="relative aspect-[4/5] h-[400px] md:h-auto overflow-hidden rounded-none bg-zinc-900">
               <Image
                 src="/images/lash-glue.png"
                 alt="Amor Glam Professional Lash Adhesive"

@@ -142,7 +142,7 @@ export function ServiceMenuSection({ showPrices = true }: { showPrices?: boolean
                 className="group relative overflow-hidden rounded-2xl bg-gray-50 flex flex-col h-full"
               >
                 {/* Image */}
-                <div className="relative aspect-[4/3] overflow-hidden">
+                <div className="relative aspect-[16/10] md:aspect-[4/3] overflow-hidden">
                   <Image
                     src={service.image || "/placeholder.svg"}
                     alt={service.name}

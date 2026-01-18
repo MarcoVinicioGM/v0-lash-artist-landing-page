@@ -8,10 +8,10 @@ import { Heart } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden">
-      <div className="grid min-h-screen lg:grid-cols-2">
+    <section className="relative h-[85dvh] w-full overflow-hidden lg:h-screen lg:min-h-screen">
+      <div className="flex h-full flex-col lg:flex-row">
         {/* Left Side - Services */}
-        <div className="relative flex min-h-[60vh] items-center justify-center overflow-hidden bg-black lg:min-h-screen">
+        <div className="relative h-1/2 w-full bg-black lg:h-full lg:w-1/2">
           <Image
             src="/images/anna-glammed.jpeg"
             alt="Anna - Lead Makeup Artist"
@@ -19,7 +19,7 @@ export function HeroSection() {
             className="object-cover opacity-60"
             priority
           />
-          <div className="relative z-10 px-8 py-10 text-center text-white lg:bg-transparent lg:pr-32 lg:-translate-y-12 2xl:pr-0 2xl:translate-y-0">
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-8 text-center text-white lg:pr-32 lg:-translate-y-12 2xl:pr-0 2xl:translate-y-0">
             {/* Background overlay for mobile readability */}
             <div className="absolute inset-0 -z-10 bg-black/40 backdrop-blur-sm lg:hidden" />
             
@@ -27,7 +27,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="mb-4 text-sm font-medium uppercase tracking-[0.2em]"
+              className="mb-2 text-xs font-medium uppercase tracking-[0.2em] lg:mb-4 lg:text-sm"
             >
               Artistry Services
             </motion.p>
@@ -35,7 +35,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="mb-6 font-serif text-4xl font-bold md:text-5xl lg:text-5xl xl:text-6xl"
+              className="mb-4 font-serif text-3xl font-bold md:text-5xl lg:mb-6 lg:text-5xl xl:text-6xl"
             >
               <span className="text-balance">Unforgettable</span>
               <br />
@@ -48,8 +48,8 @@ export function HeroSection() {
             >
               <Button
                 asChild
-                size="lg"
-                className="bg-white text-black hover:bg-white/90"
+                size="default"
+                className="bg-white text-black hover:bg-white/90 lg:size-lg"
               >
                 <Link href="/services">Book Appointments</Link>
               </Button>
@@ -58,7 +58,7 @@ export function HeroSection() {
         </div>
 
         {/* Right Side - Products */}
-        <div className="relative flex min-h-[60vh] items-center justify-center overflow-hidden bg-[#FDF2F8] lg:min-h-screen">
+        <div className="relative h-1/2 w-full bg-[#FDF2F8] lg:h-full lg:w-1/2">
           <Image
             src="/images/lash-glue.png"
             alt="Amor Collection products"
@@ -66,7 +66,7 @@ export function HeroSection() {
             className="object-cover opacity-40"
             priority
           />
-          <div className="relative z-10 px-8 py-10 text-center lg:bg-transparent lg:pl-32 lg:-translate-y-12 2xl:pl-0 2xl:translate-y-0">
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-8 text-center lg:pl-32 lg:-translate-y-12 2xl:pl-0 2xl:translate-y-0">
             {/* Background overlay for mobile readability */}
             <div className="absolute inset-0 -z-10 bg-white/40 backdrop-blur-sm lg:hidden" />
 
@@ -74,7 +74,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-black/70"
+              className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-black/70 lg:mb-4 lg:text-sm"
             >
               Shop Collection
             </motion.p>
@@ -82,7 +82,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="mb-6 font-serif text-4xl font-bold text-black md:text-5xl lg:text-5xl xl:text-6xl"
+              className="mb-4 font-serif text-3xl font-bold text-black md:text-5xl lg:mb-6 lg:text-5xl xl:text-6xl"
             >
               <span className="text-balance">The Amor</span>
               <br />
@@ -95,9 +95,9 @@ export function HeroSection() {
             >
               <Button
                 asChild
-                size="lg"
+                size="default"
                 variant="outline"
-                className="border-black bg-transparent text-black hover:bg-black hover:text-white"
+                className="border-black bg-transparent text-black hover:bg-black hover:text-white lg:size-lg"
               >
                 <Link href="#shop">
                   <Heart className="mr-2 h-4 w-4 fill-current text-[#FF69B4]" />
