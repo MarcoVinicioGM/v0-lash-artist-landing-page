@@ -43,6 +43,7 @@ export function Navigation() {
     { href: "#bridal", label: "Bridal", hasSubmenu: false },
     { href: "/education", label: "Education", hasSubmenu: false, isPage: true },
     { href: "#gallery", label: "Gallery", hasSubmenu: false },
+    { href: "/faq", label: "FAQ", hasSubmenu: false, isPage: true },
     { href: "#contact", label: "Contact", hasSubmenu: false },
   ];
 

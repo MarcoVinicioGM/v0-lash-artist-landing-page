@@ -153,6 +153,14 @@ export function Footer() {
                   FAQ
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/education"
+                  className="transition-colors hover:text-white"
+                >
+                  Education
+                </Link>
+              </li>
             </ul>
           </motion.div>
 
