@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { Quote, Star } from "lucide-react"
-import { motion } from "framer-motion"
+import { Quote, Star } from "lucide-react";
+import { motion } from "framer-motion";
 
 const reviews = [
   {
-    text: "10/10 she gets the job done right every single time.",
+    text: "10/10 she gets the job done right every single time. My lashes last forever.",
     author: "Jessica M.",
   },
   {
@@ -24,59 +24,70 @@ const reviews = [
     text: "My go-to for over 2 years now. Can't imagine going anywhere else!",
     author: "Ashley B.",
   },
-]
+];
 
 export function ReviewsSection() {
   return (
-    <section className="py-16 md:py-24 bg-[#FDF2F8] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <motion.h2
+    <section className="py-20 md:py-32 bg-[#FDF2F8] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="font-serif text-3xl sm:text-4xl text-black text-center text-balance"
         >
-          What Our Clients Say
-        </motion.h2>
+          <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-[#FF69B4]">
+            Testimonials
+          </p>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-black">
+            What Our Clients Say
+          </h2>
+        </motion.div>
       </div>
 
       {/* Marquee Container */}
-      <div className="relative">
-        <div className="flex animate-marquee">
-          {[...reviews, ...reviews].map((review, index) => (
+      <div className="relative flex w-full overflow-hidden mask-linear-fade">
+        <motion.div
+          className="flex gap-6 pr-6"
+          animate={{ x: "-50%" }}
+          transition={{
+            ease: "linear",
+            duration: 40,
+            repeat: Infinity,
+          }}
+          // Pause animation on hover so users can read
+          whileHover={{ animationPlayState: "paused" }}
+        >
+          {/* We duplicate the reviews array 4 times to ensure seamless looping on large screens */}
+          {[...reviews, ...reviews, ...reviews, ...reviews].map((review, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-80 md:w-96 mx-4"
+              className="flex-shrink-0 w-[300px] md:w-[400px]"
             >
-              <div className="bg-white rounded-2xl p-6 shadow-sm h-full">
-                <Quote className="h-8 w-8 text-pink-400 mb-4" />
-                <div className="flex gap-1 mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-pink-500 text-pink-500" />
-                  ))}
+              <div className="h-full bg-white rounded-none p-8 border border-zinc-100/50 hover:shadow-lg transition-shadow duration-300">
+                <div className="flex justify-between items-start mb-6">
+                  <Quote className="h-8 w-8 text-[#FF69B4]/20" />
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-3.5 w-3.5 fill-[#FF69B4] text-[#FF69B4]" />
+                    ))}
+                  </div>
                 </div>
-                <p className="text-black text-lg leading-relaxed">{`"${review.text}"`}</p>
-                <p className="mt-4 text-black/60 text-sm">— {review.author}</p>
+                <p className="text-zinc-700 text-lg leading-relaxed font-medium mb-6">
+                  &ldquo;{review.text}&rdquo;
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="h-8 w-8 rounded-full bg-zinc-100 flex items-center justify-center text-xs font-bold text-zinc-400">
+                    {review.author.charAt(0)}
+                  </div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-zinc-900">
+                    {review.author}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
-
-      <style jsx>{`
-        @keyframes marquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        .animate-marquee {
-          animation: marquee 30s linear infinite;
-        }
-      `}</style>
     </section>
-  )
+  );
 }
