@@ -116,7 +116,7 @@ export function BridalSection() {
               flawless at every milestone. Our bridal packages include trials,
               touch-up kits, and day-of artistry.
             </p>
-            <div className="mb-8 rounded-2xl bg-white/60 p-6 backdrop-blur-sm">
+            <div className="mb-8 rounded-none bg-white/60 p-6 backdrop-blur-sm">
               <p className="text-sm font-medium uppercase tracking-wide text-black/50">
                 Bridal Packages Starting From
               </p>
@@ -353,7 +353,7 @@ export function BridalSection() {
             viewport={{ once: true }}
             className="order-1 lg:order-2"
           >
-            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-none">
               <Image
                 src="/images/bridal-hero.jpg"
                 alt="Beautiful bride with flawless makeup"

@@ -71,9 +71,9 @@ export function BestSellersSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group"
             >
-              <div className="relative aspect-square rounded-2xl overflow-hidden bg-gray-50 mb-4">
+              <div className="relative aspect-[3/4] rounded-none overflow-hidden bg-gray-50 mb-4">
                 {product.badge && (
-                  <span className="absolute top-3 left-3 z-10 px-3 py-1 bg-pink-500 text-white text-xs font-medium rounded-full">
+                  <span className="absolute top-3 left-3 z-10 px-3 py-1 bg-pink-500 text-white text-xs font-medium rounded-none">
                     {product.badge}
                   </span>
                 )}
@@ -85,7 +85,7 @@ export function BestSellersSection() {
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
                 <Button 
-                  className="absolute bottom-4 left-1/2 -translate-x-1/2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 bg-black text-white hover:bg-pink-600 rounded-full"
+                  className="absolute bottom-4 left-1/2 -translate-x-1/2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 bg-black text-white hover:bg-pink-600 rounded-none"
                   size="sm"
                 >
                   <Heart className="h-4 w-4 mr-2 fill-current text-white" />

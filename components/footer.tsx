@@ -180,12 +180,12 @@ export function Footer() {
             <form className="flex gap-2">
               <Input
                 type="email"
-                placeholder="Your email"
-                className="border-white/20 bg-white/10 text-white placeholder:text-white/40"
+                placeholder="Your email for love notes..."
+                className="border-white/20 bg-white/10 text-white placeholder:text-white/40 rounded-none"
               />
               <Button
                 type="submit"
-                className="bg-[#FF69B4] text-white hover:bg-[#FF69B4]/90"
+                className="bg-[#FF69B4] text-white hover:bg-[#FF69B4]/90 rounded-none"
               >
                 Join
               </Button>

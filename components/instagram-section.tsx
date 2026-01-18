@@ -74,7 +74,7 @@ export function InstagramSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0 }}
-            className="group relative col-span-1 row-span-2 overflow-hidden rounded-2xl"
+            className="group relative col-span-1 row-span-2 overflow-hidden rounded-none"
           >
             <div className="relative aspect-[9/16] h-full w-full bg-zinc-100">
               {/* Placeholder skeleton */}
@@ -105,12 +105,12 @@ export function InstagramSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="group relative col-span-1 row-span-2 overflow-hidden rounded-2xl"
+            className="group relative col-span-1 row-span-2 overflow-hidden rounded-none"
           >
             <div className="relative aspect-[9/16] h-full w-full bg-zinc-100">
               {/* Placeholder skeleton */}
               <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-zinc-100 to-zinc-200">
-                <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-white/80 shadow-sm">
+                <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-none bg-white/80 shadow-sm">
                   <Play className="h-6 w-6 text-zinc-600" />
                 </div>
                 <p className="text-xs font-medium uppercase tracking-wide text-zinc-500">
@@ -136,7 +136,7 @@ export function InstagramSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="group relative col-span-1 overflow-hidden rounded-2xl"
+            className="group relative col-span-1 overflow-hidden rounded-none"
           >
             <div className="relative aspect-square">
               <Image
@@ -157,7 +157,7 @@ export function InstagramSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="group relative col-span-1 overflow-hidden rounded-2xl"
+            className="group relative col-span-1 overflow-hidden rounded-none"
           >
             <div className="relative aspect-square">
               <Image
@@ -178,7 +178,7 @@ export function InstagramSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="group relative col-span-1 overflow-hidden rounded-2xl"
+            className="group relative col-span-1 overflow-hidden rounded-none"
           >
             <div className="relative aspect-square">
               <Image
@@ -199,7 +199,7 @@ export function InstagramSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
-            className="group relative col-span-1 overflow-hidden rounded-2xl"
+            className="group relative col-span-1 overflow-hidden rounded-none"
           >
             <div className="relative aspect-square">
               <Image

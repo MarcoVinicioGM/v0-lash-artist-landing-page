@@ -110,7 +110,7 @@ export function HeroSection() {
         transition={{ delay: 0.5, duration: 0.5 }}
         className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2"
       >
-        <div className="rounded-full bg-white px-8 py-6 shadow-2xl md:px-12 md:py-8">
+        <div className="rounded-none bg-white px-8 py-6 shadow-2xl md:px-12 md:py-8 border border-zinc-100">
           <h1 className="whitespace-nowrap font-serif text-xl font-bold tracking-wide md:text-2xl lg:text-3xl">
             AMOR GLAM BEAUTY
           </h1>
