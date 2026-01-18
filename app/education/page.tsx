@@ -78,7 +78,6 @@ const curriculums = [
     details: "Hands-on • Bring your own makeup bag",
     description:
       "Learn how to do your own full face for events and daily wear. We audit your kit and teach you the 'Amor' techniques. You'll leave with a personalized face chart and shopping list.",
-    price: "$250",
     action: "Book Lesson",
   },
   {
@@ -89,7 +88,6 @@ const curriculums = [
     details: "Model Required • Certification included",
     description:
       "For the artist ready to start their business. Learn sanitation, skin prep, color theory, and business basics. Includes a full kit audit, portfolio building tips, and a certificate of completion.",
-    price: "$550",
     action: "Apply for Mentorship",
   },
 ];
@@ -337,9 +335,6 @@ export default function EducationPage() {
                           {curriculum.duration}
                         </p>
                       </div>
-                      <span className="text-lg font-bold text-black md:text-2xl">
-                        {curriculum.price}
-                      </span>
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="pb-6">

@@ -116,14 +116,6 @@ export function BridalSection() {
               flawless at every milestone. Our bridal packages include trials,
               touch-up kits, and day-of artistry.
             </p>
-            <div className="mb-8 rounded-none bg-white/60 p-6 backdrop-blur-sm">
-              <p className="text-sm font-medium uppercase tracking-wide text-black/50">
-                Bridal Packages Starting From
-              </p>
-              <p className="mt-1 font-serif text-4xl font-bold text-black">
-                $1,000
-              </p>
-            </div>
 
             {/* Bridal Actions */}
             <div className="flex flex-wrap gap-4">
