@@ -18,15 +18,15 @@ function LinkButton({ icon, title, subtitle, href = "#" }: LinkButtonProps) {
       href={href}
       className="group relative block w-full"
     >
-      <div className="absolute inset-0 border border-white/30 translate-x-[3px] translate-y-[3px]" />
-      <div className="relative flex w-full items-stretch border border-white bg-black text-white transition-all duration-200 hover:bg-white/5 active:scale-95">
-        <div className="flex w-16 items-center justify-center border-r border-white bg-black">
+      <div className="absolute inset-0 border-2 border-white/40 translate-x-[3px] translate-y-[3px]" />
+      <div className="relative flex w-full items-stretch border-2 border-white bg-black text-white transition-all duration-200 hover:bg-white/5 active:scale-95">
+        <div className="flex w-16 items-center justify-center border-r-2 border-white bg-black">
           <div className="text-white">
             {icon}
           </div>
         </div>
         <div className="flex flex-1 flex-col justify-center px-4 py-3 text-left">
-          <span className="font-serif font-bold tracking-wider text-white uppercase text-sm">
+          <span className="font-serif font-bold tracking-wider text-white uppercase text-base">
             {title}
           </span>
           <span className="text-xs font-light text-gray-300 mt-1">
@@ -138,13 +138,13 @@ export default function LinkInBioPage() {
   return (
     <main className="min-h-screen bg-black flex items-center justify-center px-4 py-8">
       <div className="w-full max-w-md flex flex-col items-center">
-        <div className="relative w-48 h-48 mb-6">
+        <div className="relative w-56 h-56 mb-6">
           <div className="absolute inset-0 rounded-full border-[3px] border-pink-300 overflow-hidden">
             <Image
               src="/images/anna-profile.jpg"
               alt="Anna Garcia - Makeup Artist"
-              width={192}
-              height={192}
+              width={224}
+              height={224}
               className="w-full h-full object-cover object-[center_15%]"
               priority
             />
@@ -155,7 +155,7 @@ export default function LinkInBioPage() {
           ANNA GARCIA
         </h1>
 
-        <h2 className="font-serif text-lg text-gray-300 text-center mb-6 italic">
+        <h2 className="font-serif text-lg text-gray-300 text-center mb-6 italic font-bold">
           New Orleans Makeup, Brows & Aesthetics Artist
         </h2>
 
