@@ -1,41 +1,37 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react"
-import { Calendar, Heart, Monitor, Star } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
+import React, { useState, useEffect, useCallback } from "react";
+import { Calendar, Heart, Monitor, Star } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import useEmblaCarousel from "embla-carousel-react";
 
 interface LinkButtonProps {
-  icon: React.ReactNode
-  title: string
-  subtitle: string
-  href?: string
+  icon: React.ReactNode;
+  title: string;
+  subtitle: string;
+  href?: string;
 }
 
 function LinkButton({ icon, title, subtitle, href = "#" }: LinkButtonProps) {
   return (
-    <Link
-      href={href}
-      className="group relative block w-full"
-    >
-      <div className="absolute inset-0 border-2 border-white/40 translate-x-[3px] translate-y-[3px]" />
+    <Link href={href} className="group relative block w-full">
+      <div className="absolute inset-0 translate-x-[3px] translate-y-[3px] border-2 border-white/40" />
       <div className="relative flex w-full items-stretch border-2 border-white bg-black text-white transition-all duration-200 hover:bg-white/5 active:scale-95">
         <div className="flex w-16 items-center justify-center border-r-2 border-white bg-black">
-          <div className="text-white">
-            {icon}
-          </div>
+          <div className="text-white">{icon}</div>
         </div>
         <div className="flex flex-1 flex-col justify-center px-4 py-3 text-left">
-          <span className="font-serif font-bold tracking-wider text-white uppercase text-base">
+          <span className="font-serif text-base font-bold uppercase tracking-wider text-white">
             {title}
           </span>
-          <span className="text-xs font-light text-gray-300 mt-1">
+          <span className="mt-1 text-xs font-light text-gray-300">
             {subtitle}
           </span>
         </div>
       </div>
     </Link>
-  )
+  );
 }
 
 const reviews = [
@@ -58,38 +54,42 @@ const reviews = [
 ];
 
 function LinkBioCarousel() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center" });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % reviews.length);
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+
+    const intervalId = setInterval(() => {
+      if (emblaApi.canScrollNext()) {
+        emblaApi.scrollNext();
+      }
     }, 5000);
 
-    return () => clearInterval(timer);
-  }, []);
+    const stopInterval = () => clearInterval(intervalId);
+    emblaApi.on("pointerDown", stopInterval);
 
-  useEffect(() => {
-    if (containerRef.current) {
-      containerRef.current.scrollTo({
-        left: currentIndex * containerRef.current.clientWidth,
-        behavior: 'smooth'
-      });
-    }
-  }, [currentIndex]);
+    return () => {
+      clearInterval(intervalId);
+      if (emblaApi) emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi, onSelect]);
 
-  const handleScroll = () => {
-    if (containerRef.current) {
-      const scrollLeft = containerRef.current.scrollLeft;
-      const itemWidth = containerRef.current.clientWidth;
-      const newIndex = Math.round(scrollLeft / itemWidth);
-      setCurrentIndex(newIndex);
-    }
-  };
+  const scrollTo = useCallback(
+    (index: number) => emblaApi && emblaApi.scrollTo(index),
+    [emblaApi]
+  );
 
   return (
-    <div className="w-full flex flex-col items-center">
-      <div className="flex items-center justify-center gap-1 mb-6">
+    <div className="flex w-full flex-col items-center">
+      <div className="mb-6 flex items-center justify-center gap-1">
         {[...Array(5)].map((_, i) => (
           <Star
             key={i}
@@ -98,33 +98,31 @@ function LinkBioCarousel() {
         ))}
       </div>
 
-      <div
-        ref={containerRef}
-        onScroll={handleScroll}
-        className="flex overflow-x-auto snap-x snap-mandatory gap-6 scrollbar-hide w-full max-w-sm mx-auto scroll-smooth"
-      >
-        {reviews.map((review, index) => (
-          <div
-            key={index}
-            className="min-w-[100%] snap-center flex flex-col items-center justify-center text-center px-4"
-          >
-            <blockquote className="text-white/90 italic font-light leading-relaxed mb-6">
-              &ldquo;{review.text}&rdquo;
-            </blockquote>
-            <p className="text-white font-serif uppercase tracking-widest text-sm">
-              - {review.author}
-            </p>
-          </div>
-        ))}
+      <div className="w-full max-w-sm overflow-hidden" ref={emblaRef}>
+        <div className="flex touch-pan-y">
+          {reviews.map((review, index) => (
+            <div
+              key={index}
+              className="flex min-w-full flex-col items-center justify-center px-4 text-center"
+            >
+              <blockquote className="mb-6 font-light italic leading-relaxed text-white/90">
+                &ldquo;{review.text}&rdquo;
+              </blockquote>
+              <p className="font-serif text-sm uppercase tracking-widest text-white">
+                - {review.author}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
 
-      <div className="flex gap-2 mt-6">
+      <div className="mt-6 flex gap-2">
         {reviews.map((_, index) => (
           <button
             key={index}
-            onClick={() => setCurrentIndex(index)}
+            onClick={() => scrollTo(index)}
             className={`h-2 rounded-full transition-all duration-300 ${
-              index === currentIndex ? "w-6 bg-pink-300" : "w-2 bg-gray-600"
+              index === selectedIndex ? "w-6 bg-pink-300" : "w-2 bg-gray-600"
             }`}
             aria-label={`Go to review ${index + 1}`}
           />
@@ -136,51 +134,51 @@ function LinkBioCarousel() {
 
 export default function LinkInBioPage() {
   return (
-    <main className="min-h-screen bg-black flex items-center justify-center px-4 py-8">
-      <div className="w-full max-w-md flex flex-col items-center">
-        <div className="relative w-56 h-56 mb-6">
-          <div className="absolute inset-0 rounded-full border-[3px] border-pink-300 overflow-hidden">
+    <main className="flex min-h-screen items-center justify-center bg-black px-4 py-8">
+      <div className="flex w-full max-w-md flex-col items-center">
+        <div className="relative mb-5 h-56 w-56">
+          <div className="absolute inset-0 overflow-hidden rounded-full border-[3px] border-pink-300">
             <Image
               src="/images/anna-profile.jpg"
               alt="Anna Garcia - Makeup Artist"
-              width={224}
-              height={224}
-              className="w-full h-full object-cover object-[center_15%]"
+              fill
+              className="object-cover object-[center_15%]"
               priority
+              sizes="(max-width: 768px) 100vw, 33vw"
             />
           </div>
         </div>
 
-        <h1 className="font-serif text-3xl tracking-[0.2em] text-white mb-3 uppercase">
+        <h1 className="mb-1.5 font-serif text-3xl uppercase tracking-[0.2em] text-white">
           ANNA GARCIA
         </h1>
 
-        <h2 className="font-serif text-lg text-gray-300 text-center mb-6 italic font-bold">
+        <h2 className="mb-3 text-center font-serif text-[13px] font-bold italic leading-tight text-gray-300">
           New Orleans Makeup, Brows & Aesthetics Artist
         </h2>
 
-        <p className="text-gray-400 text-sm text-center mb-8 px-4 font-sans">
+        <p className="mb-6 px-4 text-center font-sans text-sm text-gray-400">
           Book your services at one of my studios
           <br />
           (Metairie + Houma) or at your location 👇🏼
         </p>
 
-        <div className="w-full space-y-5 mb-12">
+        <div className="mb-12 w-full space-y-5">
           <LinkButton
             href="/services"
-            icon={<Calendar className="w-5 h-5" />}
+            icon={<Calendar className="h-5 w-5" />}
             title="Book An Appointment"
             subtitle="Convenient Online Booking"
           />
           <LinkButton
             href="/#bridal"
-            icon={<Heart className="w-5 h-5 fill-white" />}
+            icon={<Heart className="h-5 w-5 fill-white" />}
             title="Bridal Bookings"
             subtitle="Request a Quote For Wedding Glam"
           />
           <LinkButton
             href="/education"
-            icon={<Monitor className="w-5 h-5" />}
+            icon={<Monitor className="h-5 w-5" />}
             title="Book A Makeup Lesson"
             subtitle="Master Makeup On Yourself Or Others"
           />
@@ -189,5 +187,5 @@ export default function LinkInBioPage() {
         <LinkBioCarousel />
       </div>
     </main>
-  )
+  );
 }

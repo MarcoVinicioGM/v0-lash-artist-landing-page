@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, use } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useParams, notFound } from "next/navigation";
+import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -66,7 +66,7 @@ const courseData = {
     target: "Everyday Women",
     details: "Hands-on • Bring your own makeup bag",
     description:
-      "Learn how to do your own full face for events and daily wear. We audit your kit and teach you the 'Amor' techniques. You'll leave with a personalized face chart and shopping list.",
+      "Learn how to do your own full face for events and daily wear. We audit your kit and teach you 'Amor' techniques. You'll leave with a personalized face chart and shopping list.",
     price: "$250",
     image: "/images/anna-makeup-room.jpg",
     action: "Book Lesson",
@@ -82,11 +82,15 @@ const courseData = {
     image: "/images/anna-outside.jpg",
     action: "Apply for Mentorship",
   },
-};
+} as const;
 
-export default function CourseDetailPage() {
-  const params = useParams();
-  const slug = params.slug as string;
+export default function CourseDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const resolvedParams = use(params);
+  const slug = resolvedParams.slug;
   const course = courseData[slug as keyof typeof courseData];
 
   if (!course) {
@@ -141,7 +145,11 @@ export default function CourseDetailPage() {
 
       {/* Back Button */}
       <div className="container-max pt-28 px-6">
-        <Button variant="ghost" asChild className="mb-8 -ml-4 text-zinc-500 hover:text-black">
+        <Button
+          variant="ghost"
+          asChild
+          className="-ml-4 mb-8 text-zinc-500 hover:text-black"
+        >
           <Link href="/education">
             <ChevronLeft className="mr-2 h-4 w-4" />
             Back to Education
@@ -150,9 +158,9 @@ export default function CourseDetailPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative w-full overflow-hidden mb-20">
+      <section className="relative mb-20 w-full overflow-hidden">
         <div className="container-max px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid gap-12 items-center lg:grid-cols-2">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -161,10 +169,10 @@ export default function CourseDetailPage() {
               <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-[#FF69B4]">
                 Course Details
               </p>
-              <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
+              <h1 className="mb-8 font-serif text-5xl font-bold leading-tight md:text-6xl lg:text-7xl">
                 {course.title}
               </h1>
-              <div className="flex flex-wrap gap-6 mb-8 text-sm text-zinc-500 font-medium">
+              <div className="mb-8 flex flex-wrap gap-6 text-sm font-medium text-zinc-500">
                 <div className="flex items-center gap-2">
                   <Clock className="h-4 w-4 text-[#FF69B4]" />
                   {course.duration}
@@ -192,6 +200,7 @@ export default function CourseDetailPage() {
                 fill
                 className="object-cover"
                 priority
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </motion.div>
           </div>
@@ -199,18 +208,18 @@ export default function CourseDetailPage() {
       </section>
 
       {/* Content & Investment */}
-      <section className="bg-stone-50 py-20 lg:py-32 mb-20">
+      <section className="mb-20 bg-stone-50 py-20 lg:py-32">
         <div className="container-max px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-16 items-start">
+          <div className="mx-auto max-w-4xl">
+            <div className="grid gap-16 items-start md:grid-cols-3">
               <div className="md:col-span-2">
-                <h2 className="font-serif text-3xl mb-6">About the Course</h2>
-                <p className="text-lg text-zinc-600 leading-relaxed mb-8">
+                <h2 className="mb-6 font-serif text-3xl">About the Course</h2>
+                <p className="mb-8 text-lg leading-relaxed text-zinc-600">
                   {course.description}
                 </p>
                 <div className="space-y-4">
-                  <h3 className="font-semibold text-lg">What you&apos;ll learn:</h3>
-                  <ul className="grid sm:grid-cols-2 gap-4">
+                  <h3 className="text-lg font-semibold">What you&apos;ll learn:</h3>
+                  <ul className="grid gap-4 sm:grid-cols-2">
                     {[
                       "Signature Skin Prep",
                       "Color Correction & Foundation",
@@ -219,7 +228,10 @@ export default function CourseDetailPage() {
                       "Business & Branding Basics",
                       "Lighting & Content Tips",
                     ].map((item) => (
-                      <li key={item} className="flex items-center gap-3 text-zinc-600">
+                      <li
+                        key={item}
+                        className="flex items-center gap-3 text-zinc-600"
+                      >
                         <CheckCircle2 className="h-5 w-5 text-[#FF69B4]" />
                         {item}
                       </li>
@@ -228,14 +240,14 @@ export default function CourseDetailPage() {
                 </div>
               </div>
 
-              <div className="bg-white p-8 md:p-10 shadow-xl border border-zinc-100 rounded-none text-center">
-                <p className="text-sm font-medium uppercase tracking-widest text-zinc-400 mb-4">
+              <div className="rounded-none border border-zinc-100 bg-white p-8 text-center shadow-xl md:p-10">
+                <p className="mb-4 text-sm font-medium uppercase tracking-widest text-zinc-400">
                   The Investment
                 </p>
-                <div className="font-serif text-5xl font-bold mb-8">
+                <div className="mb-8 font-serif text-5xl font-bold">
                   {course.price}
                 </div>
-                
+
                 <Dialog open={isOpen} onOpenChange={setIsOpen}>
                   <DialogTrigger asChild>
                     <Button
@@ -254,10 +266,12 @@ export default function CourseDetailPage() {
                         className="flex flex-col items-center justify-center py-8 text-center"
                       >
                         <CheckCircle2 className="mb-4 h-16 w-16 text-[#FF69B4]" />
-                        <h3 className="mb-2 font-serif text-2xl font-bold">Inquiry Sent!</h3>
+                        <h3 className="mb-2 font-serif text-2xl font-bold">
+                          Inquiry Sent!
+                        </h3>
                         <p className="text-muted-foreground">
-                          Thank you for your interest. Anna will be in touch within 24-48
-                          hours.
+                          Thank you for your interest. Anna will be in touch
+                          within 24-48 hours.
                         </p>
                       </motion.div>
                     ) : (
@@ -271,7 +285,10 @@ export default function CourseDetailPage() {
                           </DialogDescription>
                         </DialogHeader>
 
-                        <form onSubmit={handleSubmit(onSubmit)} className="mt-4 space-y-4">
+                        <form
+                          onSubmit={handleSubmit(onSubmit)}
+                          className="mt-4 space-y-4"
+                        >
                           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                             <div className="space-y-2">
                               <Label htmlFor="lesson-name">Full Name</Label>
@@ -332,7 +349,8 @@ export default function CourseDetailPage() {
                                         variant="outline"
                                         className={cn(
                                           "w-full justify-start text-left font-normal bg-transparent",
-                                          !field.value && "text-muted-foreground",
+                                          !field.value &&
+                                            "text-muted-foreground",
                                         )}
                                       >
                                         <CalendarIcon className="mr-2 h-4 w-4" />
@@ -341,7 +359,10 @@ export default function CourseDetailPage() {
                                           : "Select a date"}
                                       </Button>
                                     </PopoverTrigger>
-                                    <PopoverContent className="w-auto p-0" align="start">
+                                    <PopoverContent
+                                      className="w-auto p-0"
+                                      align="start"
+                                    >
                                       <Calendar
                                         mode="single"
                                         selected={field.value}
@@ -395,6 +416,34 @@ export default function CourseDetailPage() {
                                 </p>
                               )}
                             </div>
+                          </div>
+
+                          <div className="space-y-2">
+                            <Label>Lesson Type</Label>
+                            <Controller
+                              name="lessonType"
+                              control={control}
+                              render={({ field }) => (
+                                <Select
+                                  onValueChange={field.onChange}
+                                  value={field.value}
+                                >
+                                  <SelectTrigger className="bg-transparent">
+                                    <SelectValue placeholder="Select lesson" />
+                                  </SelectTrigger>
+                                  <SelectContent>
+                                    {Object.values(courseData).map((c) => (
+                                      <SelectItem key={c.title} value={c.title}>
+                                        {c.title}
+                                      </SelectItem>
+                                    ))}
+                                    <SelectItem value="custom">
+                                      Custom Mentorship
+                                    </SelectItem>
+                                  </SelectContent>
+                                </Select>
+                              )}
+                            />
                           </div>
 
                           <div className="space-y-2">
