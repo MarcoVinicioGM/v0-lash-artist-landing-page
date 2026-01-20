@@ -19,6 +19,7 @@ import {
   MapPin,
   Mail,
   Instagram,
+  Link as LinkIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -194,6 +195,9 @@ export function Navigation() {
                 <a href="mailto:hello@amorglambeauty.com" className="text-zinc-400 hover:text-[#FF69B4]">
                   <Mail className="h-5 w-5" />
                 </a>
+                <Link href="/link-in-bio" className="text-zinc-400 hover:text-[#FF69B4]">
+                  <LinkIcon className="h-5 w-5" />
+                </Link>
               </div>
             </div>
           </div>
