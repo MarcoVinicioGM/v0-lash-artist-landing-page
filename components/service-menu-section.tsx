@@ -138,7 +138,7 @@ export function ServiceMenuSection({ showPrices = true, ...props }: { showPrices
                 {!showPrices && (
                   <Link href="/services" className="absolute inset-0 z-10" />
                 )}
-                <div className="relative aspect-[4/3] overflow-hidden">
+                <div className="relative aspect-[3/2] md:aspect-[4/3] overflow-hidden">
                   <Image
                     src={service.image || "/placeholder.svg"}
                     alt={service.name}

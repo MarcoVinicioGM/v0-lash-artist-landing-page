@@ -22,14 +22,14 @@ export function ShopSection(props: React.HTMLAttributes<HTMLElement>) {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="relative"
+            className="relative lg:px-10"
           >
-            <div className="relative aspect-[3/4] h-[400px] md:h-auto overflow-hidden rounded-none bg-zinc-900">
+            <div className="relative aspect-square md:aspect-[3/4] h-[300px] md:h-auto overflow-hidden rounded-none bg-zinc-900">
               <Image
                 src="/images/lash-glue.png"
                 alt="Amor Glam Professional Lash Adhesive"
                 fill
-                className="object-cover"
+                className="object-cover object-bottom"
               />
             </div>
             {/* Floating Badge */}
