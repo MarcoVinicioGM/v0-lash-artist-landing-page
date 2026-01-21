@@ -15,8 +15,8 @@ const features = [
 export function ShopSection(props: React.HTMLAttributes<HTMLElement>) {
   return (
     <section id="shop" className="bg-black section-padding" {...props}>
-      <div className="container-max">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="container-max">
+        <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
           {/* Product Image */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}

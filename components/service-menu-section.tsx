@@ -5,7 +5,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import { Clock, Award } from "lucide-react";
+import { Award } from "lucide-react";
 
 const tabs = [
   { id: "makeup", label: "Makeup" },
@@ -36,16 +36,12 @@ const services = {
       name: "Microblading",
       price: 400,
       image: "/images/microblading-new.jpg",
-      badge: "3 Hours",
-      badgeIcon: Clock,
     },
     {
       id: 2,
       name: "Signature Facial",
       price: 120,
       image: "/images/anna-glammed.jpeg",
-      badge: "30 Mins",
-      badgeIcon: Clock,
     },
     {
       id: 3,
@@ -82,14 +78,13 @@ export function ServiceMenuSection({ showPrices = true, ...props }: { showPrices
   return (
     <section id="services" className="bg-white section-padding" {...props}>
       <div className="container-max">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-12 text-center"
+          className="mb-4 text-center"
         >
-          <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-black/60">
+          <p className="mb-2 text-sm font-medium uppercase tracking-[0.2em] text-black/60">
             Our Services
           </p>
           <h2 className="font-serif text-4xl font-bold md:text-5xl">
@@ -97,8 +92,7 @@ export function ServiceMenuSection({ showPrices = true, ...props }: { showPrices
           </h2>
         </motion.div>
 
-        {/* Tabs */}
-        <div className="mb-12 flex justify-center">
+        <div className="mb-4 flex justify-center">
           <div className="inline-flex gap-1 rounded-full bg-gray-100 p-1">
             {tabs.map((tab) => (
               <button
@@ -133,7 +127,7 @@ export function ServiceMenuSection({ showPrices = true, ...props }: { showPrices
             transition={{ duration: 0.3 }}
             className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
           >
-            {services[activeTab].map((service, index) => (
+             {services[activeTab].map((service, index) => (
               <motion.div
                 key={service.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -141,6 +135,9 @@ export function ServiceMenuSection({ showPrices = true, ...props }: { showPrices
                 transition={{ delay: index * 0.1 }}
                 className="group relative overflow-hidden rounded-2xl bg-gray-50 flex flex-col h-full"
               >
+                {!showPrices && (
+                  <Link href="/services" className="absolute inset-0 z-10" />
+                )}
                 {/* Image */}
                 <div className="relative aspect-[16/10] md:aspect-[4/3] overflow-hidden">
                   <Image
@@ -177,21 +174,11 @@ export function ServiceMenuSection({ showPrices = true, ...props }: { showPrices
                   )}
 
                   <div className="mt-auto">
-                    {showPrices ? (
+                    {showPrices && (
                       <Button
                         className="w-full bg-black text-white hover:bg-black/80"
                       >
                         Book Appointment
-                      </Button>
-                    ) : (
-                      <Button
-                        variant="outline"
-                        asChild
-                        className="w-full border-black text-black hover:bg-black hover:text-white"
-                      >
-                        <Link href="/services">
-                          View Details
-                        </Link>
                       </Button>
                     )}
                   </div>

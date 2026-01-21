@@ -93,8 +93,8 @@ export function BridalSection(props: React.HTMLAttributes<HTMLElement>) {
 
   return (
     <section id="bridal" className="bg-[#FDF2F8] section-padding" {...props}>
-      <div className="container-max">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="container-max">
+        <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

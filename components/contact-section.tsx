@@ -36,7 +36,7 @@ export function ContactSection(props: React.HTMLAttributes<HTMLElement>) {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-12 text-center"
+          className="mb-4 text-center"
         >
           <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-black/50">
             We&apos;re Here to Help

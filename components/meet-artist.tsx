@@ -6,15 +6,15 @@ import { motion } from "framer-motion";
 export function MeetTheArtist() {
   return (
     <section className="bg-white overflow-hidden section-padding">
-      <div className="container-max">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center">
+        <div className="container-max">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Image Column */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative aspect-[4/5] h-[400px] md:h-auto md:aspect-[4/5] overflow-hidden rounded-none"
+            className="relative aspect-[3/4] md:aspect-[4/5] h-[400px] md:h-auto overflow-hidden rounded-none"
           >
             <Image
               src="/images/anna-outside.jpg"
@@ -31,7 +31,7 @@ export function MeetTheArtist() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-[#FF69B4] mb-4">
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-[#FF69B4] mb-2">
               Meet The Artist
             </p>
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-black mb-8">
@@ -50,7 +50,7 @@ export function MeetTheArtist() {
               </p>
             </div>
             
-            <div className="mt-12">
+            <div className="mt-8">
               <span className="font-serif italic text-4xl text-black block mb-1">
                 Anna Garcia
               </span>
