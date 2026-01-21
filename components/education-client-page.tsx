@@ -1,16 +1,12 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import {
-  Clock,
-  Users,
-  Award,
   Sparkles,
   Palette,
   Briefcase,
-  ArrowRight,
   Star,
   ChevronRight,
 } from "lucide-react"

@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -66,30 +64,31 @@ export function BridalSection() {
     },
   });
 
-  const onSubmit = (data: BridalFormData) => {
-    // Format the data for n8n webhook integration
-    const webhookPayload = {
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      weddingDate: data.weddingDate.toISOString(),
-      venueLocation: data.venueLocation,
-      partySize: data.partySize,
-      details: data.details || "",
-      submittedAt: new Date().toISOString(),
-    };
+  const onSubmit = async (data: BridalFormData) => {
+    try {
+      const payload = {
+        ...data,
+        type: "bridal_inquiry",
+        submittedAt: new Date().toISOString(),
+      };
 
-    console.log(
-      "Bridal Quote Request:",
-      JSON.stringify(webhookPayload, null, 2),
-    );
+      const response = await fetch("/api/forms/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsOpen(false);
-      setIsSubmitted(false);
-      reset();
-    }, 2500);
+      if (!response.ok) throw new Error("Submission failed");
+
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsOpen(false);
+        setIsSubmitted(false);
+        reset();
+      }, 2500);
+    } catch (error) {
+      console.error("Submission error:", error);
+    }
   };
 
   return (

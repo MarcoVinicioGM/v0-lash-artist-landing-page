@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, use } from "react";
+import { useState, use } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -119,24 +119,31 @@ export default function CourseDetailPage({
     },
   });
 
-  const onSubmit = (data: LessonFormData) => {
-    const webhookPayload = {
-      ...data,
-      preferredDate: data.preferredDate.toISOString(),
-      submittedAt: new Date().toISOString(),
-    };
+  const onSubmit = async (data: LessonFormData) => {
+    try {
+      const payload = {
+        ...data,
+        type: "course_inquiry",
+        submittedAt: new Date().toISOString(),
+      };
 
-    console.log(
-      "Course Inquiry Request:",
-      JSON.stringify(webhookPayload, null, 2),
-    );
+      const response = await fetch("/api/forms/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsOpen(false);
-      setIsSubmitted(false);
-      reset();
-    }, 2500);
+      if (!response.ok) throw new Error("Submission failed");
+
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsOpen(false);
+        setIsSubmitted(false);
+        reset();
+      }, 2500);
+    } catch (error) {
+      console.error("Submission error:", error);
+    }
   };
 
   return (

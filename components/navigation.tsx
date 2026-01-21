@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -9,7 +9,6 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
-  SheetFooter,
   SheetClose,
 } from "@/components/ui/sheet";
 import {
@@ -19,9 +18,11 @@ import {
   MapPin,
   Mail,
   Instagram,
+  Facebook,
   Link as LinkIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { SOCIAL_LINKS } from "@/lib/constants";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -188,13 +189,41 @@ export function Navigation() {
                 <MapPin className="h-4 w-4 text-[#FF69B4]" />
                 <span>New Orleans & Metairie, LA</span>
               </div>
-              <div className="flex gap-4 mt-2">
-                <a href="https://instagram.com" className="text-zinc-400 hover:text-[#FF69B4]">
+              <div className="flex items-center gap-3 text-sm text-zinc-600">
+                <Mail className="h-4 w-4 text-zinc-400" />
+                <a href={`mailto:${SOCIAL_LINKS.email}`} className="hover:text-black">
+                  {SOCIAL_LINKS.email}
+                </a>
+              </div>
+              <div className="flex gap-3 mt-2">
+                <a
+                  href={SOCIAL_LINKS.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 transition-colors hover:bg-[#FF69B4] hover:text-white"
+                >
                   <Instagram className="h-5 w-5" />
                 </a>
-                <a href="mailto:hello@amorglambeauty.com" className="text-zinc-400 hover:text-[#FF69B4]">
-                  <Mail className="h-5 w-5" />
+                <a
+                  href={SOCIAL_LINKS.tiktok}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 transition-colors hover:bg-[#FF69B4] hover:text-white"
+                >
+                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                  </svg>
                 </a>
+                <a
+                  href={SOCIAL_LINKS.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 transition-colors hover:bg-[#FF69B4] hover:text-white"
+                >
+                  <Facebook className="h-5 w-5" />
+                </a>
+              </div>
+              <div className="flex gap-3 mt-2">
                 <Link href="/link-in-bio" className="text-zinc-400 hover:text-[#FF69B4]">
                   <LinkIcon className="h-5 w-5" />
                 </Link>

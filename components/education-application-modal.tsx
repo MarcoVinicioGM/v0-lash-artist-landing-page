@@ -1,9 +1,8 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 import { useForm, Controller } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { z } from "zod"
 import { CheckCircle2, Instagram } from "lucide-react"
 import { motion } from "framer-motion"
 
@@ -25,31 +24,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-
-const educationInquirySchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  phone: z.string().min(10, "Please enter a valid phone number"),
-  instagram: z.string().min(1, "Instagram or portfolio handle is required"),
-  experience: z.enum([
-    "Complete Beginner",
-    "Self-Taught",
-    "Licensed Esthetician/Cosmetologist",
-    "Working Artist",
-  ]),
-  goal: z.enum([
-    "Learn Basics",
-    "Perfect my Skin Prep",
-    "Business/Marketing",
-    "Full Career Pivot",
-  ]),
-  modelAvailability: z.enum([
-    "I can bring a model",
-    "I need help finding a model",
-  ]),
-})
-
-type EducationInquiryData = z.infer<typeof educationInquirySchema>
+import { educationInquirySchema, type EducationInquiryData } from "@/lib/schemas"
 
 interface EducationApplicationModalProps {
   isOpen: boolean
@@ -81,22 +56,32 @@ export function EducationApplicationModal({
     },
   })
 
-  const onSubmit = (data: EducationInquiryData) => {
-    const payload = {
-      ...data,
-      type: "education_inquiry",
-      submittedAt: new Date().toISOString(),
+  const onSubmit = async (data: EducationInquiryData) => {
+    try {
+      const payload = {
+        ...data,
+        type: "education_inquiry",
+        submittedAt: new Date().toISOString(),
+      };
+
+      const response = await fetch("/api/forms/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) throw new Error("Submission failed");
+
+      setIsSubmitted(true);
+      setTimeout(() => {
+        onOpenChange(false);
+        setIsSubmitted(false);
+        reset();
+      }, 2500);
+    } catch (error) {
+      console.error("Submission error:", error);
     }
-
-    console.log("Education Inquiry Submission:", JSON.stringify(payload, null, 2))
-
-    setIsSubmitted(true)
-    setTimeout(() => {
-      onOpenChange(false)
-      setIsSubmitted(false)
-      reset()
-    }, 2500)
-  }
+  };
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>

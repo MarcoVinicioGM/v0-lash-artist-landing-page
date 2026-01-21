@@ -5,7 +5,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Clock, Award } from "lucide-react";
+import { Clock, Award } from "lucide-react";
 
 const tabs = [
   { id: "makeup", label: "Makeup" },

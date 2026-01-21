@@ -2,11 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { format } from "date-fns";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { motion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
@@ -39,9 +38,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { lessonFormSchema, type LessonFormData } from "@/lib/schemas";
 
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { GridSkeleton, AccordionSkeleton } from "@/components/skeletons";
 import {
   Sparkles,
   Palette,
@@ -52,22 +53,6 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-/* ─────────────────────────────────────────────────────────────────────────
-   VALIDATION SCHEMA
-   ───────────────────────────────────────────────────────────────────────── */
-
-const lessonFormSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  phone: z.string().min(10, "Please enter a valid phone number"),
-  preferredDate: z.date({ required_error: "Please select a preferred date" }),
-  lessonType: z.string().min(1, "Please select a lesson type"),
-  skillLevel: z.string().min(1, "Please select your skill level"),
-  details: z.string().optional(),
-});
-
-type LessonFormData = z.infer<typeof lessonFormSchema>;
 
 /* ─────────────────────────────────────────────────────────────────────────
    STATIC DATA
@@ -592,7 +577,8 @@ export default function EducationPage() {
             </h2>
           </motion.div>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <Suspense fallback={<GridSkeleton />}>
+            <div className="grid gap-6 md:grid-cols-3">
             {/* Technique Card */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -671,6 +657,7 @@ export default function EducationPage() {
               </div>
             </motion.div>
           </div>
+          </Suspense>
         </div>
       </section>
 
@@ -696,13 +683,15 @@ export default function EducationPage() {
             </h2>
           </motion.div>
 
-          <div className="mx-auto max-w-2xl">
-            <Accordion type="single" collapsible className="w-full space-y-4">
-              {curriculums.map((curriculum) => (
-                <CurriculumCard key={curriculum.id} curriculum={curriculum} />
-              ))}
-            </Accordion>
-          </div>
+          <Suspense fallback={<AccordionSkeleton />}>
+            <div className="mx-auto max-w-2xl">
+              <Accordion type="single" collapsible className="w-full space-y-4">
+                {curriculums.map((curriculum) => (
+                  <CurriculumCard key={curriculum.id} curriculum={curriculum} />
+                ))}
+              </Accordion>
+            </div>
+          </Suspense>
         </div>
       </section>
 

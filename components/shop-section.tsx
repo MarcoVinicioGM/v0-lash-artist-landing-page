@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Check, ShoppingBag, Heart } from "lucide-react";
+import { Check, Heart } from "lucide-react";
 
 const features = [
   "Long-wear formula (8+ hours)",

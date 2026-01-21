@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { ShoppingBag, Heart } from "lucide-react"
+import { Heart } from "lucide-react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 

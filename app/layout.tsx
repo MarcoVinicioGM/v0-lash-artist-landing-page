@@ -1,11 +1,8 @@
 import React from "react"
 import type { Metadata } from 'next'
-import { Inter, Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { WebVitals } from '@/components/web-vitals'
 import './globals.css'
-
-const _inter = Inter({ subsets: ["latin"] });
-const _playfair = Playfair_Display({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: 'Amor Glam Beauty | Artistry Services & Professional Products',
@@ -40,6 +37,7 @@ export default function RootLayout({
       <body className={`font-sans antialiased debug-screens`}>
         {children}
         <Analytics />
+        <WebVitals />
       </body>
     </html>
   )
