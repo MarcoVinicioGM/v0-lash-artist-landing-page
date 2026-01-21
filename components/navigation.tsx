@@ -48,7 +48,7 @@ export function Navigation() {
 
   const navLinks = [
     { href: "/services", label: "Services", hasSubmenu: true, isPage: true },
-    { href: "#shop", label: "Shop", hasSubmenu: true },
+    { href: "/shop", label: "Shop", hasSubmenu: true, isPage: true },
     { href: "#bridal", label: "Bridal", hasSubmenu: false },
     { href: "/education", label: "Education", hasSubmenu: false, isPage: true },
     { href: "#gallery", label: "Gallery", hasSubmenu: false },

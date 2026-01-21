@@ -121,7 +121,7 @@ export function HeroSection() {
                 variant="outline"
                 className="min-w-[160px] border-black bg-transparent text-black hover:bg-black hover:text-white rounded-none transition-all"
               >
-                <Link href="#shop">
+                <Link href="/shop">
                   {/* Pink Heart Restored */}
                   <Heart className="mr-2 h-4 w-4 text-[#FF69B4] fill-current" />
                   Shop Essentials
