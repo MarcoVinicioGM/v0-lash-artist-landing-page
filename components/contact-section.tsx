@@ -18,7 +18,7 @@ import { motion } from "framer-motion";
 import { Mail, MapPin, HelpCircle, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 
-export function ContactSection() {
+export function ContactSection(props: React.HTMLAttributes<HTMLElement>) {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -30,7 +30,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="bg-[#FAFAFA] py-20 md:py-28">
+    <section id="contact" className="bg-[#FAFAFA] py-20 md:py-28" {...props}>
       <div className="mx-auto max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

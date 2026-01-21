@@ -76,11 +76,11 @@ const services = {
 
 type TabId = keyof typeof services;
 
-export function ServiceMenuSection({ showPrices = true }: { showPrices?: boolean }) {
+export function ServiceMenuSection({ showPrices = true, ...props }: { showPrices?: boolean } & React.HTMLAttributes<HTMLElement>) {
   const [activeTab, setActiveTab] = useState<TabId>("makeup");
 
   return (
-    <section id="services" className="bg-white section-padding">
+    <section id="services" className="bg-white section-padding" {...props}>
       <div className="container-max">
         {/* Section Header */}
         <motion.div

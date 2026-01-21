@@ -33,14 +33,16 @@ export default function HomePage() {
   return (
     <main className="min-h-screen">
       <Navigation />
-      <HeroSection />
-      <MeetTheArtist />
-      <ServiceMenuSection showPrices={false} />
-      <ShopSection />
-      <BridalSection />
-      <InstagramSection />
-      <LoveLetters />
-      <ContactSection />
+      <div className="scroll-guided">
+        <HeroSection />
+        <MeetTheArtist />
+        <ServiceMenuSection showPrices={false} data-snap="true" />
+        <ShopSection data-snap="true" />
+        <BridalSection data-snap="true" />
+        <InstagramSection data-snap="true" />
+        <LoveLetters />
+        <ContactSection data-snap="true" />
+      </div>
       <Footer />
     </main>
   );

@@ -12,9 +12,9 @@ const features = [
   "Professional grade adhesion",
 ];
 
-export function ShopSection() {
+export function ShopSection(props: React.HTMLAttributes<HTMLElement>) {
   return (
-    <section id="shop" className="bg-black section-padding">
+    <section id="shop" className="bg-black section-padding" {...props}>
       <div className="container-max">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Product Image */}

@@ -41,7 +41,7 @@ const bridalFormSchema = z.object({
 
 type BridalFormData = z.infer<typeof bridalFormSchema>;
 
-export function BridalSection() {
+export function BridalSection(props: React.HTMLAttributes<HTMLElement>) {
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
@@ -92,7 +92,7 @@ export function BridalSection() {
   };
 
   return (
-    <section id="bridal" className="bg-[#FDF2F8] section-padding">
+    <section id="bridal" className="bg-[#FDF2F8] section-padding" {...props}>
       <div className="container-max">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Content */}

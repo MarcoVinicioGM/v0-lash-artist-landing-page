@@ -130,6 +130,9 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground;
   }
@@ -138,6 +141,15 @@
 /* Enforce Z-Index Hierarchy */
 .z-modal { z-index: 50; }
 .z-sheet { z-index: 60; } /* Sheet stays on top */
+
+/* Soft Scroll Snapping */
+.scroll-guided {
+  scroll-snap-type: y proximity;
+  scroll-padding-top: 100px;
+}
+.scroll-guided > section[data-snap="true"] {
+  scroll-snap-align: start;
+}
 
 @layer utilities {
   .scrollbar-hide::-webkit-scrollbar {

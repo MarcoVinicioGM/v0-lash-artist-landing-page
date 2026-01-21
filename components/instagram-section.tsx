@@ -4,52 +4,9 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Instagram, Play } from "lucide-react";
 
-const galleryItems = [
-  // TikTok slots (9:16 vertical)
-  {
-    type: "tiktok",
-    label: "Latest TikTok",
-    placeholder: true,
-    aspectRatio: "aspect-[9/16]",
-  },
-  {
-    type: "tiktok",
-    label: "Latest TikTok",
-    placeholder: true,
-    aspectRatio: "aspect-[9/16]",
-  },
-  // Instagram slots (1:1 square)
-  {
-    type: "instagram",
-    src: "/images/DarkerSkinComplexion.jpg",
-    alt: "Client makeup look",
-    aspectRatio: "aspect-square",
-  },
-  {
-    type: "instagram",
-    src: "/images/wedding-group.jpg",
-    alt: "Eye makeup detail",
-    aspectRatio: "aspect-square",
-  },
-  // AI Image 1
-  {
-    type: "instagram",
-    src: "/images/anna-profile.jpg",
-    alt: "Blonde makeup look",
-    aspectRatio: "aspect-square",
-  },
-  // AI Image 2
-  {
-    type: "instagram",
-    src: "/images/microblading-alt.jpg",
-    alt: "Bridal makeup look",
-    aspectRatio: "aspect-square",
-  },
-];
-
-export function InstagramSection() {
+export function InstagramSection(props: React.HTMLAttributes<HTMLElement>) {
   return (
-    <section id="gallery" className="bg-white py-20 md:py-32">
+    <section id="gallery" className="bg-white py-20 md:py-32" {...props}>
       <div className="mx-auto max-w-7xl px-6">
         {/* Section Header */}
         <motion.div
