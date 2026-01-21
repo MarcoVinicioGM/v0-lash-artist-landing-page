@@ -16,7 +16,7 @@ export function ShopSection(props: React.HTMLAttributes<HTMLElement>) {
   return (
     <section id="shop" className="bg-black section-padding" {...props}>
         <div className="container-max">
-        <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
+        <div className="grid items-center gap-6 md:grid-cols-2 md:gap-12 lg:grid-cols-2 lg:gap-12">
           {/* Product Image */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -24,7 +24,7 @@ export function ShopSection(props: React.HTMLAttributes<HTMLElement>) {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="relative aspect-[4/5] h-[400px] md:h-auto overflow-hidden rounded-none bg-zinc-900">
+            <div className="relative aspect-[3/4] h-[400px] md:h-auto overflow-hidden rounded-none bg-zinc-900">
               <Image
                 src="/images/lash-glue.png"
                 alt="Amor Glam Professional Lash Adhesive"

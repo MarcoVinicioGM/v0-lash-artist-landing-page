@@ -7,7 +7,7 @@ import { Instagram } from "lucide-react";
 export function InstagramSection(props: React.HTMLAttributes<HTMLElement>) {
   return (
     <section id="gallery" className="bg-white py-20 md:py-32" {...props}>
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-5xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -22,7 +22,7 @@ export function InstagramSection(props: React.HTMLAttributes<HTMLElement>) {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:gap-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -94,6 +94,46 @@ export function InstagramSection(props: React.HTMLAttributes<HTMLElement>) {
               <Image
                 src="/images/microblading-alt.jpg"
                 alt="Bridal makeup look"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-all duration-300 group-hover:bg-black/40">
+                <Instagram className="h-8 w-8 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="group relative overflow-hidden rounded-none"
+          >
+            <div className="relative aspect-square">
+              <Image
+                src="/images/GroupPhotoMakeup.jpg"
+                alt="Group makeup session"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-all duration-300 group-hover:bg-black/40">
+                <Instagram className="h-8 w-8 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+            className="group relative overflow-hidden rounded-none"
+          >
+            <div className="relative aspect-square">
+              <Image
+                src="/images/anna-glammed.jpeg"
+                alt="Glammed look"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />

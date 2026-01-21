@@ -1,7 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import useEmblaCarousel from "embla-carousel-react";
+import { useCallback, useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
 
 const reviews = [
   {
@@ -22,10 +25,42 @@ const reviews = [
 ];
 
 export function LoveLetters() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+    slidesToScroll: 1,
+  });
+
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setCanScrollPrev(emblaApi.canScrollPrev());
+    setCanScrollNext(emblaApi.canScrollNext());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    return () => {
+      if (emblaApi) emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi, onSelect]);
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
   return (
     <section className="bg-white section-padding overflow-hidden">
       <div className="container-max">
-        <div className="mb-16 text-center">
+        <div className="mb-8 md:mb-12 text-center">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-[#FF69B4] mb-3">
             Testimonials
           </p>
@@ -34,36 +69,65 @@ export function LoveLetters() {
           </h2>
         </div>
 
-        <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 scrollbar-hide md:grid md:grid-cols-3 md:overflow-visible pb-4">
-          {reviews.map((review, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-stone-50 p-8 md:p-10 rounded-none border border-stone-100 flex flex-col justify-between min-w-[100%] md:min-w-0 snap-center"
-            >
-              <div>
-                <div className="flex gap-1 mb-6 text-[#FF69B4]">
-                  {[...Array(5)].map((_, starI) => (
-                    <Star key={starI} className="h-4 w-4 fill-current" />
-                  ))}
+        <div className="relative">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex gap-6">
+              {reviews.map((review, i) => (
+                <div
+                  key={i}
+                  className="flex-[0_0_100%] md:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(33.333%-16px)] min-w-0"
+                >
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    className="bg-stone-50 p-8 md:p-10 rounded-none border border-stone-100 flex flex-col justify-between h-full"
+                  >
+                    <div>
+                      <div className="flex gap-1 mb-6 text-[#FF69B4]">
+                        {[...Array(5)].map((_, starI) => (
+                          <Star key={starI} className="h-4 w-4 fill-current" />
+                        ))}
+                      </div>
+                      <p className="text-zinc-600 italic leading-relaxed text-lg mb-8">
+                        &ldquo;{review.text}&rdquo;
+                      </p>
+                    </div>
+                    <div>
+                      <p className="font-serif text-xl text-black mb-1">
+                        {review.author}
+                      </p>
+                      <p className="text-xs font-medium uppercase tracking-widest text-zinc-400">
+                        {review.category}
+                      </p>
+                    </div>
+                  </motion.div>
                 </div>
-                <p className="text-zinc-600 italic leading-relaxed text-lg mb-8">
-                  &ldquo;{review.text}&rdquo;
-                </p>
-              </div>
-              <div>
-                <p className="font-serif text-xl text-black mb-1">
-                  {review.author}
-                </p>
-                <p className="text-xs font-medium uppercase tracking-widest text-zinc-400">
-                  {review.category}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+              ))}
+            </div>
+          </div>
+
+          <div className="flex justify-center gap-4 mt-10 lg:hidden">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={scrollPrev}
+              disabled={!canScrollPrev}
+              className="rounded-full border-black bg-white hover:bg-black hover:text-white disabled:opacity-30"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={scrollNext}
+              disabled={!canScrollNext}
+              className="rounded-full border-black bg-white hover:bg-black hover:text-white disabled:opacity-30"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </Button>
+          </div>
         </div>
       </div>
     </section>

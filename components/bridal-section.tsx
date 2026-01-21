@@ -102,9 +102,6 @@ export function BridalSection(props: React.HTMLAttributes<HTMLElement>) {
             viewport={{ once: true }}
             className="order-2 lg:order-1"
           >
-            <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-black/50">
-              Amor Brides
-            </p>
             <h2 className="mb-6 font-serif text-4xl font-bold text-black md:text-5xl lg:text-6xl">
               Your Big Day,
               <br />
@@ -117,12 +114,12 @@ export function BridalSection(props: React.HTMLAttributes<HTMLElement>) {
             </p>
 
             {/* Bridal Actions */}
-            <div className="flex flex-wrap gap-4">
+            <div className="grid grid-cols-2 gap-3 md:flex md:flex-wrap md:gap-4">
               <Button
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-black bg-transparent text-black transition-all duration-200 hover:bg-black/5 hover:scale-[1.02] active:scale-[0.98]"
+                className="w-full md:w-auto border-black bg-transparent text-black transition-all duration-200 hover:bg-black/5 hover:scale-[1.02] active:scale-[0.98]"
               >
                 <a href="/services">Book Bridal Trial</a>
               </Button>
@@ -130,7 +127,7 @@ export function BridalSection(props: React.HTMLAttributes<HTMLElement>) {
                 <DialogTrigger asChild>
                   <Button
                     size="lg"
-                    className="bg-black text-white transition-all duration-200 hover:bg-black/80 hover:scale-[1.02] active:scale-[0.98]"
+                    className="w-full md:w-auto bg-black text-white transition-all duration-200 hover:bg-black/80 hover:scale-[1.02] active:scale-[0.98]"
                   >
                     Request Wedding Quote
                   </Button>
@@ -344,12 +341,12 @@ export function BridalSection(props: React.HTMLAttributes<HTMLElement>) {
             viewport={{ once: true }}
             className="order-1 lg:order-2"
           >
-            <div className="relative aspect-[4/5] overflow-hidden rounded-none">
+            <div className="relative aspect-[4/4.5] md:aspect-[4/4] lg:aspect-[4/4.5] overflow-hidden rounded-none">
               <Image
                 src="/images/bridal-hero.jpg"
                 alt="Beautiful bride with flawless makeup"
                 fill
-                className="object-cover"
+                className="object-cover object-bottom"
               />
             </div>
           </motion.div>

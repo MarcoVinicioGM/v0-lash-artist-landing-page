@@ -26,7 +26,7 @@ const services = {
       id: 2,
       name: "Full Glam",
       price: 150,
-      image: "/images/bridal-alt.jpg",
+      image: "/images/famous-person-glammed.jpg",
       description: "Bold and camera-ready",
     },
   ],
@@ -93,12 +93,12 @@ export function ServiceMenuSection({ showPrices = true, ...props }: { showPrices
         </motion.div>
 
         <div className="mb-4 flex justify-center">
-          <div className="inline-flex gap-1 rounded-full bg-gray-100 p-1">
+          <div className="inline-flex gap-0.5 rounded-full bg-gray-100 p-0.5">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as TabId)}
-                className={`relative rounded-full px-6 py-2.5 text-sm font-medium transition-all ${
+                className={`relative rounded-full px-3 py-1.5 text-sm font-medium transition-all ${
                   activeTab === tab.id
                     ? "text-white"
                     : "text-black/70 hover:text-black"
@@ -138,8 +138,7 @@ export function ServiceMenuSection({ showPrices = true, ...props }: { showPrices
                 {!showPrices && (
                   <Link href="/services" className="absolute inset-0 z-10" />
                 )}
-                {/* Image */}
-                <div className="relative aspect-[16/10] md:aspect-[4/3] overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
                     src={service.image || "/placeholder.svg"}
                     alt={service.name}
@@ -147,28 +146,27 @@ export function ServiceMenuSection({ showPrices = true, ...props }: { showPrices
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   {"badge" in service && (
-                    <div className="absolute left-4 top-4 flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-xs font-medium backdrop-blur-sm">
+                    <div className="absolute left-3 top-3 md:left-4 md:top-4 flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 md:px-3 md:py-1.5 text-[10px] md:text-xs font-medium backdrop-blur-sm">
                       {service.badgeIcon && (
-                        <service.badgeIcon className="h-3.5 w-3.5" />
+                        <service.badgeIcon className="h-3 w-3 md:h-3.5 md:w-3.5" />
                       )}
                       {service.badge}
                     </div>
                   )}
                 </div>
 
-                {/* Content */}
-                <div className="flex flex-col flex-1 p-5">
-                  <div className="flex items-start justify-between mb-2">
-                    <h3 className="font-serif text-lg font-semibold">
+                <div className="flex flex-col flex-1 p-3 md:p-5">
+                  <div className="flex items-start justify-between mb-0 md:mb-2">
+                    <h3 className="font-serif text-base md:text-lg font-semibold">
                       {service.name}
                     </h3>
                     {showPrices && (
-                      <p className="text-lg font-bold">${service.price}</p>
+                      <p className="text-base md:text-lg font-bold">${service.price}</p>
                     )}
                   </div>
                   
                   {"description" in service && (
-                    <p className="text-sm text-black/60 mb-6">
+                    <p className="hidden md:block text-xs md:text-sm text-black/60 mb-4 md:mb-6">
                       {service.description}
                     </p>
                   )}
