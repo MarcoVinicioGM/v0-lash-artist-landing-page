@@ -8,10 +8,11 @@ const ServiceMenuSection = dynamic(() =>
   import("@/components/service-menu-section").then(mod => mod.ServiceMenuSection),
   { loading: () => <div className="h-96 w-full animate-pulse bg-zinc-50" /> }
 );
-const ShopSection = dynamic(() => 
-  import("@/components/shop-section").then(mod => mod.ShopSection),
-  { loading: () => <div className="h-96 w-full animate-pulse bg-zinc-50" /> }
-);
+// ShopSection kept available for future use but removed from homepage
+// const ShopSection = dynamic(() => 
+//   import("@/components/shop-section").then(mod => mod.ShopSection),
+//   { loading: () => <div className="h-96 w-full animate-pulse bg-zinc-50" /> }
+// );
 const BridalSection = dynamic(() => 
   import("@/components/bridal-section").then(mod => mod.BridalSection),
   { loading: () => <div className="h-96 w-full animate-pulse bg-zinc-50" /> }
@@ -37,7 +38,7 @@ export default function HomePage() {
         <HeroSection />
         <MeetTheArtist />
         <ServiceMenuSection showPrices={false} data-snap="true" />
-        <ShopSection data-snap="true" />
+        {/* ShopSection removed from homepage - shop page still available at /shop */}
         <BridalSection data-snap="true" />
         <InstagramSection data-snap="true" />
         <LoveLetters />

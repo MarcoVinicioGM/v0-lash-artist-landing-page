@@ -22,9 +22,12 @@ export function Footer() {
             <h3 className="mb-4 font-serif text-2xl font-bold">
               AMOR GLAM BEAUTY
             </h3>
-            <p className="mb-6 text-sm leading-relaxed text-white/60">
+            <p className="mb-2 text-sm leading-relaxed text-white/60">
               High-end artistry services and professional-grade beauty products
               for the modern woman.
+            </p>
+            <p className="mb-6 text-xs text-[#FF69B4] font-medium">
+              Licensed Aesthetician | New Orleans, LA
             </p>
             <div className="flex gap-4">
               <Link
@@ -80,7 +83,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-white/60">
               <li>
                 <Link
-                  href="/#services"
+                  href="/services"
                   className="transition-colors hover:text-white"
                 >
                   Services
@@ -88,7 +91,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/#shop"
+                  href="/shop"
                   className="transition-colors hover:text-white"
                 >
                   Shop
@@ -96,7 +99,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/#bridal"
+                  href="/bridal"
                   className="transition-colors hover:text-white"
                 >
                   Bridal
@@ -104,10 +107,18 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/#gallery"
+                  href="/gallery"
                   className="transition-colors hover:text-white"
                 >
                   Gallery
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/education"
+                  className="transition-colors hover:text-white"
+                >
+                  Education
                 </Link>
               </li>
             </ul>
@@ -135,26 +146,10 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/faq?tab=faqs"
+                  href="/faq"
                   className="transition-colors hover:text-white"
                 >
                   FAQ
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/education"
-                  className="transition-colors hover:text-white"
-                >
-                  Education
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/track-order"
-                  className="transition-colors hover:text-white"
-                >
-                  Track Order
                 </Link>
               </li>
             </ul>

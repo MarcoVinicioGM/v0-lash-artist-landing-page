@@ -12,17 +12,17 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import {
-  ShoppingBag,
   Menu,
   ChevronRight,
   MapPin,
   Mail,
   Instagram,
   Facebook,
+  Heart,
   Link as LinkIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { SOCIAL_LINKS } from "@/lib/constants";
+import { SOCIAL_LINKS, BOOKING_URLS } from "@/lib/constants";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,12 +48,11 @@ export function Navigation() {
 
   const navLinks = [
     { href: "/services", label: "Services", hasSubmenu: true, isPage: true },
-    { href: "/shop", label: "Shop", hasSubmenu: true, isPage: true },
-    { href: "#bridal", label: "Bridal", hasSubmenu: false },
+    { href: "/shop", label: "Shop", hasSubmenu: false, isPage: true },
+    { href: "/bridal", label: "Bridal", hasSubmenu: false, isPage: true },
     { href: "/education", label: "Education", hasSubmenu: false, isPage: true },
-    { href: "#gallery", label: "Gallery", hasSubmenu: false },
+    { href: "/gallery", label: "Gallery", hasSubmenu: false, isPage: true },
     { href: "/faq", label: "FAQ", hasSubmenu: false, isPage: true },
-    { href: "#contact", label: "Contact", hasSubmenu: false },
   ];
 
   const handleNavClick = (
@@ -136,24 +135,35 @@ export function Navigation() {
           )}
         </div>
 
-        {/* Icons */}
+        {/* Book Now Button */}
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" className="relative text-zinc-800 hover:text-[#FF69B4]">
-            <ShoppingBag className="h-5 w-5" />
-            <span className="absolute right-0 top-0 flex h-4 w-4 items-center justify-center rounded-full bg-[#FF69B4] text-[10px] font-bold text-white">
-              0
-            </span>
+          <Button 
+            asChild
+            className="bg-[#FF69B4] text-white hover:bg-[#FF69B4]/90 rounded-none text-[10px] sm:text-xs font-semibold px-3 sm:px-5 py-1 sm:py-1.5 h-8 sm:h-9"
+          >
+            <a href={BOOKING_URLS.general} target="_blank" rel="noopener noreferrer">
+              Book Now
+            </a>
           </Button>
         </div>
       </nav>
 
       {/* Mobile Menu Sheet */}
       <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-        <SheetContent side="left" className="w-[85%] max-w-sm p-0 flex flex-col bg-white">
-          <SheetHeader className="border-b px-6 py-6 text-left">
+        <SheetContent 
+          side="left" 
+          className="w-[85%] max-w-sm p-0 flex flex-col bg-white group"
+          data-bridal-nav={pathname === "/bridal" ? "true" : "false"}
+        >
+          <SheetHeader className="border-b px-6 py-6 text-left relative">
             <SheetTitle className="font-serif text-xl font-bold tracking-widest">
               AMOR GLAM
             </SheetTitle>
+            {pathname === "/bridal" && (
+              <div className="absolute right-6 top-1/2 -translate-y-1/2 text-[#FF69B4]">
+                <Heart className="h-6 w-6 fill-[#FF69B4]/20" />
+              </div>
+            )}
           </SheetHeader>
 
           <div className="flex-1 overflow-y-auto">

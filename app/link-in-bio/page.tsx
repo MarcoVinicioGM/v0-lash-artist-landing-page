@@ -174,7 +174,7 @@ export default function LinkInBioPage() {
             subtitle="Convenient Online Booking"
           />
           <LinkButton
-            href="/#bridal"
+            href="/bridal"
             icon={<Heart className="h-5 w-5 fill-white" />}
             title="Bridal Bookings"
             subtitle="Request a Quote For Wedding Glam"
