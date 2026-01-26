@@ -8,9 +8,14 @@ import { Button } from "@/components/ui/button";
 
 const reviews = [
   {
-    text: "Anna did my makeup as well as my entire bridal party for my wedding, bridal shower, and rehearsal! From someone who doesn't trust many people to do my makeup, she was an absolute breeze to work with.",
-    author: "Sierra B.",
-    category: "Bridal Client",
+    text: "10/10 birthday glam! The blend, the glow, the lashes, the lip…everything was perfect! I felt like the best version of myself and got so many compliments. You truly have a gift.",
+    author: "Joana R.",
+    category: "Birthday Glam",
+  },
+  {
+    text: "I've been going to Anna for six years now, and she's the only person I trust to do my makeup. She's the G.O.A.T. Even though I live in Texas now, I still go to her for any important events when I'm back home!",
+    author: "Deidra S.",
+    category: "Long-term Client",
   },
   {
     text: "The best MUA! Makeup is always flawless and lasts 12+ hours. She listens to what you want and executes it perfectly. I always feel so stunning after leaving her chair. Book with Anna!",
@@ -18,9 +23,19 @@ const reviews = [
     category: "Full Glam Client",
   },
   {
-    text: "I've been going to Anna for six years now, and she's the only person I trust. Even though I live in Texas now, I still go to her for any important events when I'm back home!",
-    author: "Deidra S.",
-    category: "Long-term Client",
+    text: "Anna is not only a joy to be around but is so incredibly talented! I've literally never felt prettier or more confident. Her technique is amazing lasted all night and looked beautiful in photographs.",
+    author: "Reina T.",
+    category: "Glam Client",
+  },
+  {
+    text: "She was absolutely amazing!!! She did my makeup for my bridal shower and I was obsessed with it! I got so many compliments the day of. I will definitely be back!",
+    author: "Carly P.",
+    category: "Bridal Shower",
+  },
+  {
+    text: "After being hesitant on letting anyone do my makeup. I decided to try out Anna and absolutely loved her work. Expect not only a beautiful glam but also a good time! She's so sweet and has an exceptional work ethic.",
+    author: "Stephanie M.",
+    category: "New Client",
   },
 ];
 
@@ -90,7 +105,7 @@ export function LoveLetters() {
                           <Star key={starI} className="h-4 w-4 fill-current" />
                         ))}
                       </div>
-                      <p className="text-zinc-600 italic leading-relaxed text-lg mb-8">
+                      <p className="text-zinc-600 italic leading-relaxed text-lg mb-8" suppressHydrationWarning>
                         &ldquo;{review.text}&rdquo;
                       </p>
                     </div>

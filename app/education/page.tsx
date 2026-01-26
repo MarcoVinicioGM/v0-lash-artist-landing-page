@@ -134,24 +134,32 @@ function LessonInquiryDialog({
     },
   });
 
-  const onSubmit = (data: LessonFormData) => {
-    const webhookPayload = {
-      ...data,
-      preferredDate: data.preferredDate.toISOString(),
-      submittedAt: new Date().toISOString(),
-    };
+  const onSubmit = async (data: LessonFormData) => {
+    try {
+      const payload = {
+        ...data,
+        preferredDate: data.preferredDate.toISOString(),
+        type: "lesson_inquiry",
+        submittedAt: new Date().toISOString(),
+      };
 
-    console.log(
-      "Lesson Inquiry Request:",
-      JSON.stringify(webhookPayload, null, 2),
-    );
+      const response = await fetch("/api/forms/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
-    setIsSubmitted(true);
-    setTimeout(() => {
-      onOpenChange(false);
-      setIsSubmitted(false);
-      reset();
-    }, 2500);
+      if (!response.ok) throw new Error("Submission failed");
+
+      setIsSubmitted(true);
+      setTimeout(() => {
+        onOpenChange(false);
+        setIsSubmitted(false);
+        reset();
+      }, 2500);
+    } catch (error) {
+      console.error("Lesson inquiry submission error:", error);
+    }
   };
 
   return (

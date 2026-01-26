@@ -193,9 +193,25 @@ function BridalInquiryForm({ onSuccess }: { onSuccess: () => void }) {
   });
 
   const onSubmit = async (data: BridalFormData) => {
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    console.log("Bridal Lead:", data);
-    onSuccess();
+    try {
+      const payload = {
+        ...data,
+        type: "bridal_inquiry",
+        submittedAt: new Date().toISOString(),
+      };
+
+      const response = await fetch("/api/forms/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) throw new Error("Submission failed");
+
+      onSuccess();
+    } catch (error) {
+      console.error("Bridal inquiry submission error:", error);
+    }
   };
 
   return (

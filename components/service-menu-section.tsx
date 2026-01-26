@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { BOOKING_LINKS } from "@/lib/constants";
+import { useSearchParams } from "next/navigation";
 
 const tabs = [
   { id: "makeup", label: "Makeup" },
@@ -86,7 +87,15 @@ const services = {
 type TabId = keyof typeof services;
 
 export function ServiceMenuSection({ showPrices = true, ...props }: { showPrices?: boolean } & React.HTMLAttributes<HTMLElement>) {
+  const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState<TabId>("makeup");
+
+  useEffect(() => {
+    const tabParam = searchParams.get("tab");
+    if (tabParam && ["makeup", "brows", "bridal"].includes(tabParam)) {
+      setActiveTab(tabParam as TabId);
+    }
+  }, [searchParams]);
 
   return (
     <section id="services" className="bg-white section-padding" {...props}>
@@ -150,7 +159,7 @@ export function ServiceMenuSection({ showPrices = true, ...props }: { showPrices
                 className="group relative overflow-hidden rounded-2xl bg-gray-50 flex flex-col h-full"
               >
                 {!showPrices && (
-                  <Link href="/services" className="absolute inset-0 z-10" />
+                  <Link href={`/services?tab=${activeTab}`} className="absolute inset-0 z-10" />
                 )}
                  <div className="relative aspect-[3/2] md:aspect-[4/3] overflow-hidden">
                    <Image

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SOCIAL_LINKS } from "@/lib/constants";
 
 const tabs = [
   { id: "glam", label: "Glam" },
@@ -100,7 +101,8 @@ export function InstagramSection(props: React.HTMLAttributes<HTMLElement>) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
-                className="group relative overflow-hidden rounded-none"
+                className="group relative overflow-hidden rounded-none cursor-pointer"
+                onClick={() => window.open(SOCIAL_LINKS.instagram, '_blank', 'noopener,noreferrer')}
               >
                 <div className="relative aspect-square">
                   <Image

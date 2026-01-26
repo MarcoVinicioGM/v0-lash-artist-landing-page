@@ -8,24 +8,28 @@ import { Button } from "@/components/ui/button";
 
 const reviews = [
   {
-    text: "10/10 she gets the job done right every single time. My lashes last forever.",
-    author: "Jessica M.",
+    text: "10/10 birthday glam! The blend, the glow, the lashes, the lip…everything was perfect! I felt like the best version of myself and got so many compliments. You truly have a gift.",
+    author: "Joana R.",
   },
   {
-    text: "Best lashes I've ever had! The attention to detail is unmatched.",
-    author: "Samantha K.",
+    text: "I've been going to Anna for six years now, and she's the only person I trust to do my makeup. She's the G.O.A.T.",
+    author: "Deidra S.",
   },
   {
-    text: "I'm obsessed! Everyone asks me where I get my lashes done.",
-    author: "Tiffany R.",
+    text: "The best MUA! Makeup is always flawless and lasts 12+ hours. She listens to what you want and executes it perfectly. I always feel so stunning after leaving her chair.",
+    author: "Morgan P.",
   },
   {
-    text: "Professional, talented, and makes you feel like a queen.",
-    author: "Maria L.",
+    text: "Anna is not only a joy to be around but is so incredibly talented! I've literally never felt prettier or more confident. Her technique is amazing lasted all night and looked beautiful in photographs.",
+    author: "Reina T.",
   },
   {
-    text: "My go-to for over 2 years now. Can't imagine going anywhere else!",
-    author: "Ashley B.",
+    text: "She was absolutely amazing!!! She did my makeup for my bridal shower and I was obsessed with it! I got so many compliments the day of.",
+    author: "Carly P.",
+  },
+  {
+    text: "After being hesitant on letting anyone do my makeup. I decided to try out Anna and absolutely loved her work. Expect not only a beautiful glam but also a good time! She's so sweet and has an exceptional work ethic.",
+    author: "Stephanie M.",
   },
 ];
 

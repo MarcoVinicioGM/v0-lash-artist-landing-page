@@ -20,13 +20,48 @@ import Link from "next/link";
 
 export function ContactSection(props: React.HTMLAttributes<HTMLElement>) {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 3000);
+    setIsSubmitting(true);
+
+    try {
+      const form = e.currentTarget;
+      const formData = new FormData(form);
+
+      const name = formData.get("contact-name") as string;
+      const email = formData.get("contact-email") as string;
+      const subject = formData.get("subject") as string;
+      const message = formData.get("contact-message") as string;
+
+      const payload = {
+        name,
+        email,
+        subject,
+        message,
+        type: "general_contact",
+        submittedAt: new Date().toISOString(),
+      };
+
+      const response = await fetch("/api/forms/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) throw new Error("Submission failed");
+
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        form.reset();
+      }, 3000);
+    } catch (error) {
+      console.error("Contact form submission error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -206,9 +241,10 @@ export function ContactSection(props: React.HTMLAttributes<HTMLElement>) {
 
                   <Button
                     type="submit"
+                    disabled={isSubmitting}
                     className="w-full bg-black text-white transition-all duration-200 hover:bg-black/80 hover:scale-[1.02] active:scale-[0.98]"
                   >
-                    Send Message
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               )}
