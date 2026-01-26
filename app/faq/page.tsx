@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 const policies = [
   {
     question: "Cancellation Policy",
-    answer: "We require 24 hours notice for all cancellations. Cancellations with less than 24 hours notice will forfeit their deposit. No-shows will be charged 100% of the service fee.",
+    answer: "We require 1 week notice for cancellations. For weddings, you must advise us of cancellations 3 months beforehand. Cancellations made with less notice may be subject to fees.",
   },
   {
-    question: "Deposits & Payments",
-    answer: "A non-refundable deposit is required to secure all bookings. The remaining balance is due on the day of service via cash, Zelle, or credit card.",
+    question: "Payment Methods",
+    answer: "We accept Cash, Venmo, or Card for deposits and payments.",
   },
   {
     question: "Late Arrivals",
@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     question: "How should I prep my skin?",
-    answer: "Please arrive with a clean, moisturized face. Avoid exfoliating or new skincare treatments 48 hours prior to your appointment.",
+    answer: "Please arrive with a clean, moisturized face. We recommend exfoliating or dermaplaning week of your appointment.",
   },
   {
     question: "What is your signature style?",

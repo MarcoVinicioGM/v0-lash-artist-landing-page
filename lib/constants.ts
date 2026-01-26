@@ -2,7 +2,7 @@ export const SOCIAL_LINKS = {
   instagram: "https://www.instagram.com/makeupbyannagarcia/?hl=en",
   tiktok: "https://www.tiktok.com/@anna6arcia?lang=en",
   facebook: "https://www.facebook.com/makeupbyannagarcia/",
-  email: "hello@amorglambeauty.com",
+  email: "info@makeupbyannagarcia.com",
 };
 
 export const CONTACT_LINKS = {
@@ -33,6 +33,7 @@ export const BOOKING_LINKS = {
   softGlam: `https://book.squareup.com/appointments/qfxgtk2tjw6cdx/location/1KGG5A28052PD?buttonTextColor=000000&color=ffb2f0&locale=en&referrer=so&service_id=3S4Z5ABQFLR3BH5NWRFBSBET`,
   fullGlam: `https://book.squareup.com/appointments/qfxgtk2tjw6cdx/location/1KGG5A28052PD?buttonTextColor=000000&color=ffb2f0&locale=en&referrer=so&service_id=3S4Z5ABQFLR3BH5NWRFBSBET`,
   bridal: `https://book.squareup.com/appointments/qfxgtk2tjw6cdx/location/1KGG5A28052PD?buttonTextColor=000000&color=ffb2f0&locale=en&referrer=so&service_id=WITZHMIKG74YCA5QCJPPTEIO`,
+  bridalTrial: `https://book.squareup.com/appointments/qfxgtk2tjw6cdx/location/1KGG5A28052PD/services/O2KRRBL5VCUITWNIUC7K6NIM`,
   microblading: `https://book.squareup.com/appointments/qfxgtk2tjw6cdx/location/1KGG5A28052PD?buttonTextColor=000000&color=ffb2f0&locale=en&referrer=so&service_id=KPUQEF4UNIOFG53NM5WWHX4N`,
   browLaminationBundle: `https://book.squareup.com/appointments/qfxgtk2tjw6cdx/location/1KGG5A28052PD?buttonTextColor=000000&color=ffb2f0&locale=en&referrer=so&service_id=AX6HUA2WQVNGK3NEFAL2TPPT`,
   houseCall: `https://book.squareup.com/appointments/qfxgtk2tjw6cdx/location/1KGG5A28052PD?buttonTextColor=000000&color=ffb2f0&locale=en&referrer=so&service_id=SBGABWWO4OVYOD7NLFPKL27C`,

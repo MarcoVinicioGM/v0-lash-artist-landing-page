@@ -23,9 +23,7 @@ export function BridalSection(props: React.HTMLAttributes<HTMLElement>) {
               <span className="italic">Perfected.</span>
             </h2>
             <p className="mb-6 text-lg leading-relaxed text-black/70">
-              From the engagement party to the honeymoon, we ensure you look
-              flawless at every milestone. Our bridal packages include trials,
-              touch-up kits, and day-of artistry.
+              From your engagement party to the moment you say 'I do', I craft every detail so you feel confident, radiant, and absolutely special on such a memorable moment.
             </p>
 
             {/* Bridal Actions */}

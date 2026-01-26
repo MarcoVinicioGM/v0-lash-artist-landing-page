@@ -12,7 +12,7 @@ const reviews = [
     author: "Joana R.",
   },
   {
-    text: "I've been going to Anna for six years now, and she's the only person I trust to do my makeup. She's the G.O.A.T.",
+    text: "I've been going to Anna for 8 years now, and she's the only person I trust to do my makeup. She's G.O.A.T.",
     author: "Deidra S.",
   },
   {

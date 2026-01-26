@@ -67,7 +67,7 @@ const curriculums = [
     target: "Everyday Women",
     details: "Hands-on • Bring your own makeup bag",
     description:
-      "Learn how to do your own full face for events and daily wear. We audit your kit and teach you the 'Amor' techniques. You'll leave with a personalized face chart and shopping list.",
+      "Learn how to do your own full face for events and daily wear. We audit your kit and teach you 'Amor' techniques. You'll leave with a personalized shopping list. Available on Weekdays only.",
     action: "View Course Details",
   },
   {
@@ -78,7 +78,7 @@ const curriculums = [
     target: "Career",
     details: "Model Required • Certification included",
     description:
-      "For the artist ready to start their business. Learn sanitation, skin prep, color theory, and business basics. Includes a full kit audit, portfolio building tips, and a certificate of completion.",
+      "For the artist ready to start their business. Learn sanitation, skin prep, color theory, and business basics. Includes a full kit audit, portfolio building tips, and hands-on experience. Available on Weekdays only.",
     action: "View Course Details",
   },
 ];
@@ -87,7 +87,7 @@ const features = [
   {
     icon: Sparkles,
     title: "Real World Experience",
-    description: "2,400+ clients served across bridal, editorial, and studio. Anna handled every single booking.",
+    description: "3,000+ clients served across bridal, editorial, and studio. Anna handled every single booking.",
   },
   {
     icon: Palette,
@@ -504,7 +504,7 @@ export default function EducationPage() {
           >
             <span className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/30">
               <Star className="h-3.5 w-3.5 fill-[#FF69B4] text-[#FF69B4]" />
-              2,400+ Bookings Served
+              3,000+ Bookings Served
             </span>
           </motion.div>
 

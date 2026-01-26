@@ -1,7 +1,5 @@
-import { Navigation } from "@/components/navigation";
-import { Footer } from "@/components/footer";
-import { BridalGallery } from "@/components/bridal-gallery";
-import type { Metadata } from "next";
+import { Metadata } from "next";
+import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Bridal Gallery | Amor Glam",
@@ -9,11 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function BridalGalleryPage() {
-  return (
-    <main className="min-h-screen">
-      <Navigation />
-      <BridalGallery />
-      <Footer />
-    </main>
-  );
+  redirect("/bridal");
 }

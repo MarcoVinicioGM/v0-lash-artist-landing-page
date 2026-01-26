@@ -30,7 +30,7 @@ const curriculums = [
     target: "Everyday Women",
     details: "Hands-on • Bring your own makeup bag",
     description:
-      "Learn how to do your own full face for events and daily wear. We audit your kit and teach you the 'Amor' techniques. You'll leave with a personalized face chart and shopping list.",
+      "Learn how to do your own full face for events and daily wear. We audit your kit and teach you 'Amor' techniques. You'll leave with a personalized shopping list. Available on Weekdays only.",
     price: "$250",
     action: "Book Lesson",
     href: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0X5R8H0zX-X0Z0X0Z0X0Z0X0Z0", // Placeholder for calendar
@@ -39,10 +39,10 @@ const curriculums = [
     id: "mua-intensive",
     title: "The Aspiring MUA Intensive",
     duration: "4 Hours",
-    target: "Career",
+    target: "Career Artists",
     details: "Model Required • Certification included",
     description:
-      "For the artist ready to start their business. Learn sanitation, skin prep, color theory, and business basics. Includes a full kit audit, portfolio building tips, and a certificate of completion.",
+      "For the artist ready to start their business. Learn sanitation, skin prep, color theory, and business basics. Includes a full kit audit, portfolio building tips, and hands-on experience. Available on Weekdays only.",
     price: "$550",
     action: "Apply for Mentorship",
     href: "#",
@@ -198,7 +198,7 @@ export function EducationClientPage() {
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">
               <Image
-                src="/images/bridal-hero.jpg"
+                src="/images/Studio-Pregant-Lighter-Photo-Calmer.JPG"
                 alt="Bridal Makeup Education"
                 fill
                 className="object-cover transition-transform duration-500 hover:scale-105"
@@ -214,7 +214,7 @@ export function EducationClientPage() {
             </div>
             <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">
               <Image
-                src="/images/DarkerSkinComplexion.jpg"
+                src="/images/Glam-Headshot-Channen-Famou-Person.JPEG"
                 alt="Color Theory and Skin Prep"
                 fill
                 className="object-cover transition-transform duration-500 hover:scale-105"
@@ -240,8 +240,8 @@ export function EducationClientPage() {
               <AccordionContent className="text-zinc-500">For the Pro Intensive, you will need a model for the second half of the day.</AccordionContent>
             </AccordionItem>
             <AccordionItem value="q3">
-              <AccordionTrigger className="text-zinc-900">Do I receive a certificate?</AccordionTrigger>
-              <AccordionContent className="text-zinc-500">Yes, all Pro Intensive graduates receive a signed certificate of completion.</AccordionContent>
+              <AccordionTrigger className="text-zinc-900">What is included in the MUA Intensive?</AccordionTrigger>
+              <AccordionContent className="text-zinc-500">Includes full kit audit, portfolio building tips, and hands-on experience with a model.</AccordionContent>
             </AccordionItem>
           </Accordion>
         </div>

@@ -13,7 +13,13 @@ const faqItems = [
     id: "cancellation",
     question: "Cancellation Policy",
     answer:
-      "Please provide 24 hours notice for any cancellations or rescheduling. Cancellations made less than 24 hours before your appointment may be subject to a cancellation fee of 50% of the service price. No-shows will be charged the full service amount.",
+      "We require 1 week notice for cancellations. For weddings, you must advise us of cancellations 3 months beforehand. Cancellations made with less notice may be subject to fees.",
+  },
+  {
+    id: "payments",
+    question: "Payment Methods",
+    answer:
+      "We accept Cash, Venmo, or Card for deposits and payments.",
   },
   {
     id: "late-arrivals",

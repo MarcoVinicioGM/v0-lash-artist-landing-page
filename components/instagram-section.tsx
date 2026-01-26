@@ -17,12 +17,12 @@ const tabs = [
 // Gallery images organized by category
 const galleryImages = {
   glam: [
-    { src: "/images/DarkerSkinComplexion.jpg", alt: "Soft glam makeup look" },
+    { src: "/images/Studio-Pregant-Lighter-Photo-Calmer.JPG", alt: "Soft glam makeup look" },
     { src: "/images/blonde.jpg", alt: "Full glam transformation" },
-    { src: "/images/famous-person-glammed.jpg", alt: "Celebrity-style glam" },
+    { src: "/images/Glam-Headshot-Channen-Famou-Person.JPEG", alt: "Celebrity-style glam" },
     { src: "/images/client-news.jpg", alt: "Natural beauty enhancement" },
     { src: "/images/GroupPhotoMakeup.jpg", alt: "Group glam session" },
-    { src: "/images/wedding-example.jpg", alt: "Signature soft glam" },
+    { src: "/images/Headshot-Darker-Complexion-Makeup.jpg", alt: "Signature soft glam" },
   ],
   bridal: [
     { src: "/images/bridal-hero.jpg", alt: "Radiant bridal beauty" },

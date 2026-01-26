@@ -13,7 +13,7 @@ const reviews = [
     category: "Birthday Glam",
   },
   {
-    text: "I've been going to Anna for six years now, and she's the only person I trust to do my makeup. She's the G.O.A.T. Even though I live in Texas now, I still go to her for any important events when I'm back home!",
+    text: "I've been going to Anna for 8 years now, and she's the only person I trust to do my makeup. She's G.O.A.T. Even though I live in Texas now, I still go to her for any important events when I'm back home!",
     author: "Deidra S.",
     category: "Long-term Client",
   },

@@ -39,14 +39,10 @@ export function MeetTheArtist() {
             </h2>
             <div className="space-y-6 text-lg text-zinc-600 leading-relaxed">
               <p>
-                I believe makeup shouldn&apos;t mask your features—it should celebrate them. 
-                With over 5 years of experience and 1,000+ faces glamorized, my signature 
-                style blends red-carpet precision with real-world wearability.
+                I stumbled upon the world of beauty when I immigrated to this country at 9 years old. In an entirely new environment with a new language and culture, I fled reality by playing with makeup, something I was passionate about since a baby when I would crawl with a lipstick in my hand.
               </p>
               <p>
-                Every client who sits in my chair receives more than just a service; 
-                they receive a personalized transformation designed to highlight 
-                their unique bone structure and natural radiance.
+                Shortly after entering high school, I was recognized locally and acquired fully booked weekends by my sophomore year. With 8 years of experience and thousands of faces and hundreds of brides glamorized, my signature style blends red-carpet precision with real-world wearability.
               </p>
             </div>
             

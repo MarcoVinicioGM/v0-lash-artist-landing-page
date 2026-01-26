@@ -66,7 +66,7 @@ const courseData = {
     target: "Everyday Women",
     details: "Hands-on • Bring your own makeup bag",
     description:
-      "Learn how to do your own full face for events and daily wear. We audit your kit and teach you 'Amor' techniques. You'll leave with a personalized face chart and shopping list.",
+      "Learn how to do your own full face for events and daily wear. We audit your kit and teach you 'Amor' techniques. You'll leave with a personalized shopping list. Available on Weekdays only.",
     price: "$250",
     image: "/images/anna-makeup-room.jpg",
     action: "Book Lesson",
@@ -77,7 +77,7 @@ const courseData = {
     target: "Career Artists",
     details: "Model Required • Certification included",
     description:
-      "For the artist ready to start their business. Learn sanitation, skin prep, color theory, and business basics. Includes a full kit audit, portfolio building tips, and a certificate of completion.",
+      "For the artist ready to start their business. Learn sanitation, skin prep, color theory, and business basics. Includes a full kit audit, portfolio building tips, and hands-on experience. Available on Weekdays only.",
     price: "$550",
     image: "/images/anna-outside.jpg",
     action: "Apply for Mentorship",

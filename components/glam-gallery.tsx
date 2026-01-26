@@ -13,11 +13,11 @@ const BLUR_DATA_URL =
 // Glam gallery images - focused on makeup artistry
 const glamImages = [
   { src: "/images/blonde.jpg", alt: "Full glam transformation - Studio work" },
-  { src: "/images/famous-person-glammed.jpg", alt: "Celebrity-style glam makeup" },
+  { src: "/images/Glam-Headshot-Channen-Famou-Person.JPEG", alt: "Celebrity-style glam makeup" },
   { src: "/images/client-news.jpg", alt: "Soft glam natural beauty" },
-  { src: "/images/DarkerSkinComplexion.jpg", alt: "Diverse skin tone glam transformation" },
+  { src: "/images/Studio-Pregant-Lighter-Photo-Calmer.JPG", alt: "Diverse skin tone glam transformation" },
   { src: "/images/GroupPhotoMakeup.jpg", alt: "Group glam session" },
-  { src: "/images/wedding-example.jpg", alt: "Signature soft glam" },
+  { src: "/images/Headshot-Darker-Complexion-Makeup.jpg", alt: "Signature soft glam" },
 ];
 
 export function GlamGallery() {

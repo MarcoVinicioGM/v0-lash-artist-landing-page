@@ -47,7 +47,7 @@ const reviews = [
     author: "MORGAN PITRE",
   },
   {
-    text: "I've been going to Anna for six years now, and she's the only person I trust. Even though I live in Texas now, I still go to her for any important events when I'm back home!",
+    text: "I've been going to Anna for 8 years now, and she's the only person I trust. Even though I live in Texas now, I still go to her for any important events when I'm back home!",
     author: "DEIDRA S.",
   },
   {

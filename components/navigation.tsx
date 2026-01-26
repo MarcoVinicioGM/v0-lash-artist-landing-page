@@ -197,7 +197,7 @@ export function Navigation() {
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-3 text-sm text-zinc-600">
                 <MapPin className="h-4 w-4 text-[#FF69B4]" />
-                <span>New Orleans & Metairie, LA</span>
+                <span>3110 David Dr. Metairie, LA</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-zinc-600">
                 <Mail className="h-4 w-4 text-zinc-400" />

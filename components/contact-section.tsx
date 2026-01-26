@@ -101,10 +101,10 @@ export function ContactSection(props: React.HTMLAttributes<HTMLElement>) {
                   <div>
                     <p className="font-medium text-black">Email Us</p>
                     <a
-                      href="mailto:hello@amorglambeauty.com"
+                      href="mailto:info@makeupbyannagarcia.com"
                       className="text-black/60 transition-colors hover:text-[#FF69B4]"
                     >
-                      hello@amorglambeauty.com
+                      info@makeupbyannagarcia.com
                     </a>
                   </div>
                 </div>
@@ -116,7 +116,7 @@ export function ContactSection(props: React.HTMLAttributes<HTMLElement>) {
                   <div>
                     <p className="font-medium text-black">Studio Location</p>
                     <p className="text-black/60">
-                      New Orleans & Metairie, Louisiana
+                      3110 David Dr. Metairie, Louisiana
                       <br />
                       <span className="text-sm italic">
                         House calls available upon request

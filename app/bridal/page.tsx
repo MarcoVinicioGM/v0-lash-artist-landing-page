@@ -17,6 +17,7 @@ import {
   MapPin,
   Calendar as CalendarIcon,
   Users,
+  Phone,
   Clock,
   Sparkles,
   Heart,
@@ -54,28 +55,28 @@ const PACKAGES = [
   {
     id: "bride",
     title: "The Bride",
-    price: "$350",
+    price: "Starts at $500",
     description:
-      "The signature Amor Glam look, perfected for photography and longevity. Includes premium lashes and a touch-up kit.",
+      "Bridal Trial + Day of Wedding glam. Pricing depends on your specific needs. Travel fees are additional and based on quote.",
     features: [
-      "90-Minute Application",
+      "Bridal Trial Session",
+      "Wedding Day Glam Application",
       "Premium Mink or Silk Lashes",
       "Décolleté Glow & Body Shimmer",
       "Full Touch-Up Kit (Lipstick, Powder, Blotting Papers)",
-      "Veil & Accessory Placement Assistance",
     ],
   },
   {
     id: "party",
     title: "Bridal Party",
-    price: "$150",
+    price: "Starts at $1,200",
     description:
-      "Cohesive, stunning looks for bridesmaids and mothers. We ensure the entire party complements the bride's aesthetic.",
+      "Cohesive, stunning looks for bridesmaids and mothers. Minimum package is $1,200 but depends on factors and requires manual review. Travel fees are additional and based on quote.",
     features: [
-      "45-Minute Application",
+      "45-Minute Application per person",
       "Custom Strip Lashes",
-      "24-Hour Wear Setting Spray",
-      "Lip Touch-Up Sample",
+      "Long Wearing",
+      "Full Sized Lip Kit",
       "Skin Prep for All Ages",
     ],
   },
@@ -84,11 +85,11 @@ const PACKAGES = [
     title: "The Preview (Trial)",
     price: "$200",
     description:
-      "A 2-hour collaborative session at our studio to design your perfect look before the big day.",
+      "A 2-hour collaborative session at our studio to design your perfect look before the big day. Available on Weekdays only.",
     features: [
       "2-Hour Consultation & Application",
       "Multiple Lip/Eye Options",
-      "Face Chart & Product Breakdown",
+      "Product Breakdown",
       "Skin Prep Routine Recommendations",
       "Photos & Lighting Test",
     ],
@@ -99,7 +100,7 @@ const PROCESS_STEPS = [
   {
     number: "01",
     title: "Inquiry & Proposal",
-    desc: "Submit your wedding details. We'll check availability and send a custom proposal within 24 hours.",
+    desc: "Submit your wedding details. We'll check availability and send a custom proposal as quickly as possible.",
   },
   {
     number: "02",
@@ -121,11 +122,19 @@ const PROCESS_STEPS = [
 const FAQS = [
   {
     q: "Do you travel for weddings?",
-    a: "Yes! We specialize in destination weddings. For local weddings (New Orleans/Metairie), travel is included within 20 miles. Beyond that, a standard mileage rate applies.",
+    a: "Yes! We specialize in destination weddings. For local weddings (New Orleans/Metairie), travel is included within 20 miles. Beyond that, a standard mileage rate applies. Travel and stay needs to be covered by the client.",
+  },
+  {
+    q: "How far in advance should I book?",
+    a: "We recommend booking 6 months to 1 year ahead for best availability. Popular dates fill up quickly, especially during peak wedding seasons.",
+  },
+  {
+    q: "What if my wedding is soon?",
+    a: "Have an emergency request? Even if you're only a week out, send us an inquiry. We'll manually review your dates and do our best to accommodate you if availability allows.",
   },
   {
     q: "Is there a minimum booking requirement?",
-    a: "For Saturday weddings during peak season (March-June, Sept-Nov), we require a minimum booking of Bride + 4 services.",
+    a: "Minimum bridal party package starts at $1,200. Pricing depends on various factors and requires manual review. Travel fees are additional and based on quote.",
   },
   {
     q: "How should I prep my skin?",
@@ -134,6 +143,10 @@ const FAQS = [
   {
     q: "Do you provide hair services?",
     a: "We focus exclusively on makeup artistry to ensure perfection. However, we have a list of preferred hair stylists we love to work with!",
+  },
+  {
+    q: "What if my party is too large?",
+    a: "If your bridal party is too large for Anna to handle alone, she can recruit additional trained artists she trusts. You'll receive Anna's artistry plus trusted assistants to ensure your entire party looks beautiful and cohesive.",
   },
 ];
 
@@ -175,6 +188,7 @@ function BridalNav() {
 const bridalSchema = z.object({
   name: z.string().min(2, "Name is required"),
   email: z.string().email("Invalid email address"),
+  phone: z.string().min(10, "Phone number is required"),
   date: z.string().min(1, "Wedding date is required"),
   venue: z.string().min(2, "Venue is required"),
   partySize: z.string().min(1, "Estimated count required"),
@@ -242,6 +256,23 @@ function BridalInquiryForm({ onSuccess }: { onSuccess: () => void }) {
             <p className="text-xs text-red-500">{errors.email.message}</p>
           )}
         </div>
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="b-phone">Phone Number</Label>
+        <div className="relative">
+          <Phone className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
+          <Input
+            id="b-phone"
+            type="tel"
+            placeholder="(504) 555-0123"
+            {...register("phone")}
+            className="pl-10 bg-zinc-50"
+          />
+        </div>
+        {errors.phone && (
+          <p className="text-xs text-red-500">{errors.phone.message}</p>
+        )}
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -406,7 +437,7 @@ export default function BridalPage() {
                 className="h-14 px-8 rounded-none border-white text-white hover:bg-white hover:text-black bg-transparent"
               >
                 <a
-                  href={BOOKING_LINKS.bridal}
+                  href={BOOKING_LINKS.bridalTrial}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -607,13 +638,26 @@ export default function BridalPage() {
             Dates for 2026 are filling up fast. Secure your date today to ensure
             you get the Amor Glam experience.
           </p>
-          <Button
-            onClick={() => setIsModalOpen(true)}
-            size="lg"
-            className="h-16 px-10 rounded-full bg-brand-pink hover:bg-brand-pink/90 text-white text-lg font-bold"
-          >
-            Start Your Inquiry
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+            <Button
+              onClick={() => setIsModalOpen(true)}
+              size="lg"
+              className="h-16 px-10 rounded-full bg-brand-pink hover:bg-brand-pink/90 text-white text-lg font-bold"
+            >
+              Start Your Inquiry
+            </Button>
+            <Button
+              onClick={() => setIsModalOpen(true)}
+              size="lg"
+              className="h-16 px-10 rounded-full bg-zinc-700 hover:bg-zinc-600 text-white text-lg font-bold"
+            >
+              Emergency Request
+            </Button>
+          </div>
+          <p className="text-zinc-500 max-w-xl mx-auto mt-8 text-sm">
+            Emergency requests (within 1 week) require an upcharge and are only accommodated if time permits.
+            Weekends are typically fully booked.
+          </p>
         </div>
       </section>
 
