@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { WebVitals } from '@/components/web-vitals'
 import './globals.css'
 
@@ -95,9 +96,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="font-sans antialiased debug-screens">
+      <body className="font-sans antialiased">
         {children}
         <Analytics />
+        <SpeedInsights />
         <WebVitals />
       </body>
     </html>
