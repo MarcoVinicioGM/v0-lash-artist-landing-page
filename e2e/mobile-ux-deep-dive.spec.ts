@@ -10,9 +10,15 @@ import { test, expect } from "./fixtures/test-fixtures";
  * NOTE: Shop/Products features are intentionally excluded.
  */
 
-// All tests in this file only run on mobile viewports
-test.beforeEach(({ isMobile }) => {
-  test.skip(!isMobile, "Mobile UX tests only run on mobile device projects");
+// All tests in this file only run on strict MOBILE PHONE viewports
+test.beforeEach(({ isMobile, page }) => {
+  const viewport = page.viewportSize();
+  
+  // Skip if not mobile OR if the screen is wider than a large phone (e.g. 640px)
+  // This explicitly excludes iPads/Tablets
+  if (!isMobile || (viewport && viewport.width > 640)) {
+    test.skip(true, "Mobile UX tests only run on small screens (Phones)");
+  }
 });
 
 // ─────────────────────────────────────────────────────────────────────────────

@@ -25,20 +25,24 @@ test.describe("Homepage and Navigation", () => {
     expect(target).toBe("_blank");
   });
 
-test("should navigate to internal Shop page from navigation", async ({ page, isMobile }) => {
+test("should navigate to internal Shop page from navigation", async ({ page }) => {
   await page.goto("/");
+  await page.waitForLoadState("networkidle");
 
-  // On mobile, Shop link is hidden in hamburger menu - open it first
-  if (isMobile) {
-    await page.getByRole("button", { name: /open menu/i }).click();
-    await page.waitForTimeout(300);
+  // 1. SMART CHECK: Only try to open the menu if the button is actually visible
+  // This prevents crashes on iPads (which are "mobile" but show desktop nav)
+  const hamburger = page.getByRole("button", { name: /open menu/i });
+  
+  if (await hamburger.isVisible()) {
+    await hamburger.click();
+    await page.waitForTimeout(300); // Allow animation
   }
 
   const shopLink = page.getByRole("link", { name: /shop/i }).first();
   
   await expect(shopLink).toBeVisible();
 
-  // Shop currently links to internal /shop page (no external Squarespace yet)
+  // Shop currently links to internal /shop page
   const href = await shopLink.getAttribute("href");
   expect(href).toBe("/shop");
   

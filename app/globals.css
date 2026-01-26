@@ -1,9 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-/* Debug screens only in development - remove in production */
-@plugin "tailwindcss-debug-screens";
-
 /* Dark mode variant using class strategy */
 @custom-variant dark (&:is(.dark *));
 

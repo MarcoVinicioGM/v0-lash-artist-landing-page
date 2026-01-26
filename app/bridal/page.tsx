@@ -162,14 +162,7 @@ function BridalNav() {
       </Link>
 
       <div className="w-24 flex justify-end">
-        <div className="relative h-16 w-16">
-          <Image
-            src="/images/Icon-Heart-WEdding-Gown.png"
-            alt="Wedding Gown Heart Icon"
-            fill
-            className="object-contain"
-          />
-        </div>
+        <Heart className="h-6 w-6 text-[#FF69B4]" />
       </div>
     </nav>
   );
