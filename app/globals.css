@@ -1,8 +1,19 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+
+/* Debug screens only in development - remove in production */
 @plugin "tailwindcss-debug-screens";
 
+/* Dark mode variant using class strategy */
 @custom-variant dark (&:is(.dark *));
+
+/* Performance: Content visibility for below-fold sections */
+@layer utilities {
+  .content-visibility-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
+  }
+}
 
 @layer components {
   .section-padding {
@@ -172,5 +183,18 @@
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+  
+  /* Optimize paint for fixed/sticky elements */
+  .will-change-transform {
+    will-change: transform;
+  }
+  
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .motion-reduce {
+      animation: none !important;
+      transition: none !important;
+    }
   }
 }

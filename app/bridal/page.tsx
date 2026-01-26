@@ -544,12 +544,12 @@ export default function BridalPage() {
                 ))}
               </div>
             </div>
-            <div className="relative w-full h-[400px] lg:h-[600px] bg-zinc-100 order-1 lg:order-2 overflow-hidden">
+            <div className="relative w-full h-[400px] md:h-[550px] lg:h-[600px] bg-zinc-100 order-1 lg:order-2 overflow-hidden">
               <Image
                 src="/images/wedding-group.jpg"
                 alt="Wedding party group photo in black and white"
                 fill
-                className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                className="object-cover md:object-bottom lg:object-center grayscale hover:grayscale-0 transition-all duration-700"
                 placeholder="blur"
                 blurDataURL={BLUR_DATA_URL}
               />
