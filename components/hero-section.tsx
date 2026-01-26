@@ -64,8 +64,8 @@ export function HeroSection() {
             transition={{ delay: 0.3 }}
             className="mb-6 font-serif text-4xl font-bold leading-tight md:text-6xl lg:text-7xl"
           >
-            <span className="block">Soft Glam &</span>
-            <span className="block italic text-white/90">Bridal Artist</span>
+            <span className="block">Makeup &</span>
+            <span className="block italic text-white/90">Brow Artist</span>
           </motion.h1>
 
           {/* Description */}
@@ -76,7 +76,7 @@ export function HeroSection() {
             className="mb-8 max-w-md text-sm leading-relaxed text-white/80 md:text-base"
           >
             Timeless beauty for your most important moments. 
-            Professional makeup artistry & brow services in the Greater New Orleans area.
+            Professional makeup & brow artistry in the New Orleans Metro area.
           </motion.p>
 
           {/* Two Distinct Booking CTAs */}
@@ -94,7 +94,7 @@ export function HeroSection() {
             >
               <a href={BOOKING_URLS.makeup} target="_blank" rel="noopener noreferrer">
                 <Calendar className="mr-2 h-4 w-4" />
-                Book Makeup
+                Book Glam
               </a>
             </Button>
 

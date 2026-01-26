@@ -29,6 +29,13 @@ const services = {
       image: "/images/famous-person-glammed.jpg",
       description: "Bold and camera-ready",
     },
+    {
+      id: 3,
+      name: "On Location Glam",
+      price: 225,
+      image: "/images/anna-glammed.jpeg",
+      description: "Starting at $225 in the New Orleans Metro Area",
+    },
   ],
   brows: [
     {
