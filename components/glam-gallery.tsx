@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Palette } from "lucide-react";
-import { BOOKING_URLS } from "@/lib/constants";
+import { BOOKING_LINKS } from "@/lib/constants";
 
 const BLUR_DATA_URL =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mMUFVVbDQAAmgEGq/6+HQAAAABJRU5ErkJggg==";
@@ -101,7 +101,7 @@ export function GlamGallery() {
               size="lg"
               className="bg-[#FF69B4] text-white hover:bg-[#FF69B4]/90 rounded-none min-h-[48px]"
             >
-              <a href={BOOKING_URLS.makeup} target="_blank" rel="noopener noreferrer">
+              <a href={BOOKING_LINKS.softGlam} target="_blank" rel="noopener noreferrer">
                 <Palette className="mr-2 h-4 w-4" />
                 Book Your Glam Session
               </a>

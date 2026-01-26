@@ -41,6 +41,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Footer } from "@/components/footer";
+import { BOOKING_LINKS } from "@/lib/constants";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // CONSTANTS & DATA
@@ -396,7 +397,7 @@ export default function BridalPage() {
                 className="h-14 px-8 rounded-none border-white text-white hover:bg-white hover:text-black bg-transparent"
               >
                 <a
-                  href="https://amor-glam.square.site"
+                  href={BOOKING_LINKS.bridal}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -411,7 +412,7 @@ export default function BridalPage() {
       {/* ════════ INTRO / PHILOSOPHY ════════ */}
       <section className="bg-white py-16 lg:py-32">
         <div className="container-max grid lg:grid-cols-2 gap-0 lg:gap-16 items-center">
-          <div className="relative h-[400px] lg:h-auto lg:aspect-square overflow-hidden bg-zinc-100">
+          <div className="relative h-[650px] lg:h-auto lg:aspect-square overflow-hidden bg-zinc-100">
             <Image
               src="/images/muslim-wedding.jpg"
               alt="Close up of bride with traditional jewelry and makeup"

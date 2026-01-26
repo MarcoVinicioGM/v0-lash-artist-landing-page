@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { motion } from "framer-motion";
 import { Instagram, Mail, Facebook } from "lucide-react";
-import { SOCIAL_LINKS } from "@/lib/constants";
+import { SOCIAL_LINKS, CONTACT_LINKS } from "@/lib/constants";
 
 export function Footer() {
   return (
@@ -61,7 +61,7 @@ export function Footer() {
                 <Facebook className="h-5 w-5" />
               </Link>
               <Link
-                href={`mailto:${SOCIAL_LINKS.email}`}
+                href={CONTACT_LINKS.email}
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-[#FF69B4]"
               >
                 <Mail className="h-5 w-5" />
@@ -87,14 +87,6 @@ export function Footer() {
                   className="transition-colors hover:text-white"
                 >
                   Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/shop"
-                  className="transition-colors hover:text-white"
-                >
-                  Shop
                 </Link>
               </li>
               <li>

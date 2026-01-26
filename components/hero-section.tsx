@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Calendar, Sparkles, Award } from "lucide-react";
-import { BOOKING_URLS } from "@/lib/constants";
+import { BOOKING_LINKS } from "@/lib/constants";
 
 const BLUR_DATA_URL =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mMUFVVbDQAAmgEGq/6+HQAAAABJRU5ErkJggg==";
@@ -92,7 +92,7 @@ export function HeroSection() {
               size="lg"
               className="min-w-[200px] bg-[#FF69B4] text-white hover:bg-[#FF69B4]/90 rounded-none border-none min-h-[48px] text-sm font-medium"
             >
-              <a href={BOOKING_URLS.makeup} target="_blank" rel="noopener noreferrer">
+              <a href={BOOKING_LINKS.softGlam} target="_blank" rel="noopener noreferrer">
                 <Calendar className="mr-2 h-4 w-4" />
                 Book Glam
               </a>
@@ -105,7 +105,7 @@ export function HeroSection() {
               variant="outline"
               className="min-w-[200px] border-white bg-transparent text-white hover:bg-white hover:text-black rounded-none transition-all min-h-[48px] text-sm font-medium"
             >
-              <a href={BOOKING_URLS.browsAndSkin} target="_blank" rel="noopener noreferrer">
+              <a href={BOOKING_LINKS.general} target="_blank" rel="noopener noreferrer">
                 <Sparkles className="mr-2 h-4 w-4" />
                 Book Brows & Skin (Mon-Thu)
               </a>

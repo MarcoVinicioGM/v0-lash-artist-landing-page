@@ -6,12 +6,12 @@ import { Check, Star, ArrowUpRight, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { SQUARESPACE_PRODUCT_URL } from "@/lib/constants";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // CONFIGURATION
 // ─────────────────────────────────────────────────────────────────────────────
 
-const SQUARESPACE_PRODUCT_URL = "https://amorglambeauty.square.site/product/amor-adhesive/1"; 
 const BLUR_DATA_URL = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mMUFVVbDQAAmgEGq/6+HQAAAABJRU5ErkJggg==";
 
 const FEATURES = [

@@ -22,7 +22,7 @@ import {
   Link as LinkIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { SOCIAL_LINKS, BOOKING_URLS } from "@/lib/constants";
+import { SOCIAL_LINKS, BOOKING_LINKS, CONTACT_LINKS } from "@/lib/constants";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -141,7 +141,7 @@ export function Navigation() {
             asChild
             className="bg-[#FF69B4] text-white hover:bg-[#FF69B4]/90 rounded-none text-[10px] sm:text-xs font-semibold px-3 sm:px-5 py-1 sm:py-1.5 h-8 sm:h-9"
           >
-            <a href={BOOKING_URLS.general} target="_blank" rel="noopener noreferrer">
+            <a href={BOOKING_LINKS.general} target="_blank" rel="noopener noreferrer">
               Book Now
             </a>
           </Button>
@@ -201,7 +201,7 @@ export function Navigation() {
               </div>
               <div className="flex items-center gap-3 text-sm text-zinc-600">
                 <Mail className="h-4 w-4 text-zinc-400" />
-                <a href={`mailto:${SOCIAL_LINKS.email}`} className="hover:text-black">
+                <a href={CONTACT_LINKS.email} className="hover:text-black">
                   {SOCIAL_LINKS.email}
                 </a>
               </div>

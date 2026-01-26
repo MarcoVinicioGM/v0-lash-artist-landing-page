@@ -5,6 +5,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import { BOOKING_LINKS } from "@/lib/constants";
 
 const tabs = [
   { id: "makeup", label: "Makeup" },
@@ -20,6 +21,7 @@ const services = {
       price: 125,
       image: "/images/client-news.jpg",
       description: "Natural beauty enhanced",
+      bookingLink: BOOKING_LINKS.softGlam,
     },
     {
       id: 2,
@@ -27,6 +29,7 @@ const services = {
       price: 150,
       image: "/images/famous-person-glammed.jpg",
       description: "Bold and camera-ready",
+      bookingLink: BOOKING_LINKS.fullGlam,
     },
     {
       id: 3,
@@ -34,6 +37,7 @@ const services = {
       price: 225,
       image: "/images/DarkerSkinComplexion.jpg",
       description: "Starting at $225 in the New Orleans Metro Area",
+      bookingLink: BOOKING_LINKS.houseCall,
     },
   ],
   brows: [
@@ -42,18 +46,21 @@ const services = {
       name: "Microblading",
       price: 400,
       image: "/images/microblading-new.jpg",
+      bookingLink: BOOKING_LINKS.microblading,
     },
     {
       id: 2,
       name: "Signature Facial",
       price: 120,
       image: "/images/blonde.jpg",
+      bookingLink: BOOKING_LINKS.general,
     },
     {
       id: 3,
       name: "Brow Lamination Bundle",
       price: 75,
       image: "/images/brow-photo.jpg",
+      bookingLink: BOOKING_LINKS.browLaminationBundle,
     },
   ],
   bridal: [
@@ -63,6 +70,7 @@ const services = {
       price: 200,
       image: "/images/muslim-wedding.jpg",
       description: "Perfect your look before the big day",
+      bookingLink: BOOKING_LINKS.bridal,
     },
     {
       id: 2,
@@ -70,6 +78,7 @@ const services = {
       price: 350,
       image: "/images/wedding-group.jpg",
       description: "Flawless from ceremony to reception",
+      bookingLink: BOOKING_LINKS.bridal,
     },
   ],
 };
@@ -132,8 +141,9 @@ export function ServiceMenuSection({ showPrices = true, ...props }: { showPrices
             className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
           >
              {services[activeTab].map((service, index) => (
-              <motion.div
+              <motion.article
                 key={service.id}
+                data-testid="service-card"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -169,15 +179,18 @@ export function ServiceMenuSection({ showPrices = true, ...props }: { showPrices
 
                   <div className="mt-auto">
                     {showPrices && (
-                      <Button
-                        className="w-full bg-black text-white hover:bg-black/80"
-                      >
-                        Book Appointment
-                      </Button>
-                    )}
+                       <Button
+                         asChild
+                         className="w-full bg-black text-white hover:bg-black/80"
+                       >
+<a href={service.bookingLink || BOOKING_LINKS.general} target="_blank" rel="noopener noreferrer">
+                            Book Appointment
+                          </a>
+                       </Button>
+                     )}
                   </div>
                 </div>
-              </motion.div>
+              </motion.article>
             ))}
           </motion.div>
         </AnimatePresence>
