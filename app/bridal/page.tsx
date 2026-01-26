@@ -352,7 +352,7 @@ export default function BridalPage() {
         >
           <Image
             src="/images/bridal-hero.jpg"
-            alt="Amor Glam Bridal Artistry"
+            alt="Beautiful bride with flawless makeup in soft light"
             fill
             className="object-cover object-[center_30%]"
             priority
@@ -414,7 +414,7 @@ export default function BridalPage() {
           <div className="relative h-[400px] lg:h-auto lg:aspect-square overflow-hidden bg-zinc-100">
             <Image
               src="/images/muslim-wedding.jpg"
-              alt="Bridal Detail"
+              alt="Close up of bride with traditional jewelry and makeup"
               fill
               className="object-cover"
               placeholder="blur"
@@ -546,7 +546,7 @@ export default function BridalPage() {
             <div className="relative w-full h-[400px] lg:h-[600px] bg-zinc-100 order-1 lg:order-2 overflow-hidden">
               <Image
                 src="/images/wedding-group.jpg"
-                alt="Bridal Process"
+                alt="Wedding party group photo in black and white"
                 fill
                 className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 placeholder="blur"

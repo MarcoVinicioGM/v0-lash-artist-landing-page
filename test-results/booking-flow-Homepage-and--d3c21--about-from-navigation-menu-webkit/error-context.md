@@ -1,0 +1,280 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - text: "screen: xl"
+  - main [ref=e2]:
+    - navigation [ref=e4]:
+      - link "AMOR GLAM" [ref=e5]:
+        - /url: /
+      - generic [ref=e6]:
+        - link "Services" [ref=e7]:
+          - /url: /services
+        - link "Shop" [ref=e8]:
+          - /url: /shop
+        - link "Bridal" [ref=e9]:
+          - /url: /bridal
+        - link "Education" [ref=e10]:
+          - /url: /education
+        - link "Gallery" [ref=e11]:
+          - /url: /gallery
+        - link "FAQ" [ref=e12]:
+          - /url: /faq
+      - link "Book Now" [ref=e14]:
+        - /url: https://amorglambeauty.square.site
+    - generic [ref=e15]:
+      - generic [ref=e17]:
+        - img "Anna Garcia - Premier Makeup Artist showcasing signature glam look" [ref=e19]
+        - generic [ref=e21]:
+          - generic [ref=e22]:
+            - img [ref=e23]
+            - generic [ref=e26]: Licensed Aesthetician
+          - paragraph [ref=e27]: New Orleans' Premier
+          - heading "Makeup & Brow Artist" [level=1] [ref=e28]:
+            - generic [ref=e29]: Makeup &
+            - generic [ref=e30]: Brow Artist
+          - paragraph [ref=e31]: Timeless beauty for your most important moments. Professional makeup & brow artistry in the New Orleans Metro area.
+          - generic [ref=e32]:
+            - link "Book Glam" [ref=e33]:
+              - /url: https://amorglambeauty.square.site/book-makeup
+              - img
+              - text: Book Glam
+            - link "Book Brows & Skin (Mon-Thu)" [ref=e34]:
+              - /url: https://amorglambeauty.square.site/book-brows-skin
+              - img
+              - text: Book Brows & Skin (Mon-Thu)
+        - generic [ref=e36]:
+          - heading "AMOR GLAM" [level=2] [ref=e37]
+          - paragraph [ref=e38]: Est. 2020
+      - generic [ref=e41]:
+        - img "Anna Garcia - Professional Headshot" [ref=e43]
+        - generic [ref=e44]:
+          - paragraph [ref=e45]: Meet The Artist
+          - heading "The Art of Detail." [level=2] [ref=e46]
+          - generic [ref=e47]:
+            - paragraph [ref=e48]: I believe makeup shouldn't mask your features—it should celebrate them. With over 5 years of experience and 1,000+ faces glamorized, my signature style blends red-carpet precision with real-world wearability.
+            - paragraph [ref=e49]: Every client who sits in my chair receives more than just a service; they receive a personalized transformation designed to highlight their unique bone structure and natural radiance.
+          - generic [ref=e50]:
+            - generic [ref=e51]: Anna Garcia
+            - paragraph [ref=e52]: Founder & Master Artist
+      - generic [ref=e54]:
+        - generic [ref=e55]:
+          - paragraph [ref=e56]: Our Services
+          - heading "The Menu" [level=2] [ref=e57]
+        - generic [ref=e59]:
+          - button "Makeup" [ref=e60]: Makeup
+          - button "Brows & Skin" [ref=e62]
+          - button "Bridal" [ref=e63]
+        - generic [ref=e64]:
+          - generic [ref=e65]:
+            - link [ref=e66]:
+              - /url: /services
+            - img "Soft Glam" [ref=e68]
+            - generic [ref=e69]:
+              - heading "Soft Glam" [level=3] [ref=e71]
+              - paragraph [ref=e72]: Natural beauty enhanced
+          - generic [ref=e73]:
+            - link [ref=e74]:
+              - /url: /services
+            - img "Full Glam" [ref=e76]
+            - generic [ref=e77]:
+              - heading "Full Glam" [level=3] [ref=e79]
+              - paragraph [ref=e80]: Bold and camera-ready
+          - generic [ref=e81]:
+            - link [ref=e82]:
+              - /url: /services
+            - img "On Location Glam" [ref=e84]
+            - generic [ref=e85]:
+              - heading "On Location Glam" [level=3] [ref=e87]
+              - paragraph [ref=e88]: Starting at $225 in the New Orleans Metro Area
+      - generic [ref=e91]:
+        - generic [ref=e92]:
+          - heading "Your Big Day, Perfected." [level=2] [ref=e93]:
+            - text: Your Big Day,
+            - text: Perfected.
+          - paragraph [ref=e94]: From the engagement party to the honeymoon, we ensure you look flawless at every milestone. Our bridal packages include trials, touch-up kits, and day-of artistry.
+          - link "View Bridal Experience" [ref=e96]:
+            - /url: /bridal
+        - img "Radiant bride with flawless complexion and soft glam makeup" [ref=e99]
+      - generic [ref=e101]:
+        - generic [ref=e102]:
+          - paragraph [ref=e103]: Follow Along
+          - heading "@AmorGlam" [level=2] [ref=e104]
+        - generic [ref=e106]:
+          - button "Glam" [ref=e107]: Glam
+          - button "Brows & Skin" [ref=e109]
+          - button "Bridal" [ref=e110]
+        - generic [ref=e111]:
+          - generic [ref=e113]:
+            - img "Soft glam makeup look" [ref=e114]
+            - img [ref=e116]
+          - generic [ref=e120]:
+            - img "Full glam transformation" [ref=e121]
+            - img [ref=e123]
+          - generic [ref=e127]:
+            - img "Celebrity-style glam" [ref=e128]
+            - img [ref=e130]
+          - generic [ref=e134]:
+            - img "Natural beauty enhancement" [ref=e135]
+            - img [ref=e137]
+          - generic [ref=e141]:
+            - img "Group glam session" [ref=e142]
+            - img [ref=e144]
+          - generic [ref=e148]:
+            - img "Signature soft glam" [ref=e149]
+            - img [ref=e151]
+        - link "View Full Gallery" [ref=e155]:
+          - /url: /gallery
+      - generic [ref=e157]:
+        - generic [ref=e158]:
+          - paragraph [ref=e159]: Testimonials
+          - heading "Love Letters" [level=2] [ref=e160]
+        - generic [ref=e163]:
+          - generic [ref=e165]:
+            - generic [ref=e166]:
+              - generic [ref=e167]:
+                - img [ref=e168]
+                - img [ref=e170]
+                - img [ref=e172]
+                - img [ref=e174]
+                - img [ref=e176]
+              - paragraph [ref=e178]: “Anna did my makeup as well as my entire bridal party for my wedding, bridal shower, and rehearsal! From someone who doesn't trust many people to do my makeup, she was an absolute breeze to work with.”
+            - generic [ref=e179]:
+              - paragraph [ref=e180]: Sierra B.
+              - paragraph [ref=e181]: Bridal Client
+          - generic [ref=e183]:
+            - generic [ref=e184]:
+              - generic [ref=e185]:
+                - img [ref=e186]
+                - img [ref=e188]
+                - img [ref=e190]
+                - img [ref=e192]
+                - img [ref=e194]
+              - paragraph [ref=e196]: “The best MUA! Makeup is always flawless and lasts 12+ hours. She listens to what you want and executes it perfectly. I always feel so stunning after leaving her chair. Book with Anna!”
+            - generic [ref=e197]:
+              - paragraph [ref=e198]: Morgan P.
+              - paragraph [ref=e199]: Full Glam Client
+          - generic [ref=e201]:
+            - generic [ref=e202]:
+              - generic [ref=e203]:
+                - img [ref=e204]
+                - img [ref=e206]
+                - img [ref=e208]
+                - img [ref=e210]
+                - img [ref=e212]
+              - paragraph [ref=e214]: “I've been going to Anna for six years now, and she's the only person I trust. Even though I live in Texas now, I still go to her for any important events when I'm back home!”
+            - generic [ref=e215]:
+              - paragraph [ref=e216]: Deidra S.
+              - paragraph [ref=e217]: Long-term Client
+      - generic [ref=e219]:
+        - generic [ref=e220]:
+          - paragraph [ref=e221]: We're Here to Help
+          - heading "Get in Touch" [level=2] [ref=e222]
+        - generic [ref=e223]:
+          - generic [ref=e224]:
+            - generic [ref=e225]:
+              - heading "Contact Information" [level=3] [ref=e226]
+              - generic [ref=e227]:
+                - generic [ref=e228]:
+                  - img [ref=e230]
+                  - generic [ref=e233]:
+                    - paragraph [ref=e234]: Email Us
+                    - link "hello@amorglambeauty.com" [ref=e235]:
+                      - /url: mailto:hello@amorglambeauty.com
+                - generic [ref=e236]:
+                  - img [ref=e238]
+                  - generic [ref=e241]:
+                    - paragraph [ref=e242]: Studio Location
+                    - paragraph [ref=e243]:
+                      - text: New Orleans & Metairie, Louisiana
+                      - text: House calls available upon request
+                - generic [ref=e244]:
+                  - img [ref=e246]
+                  - generic [ref=e249]:
+                    - paragraph [ref=e250]: Frequently Asked Questions
+                    - link "View our FAQ page →" [ref=e251]:
+                      - /url: /faq
+            - generic [ref=e252]:
+              - paragraph [ref=e253]: Have questions about allergies or sensitivities?
+              - paragraph [ref=e254]: We use professional-grade, hypoallergenic products. If you have specific concerns about ingredients or skin sensitivities, please let us know in your inquiry and we'll accommodate your needs.
+          - generic [ref=e256]:
+            - heading "General Inquiry" [level=3] [ref=e257]
+            - generic [ref=e258]:
+              - generic [ref=e259]:
+                - generic [ref=e260]:
+                  - generic [ref=e261]: Name
+                  - textbox "Name" [ref=e262]:
+                    - /placeholder: Your name
+                - generic [ref=e263]:
+                  - generic [ref=e264]: Email
+                  - textbox "Email" [ref=e265]:
+                    - /placeholder: your@email.com
+              - generic [ref=e266]:
+                - generic [ref=e267]: Subject
+                - combobox [ref=e268]:
+                  - generic: What can we help with?
+                  - img
+                - combobox [ref=e269]
+              - generic [ref=e270]:
+                - generic [ref=e271]: Message
+                - textbox "Message" [ref=e272]:
+                  - /placeholder: Tell us more about your inquiry...
+              - button "Send Message" [ref=e273]
+    - generic [ref=e275]:
+      - generic [ref=e276]:
+        - generic [ref=e277]:
+          - heading "AMOR GLAM BEAUTY" [level=3] [ref=e278]
+          - paragraph [ref=e279]: High-end artistry services and professional-grade beauty products for the modern woman.
+          - paragraph [ref=e280]: Licensed Aesthetician | New Orleans, LA
+          - generic [ref=e281]:
+            - link [ref=e282]:
+              - /url: https://www.instagram.com/makeupbyannagarcia/?hl=en
+              - img [ref=e283]
+            - link [ref=e286]:
+              - /url: https://www.tiktok.com/@anna6arcia?lang=en
+              - img [ref=e287]
+            - link [ref=e289]:
+              - /url: https://www.facebook.com/makeupbyannagarcia/
+              - img [ref=e290]
+            - link [ref=e292]:
+              - /url: mailto:hello@amorglambeauty.com
+              - img [ref=e293]
+        - generic [ref=e296]:
+          - heading "Quick Links" [level=4] [ref=e297]
+          - list [ref=e298]:
+            - listitem [ref=e299]:
+              - link "Services" [ref=e300]:
+                - /url: /services
+            - listitem [ref=e301]:
+              - link "Shop" [ref=e302]:
+                - /url: /shop
+            - listitem [ref=e303]:
+              - link "Bridal" [ref=e304]:
+                - /url: /bridal
+            - listitem [ref=e305]:
+              - link "Gallery" [ref=e306]:
+                - /url: /gallery
+            - listitem [ref=e307]:
+              - link "Education" [ref=e308]:
+                - /url: /education
+        - generic [ref=e309]:
+          - heading "Information" [level=4] [ref=e310]
+          - list [ref=e311]:
+            - listitem [ref=e312]:
+              - link "Policies" [ref=e313]:
+                - /url: /faq?tab=policies
+            - listitem [ref=e314]:
+              - link "FAQ" [ref=e315]:
+                - /url: /faq
+        - generic [ref=e316]:
+          - heading "Join the Love List" [level=4] [ref=e317]
+          - paragraph [ref=e318]: Get beauty tips, product drops, and little love notes from Anna.
+          - generic [ref=e319]:
+            - textbox "Your email for love notes..." [ref=e320]
+            - button "Join" [ref=e321]
+      - generic [ref=e323]: With love, Anna
+      - paragraph [ref=e325]: © 2026 Amor Glam Beauty. All rights reserved.
+  - button "Open Next.js Dev Tools" [ref=e331] [cursor=pointer]:
+    - img [ref=e332]
+  - alert [ref=e337]
+```

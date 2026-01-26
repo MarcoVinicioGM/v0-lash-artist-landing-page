@@ -17,7 +17,7 @@ const galleryCategories = [
     title: "Glam",
     description: "Signature makeup artistry & transformations",
     href: "/gallery/glam",
-    image: "/images/anna-glammed.jpeg",
+    image: "/images/blonde.jpg",
   },
   {
     title: "Bridal",

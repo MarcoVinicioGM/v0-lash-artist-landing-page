@@ -49,8 +49,8 @@ export function BridalSection(props: React.HTMLAttributes<HTMLElement>) {
           >
             <div className="relative aspect-[4/4.5] md:aspect-[4/4] lg:aspect-[4/4.5] overflow-hidden rounded-none">
               <Image
-                src="/images/bridal-hero.jpg"
-                alt="Beautiful bride with flawless makeup"
+                src="/images/bridal-new.jpg"
+                alt="Radiant bride with flawless complexion and soft glam makeup"
                 fill
                 className="object-cover object-bottom"
               />

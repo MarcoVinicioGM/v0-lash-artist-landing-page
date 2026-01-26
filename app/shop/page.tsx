@@ -49,7 +49,7 @@ export default function ShopPage() {
               <div className="relative aspect-square w-full max-w-lg mx-auto bg-white border border-zinc-100 shadow-2xl shadow-[#FF69B4]/10 p-8 flex items-center justify-center">
                 <Image
                   src="/images/lash-glue.png"
-                  alt="Amor Glam Lash Adhesive"
+                  alt="Detailed shot of Amor Glam Lash Adhesive bottle"
                   width={600}
                   height={600}
                   className="object-contain drop-shadow-xl"

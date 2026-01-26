@@ -1,0 +1,159 @@
+{
+  "projectName": "Amor Glam Beauty & Education Platform",
+  "projectType": "Next.js Web Application",
+  "framework": {
+    "name": "Next.js",
+    "version": "16.0.10",
+    "router": "App Router"
+  },
+  "techStack": {
+    "frontend": {
+      "react": "19.2.0",
+      "typescript": "5.9.3",
+      "tailwindCSS": "4.1.9",
+      "framerMotion": "12.26.2"
+    },
+    "ui": {
+      "shadcnUI": true,
+      "radixUI": true,
+      "components": [
+        "accordion",
+        "dialog",
+        "tabs",
+        "button",
+        "form",
+        "input",
+        "select",
+        "calendar",
+        "popover",
+        "sheet"
+      ]
+    },
+    "forms": {
+      "reactHookForm": "7.60.0",
+      "zod": "3.25.76"
+    },
+    "externalIntegrations": {
+      "square": {
+        "bookings": true,
+        "payments": true,
+        "catalog": true
+      },
+      "vercelAnalytics": "1.3.1"
+    }
+  },
+  "features": [
+    {
+      "name": "Service Menu",
+      "description": "Display beauty services with categories (Makeup, Brows & Skin, Bridal)",
+      "pages": ["/services", "/"],
+      "components": ["service-menu-section.tsx"]
+    },
+    {
+      "name": "Booking System",
+      "description": "Integration with Square for appointment scheduling",
+      "externalURL": "https://amorglambeauty.square.site",
+      "categories": ["Makeup (Fri-Sun)", "Brows & Skin (Mon-Thurs)"]
+    },
+    {
+      "name": "Gallery",
+      "description": "Portfolio showcase with categories",
+      "pages": ["/gallery", "/gallery/bridal", "/gallery/glam", "/gallery/brows"],
+      "components": ["glam-gallery.tsx", "bridal-gallery.tsx", "brows-gallery.tsx"]
+    },
+    {
+      "name": "Education",
+      "description": "Training and courses for beauty professionals",
+      "pages": ["/education", "/education/[slug]"],
+      "components": ["education-client-page.tsx", "education-application-modal.tsx"]
+    },
+    {
+      "name": "Bridal Services",
+      "description": "Wedding day beauty services",
+      "pages": ["/bridal"],
+      "components": ["bridal-section.tsx"]
+    },
+    {
+      "name": "Shop",
+      "description": "E-commerce section for beauty products",
+      "pages": ["/shop"],
+      "components": ["shop-section.tsx", "best-sellers-section.tsx"]
+    },
+    {
+      "name": "Contact Form",
+      "description": "Customer inquiry form with API endpoint",
+      "pages": ["/#contact"],
+      "api": ["/api/forms/submit"],
+      "components": ["contact-section.tsx"]
+    },
+    {
+      "name": "FAQ",
+      "description": "Frequently asked questions with tabbed interface",
+      "pages": ["/faq"],
+      "components": ["faq-section.tsx", "faq-tabs-ssr.tsx"]
+    },
+    {
+      "name": "Link in Bio",
+      "description": "Social media landing page",
+      "pages": ["/link-in-bio"]
+    }
+  ],
+  "routes": {
+    "pages": [
+      "/",
+      "/services",
+      "/gallery",
+      "/gallery/bridal",
+      "/gallery/glam",
+      "/gallery/brows",
+      "/education",
+      "/education/[slug]",
+      "/bridal",
+      "/shop",
+      "/faq",
+      "/link-in-bio"
+    ],
+    "api": [
+      "/api/forms/submit"
+    ]
+  },
+  "services": {
+    "makeup": [
+      { "name": "Soft Glam", "price": 125 },
+      { "name": "Full Glam", "price": 150 },
+      { "name": "On Location Glam", "price": 225 }
+    ],
+    "brows": [
+      { "name": "Microblading", "price": 400 },
+      { "name": "Signature Facial", "price": 120 },
+      { "name": "Brow Lamination Bundle", "price": 75 }
+    ],
+    "bridal": [
+      { "name": "Bridal Trial", "price": 200 },
+      { "name": "Wedding Day Glam", "price": 350 }
+    ]
+  },
+  "externalLinks": {
+    "booking": {
+      "makeup": "https://amorglambeauty.square.site/book-makeup",
+      "browsAndSkin": "https://amorglambeauty.square.site/book-brows-skin",
+      "general": "https://amorglambeauty.square.site"
+    },
+    "social": {
+      "instagram": "https://www.instagram.com/makeupbyannagarcia",
+      "tiktok": "https://www.tiktok.com/@anna6arcia",
+      "facebook": "https://www.facebook.com/makeupbyannagarcia"
+    }
+  },
+  "testingScope": {
+    "e2e": [
+      "Booking flow (service selection, time picking, confirmation)",
+      "Payment processing (valid card, declined card, refunds)",
+      "Customer profile (edit info, view history)",
+      "Admin functions (view appointments, mark complete)",
+      "Square integration (payment status, booking sync)",
+      "Mobile responsiveness (all flows on iPhone)",
+      "Error handling (invalid email, unavailable slots, network errors)"
+    ]
+  }
+}

@@ -19,7 +19,7 @@ export function HeroSection() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/anna-glammed.jpeg"
-            alt="Anna Garcia - Licensed Aesthetician & Premier Makeup Artist"
+            alt="Anna Garcia - Premier Makeup Artist showcasing signature glam look"
             fill
             sizes="100vw"
             className="object-cover transition-opacity duration-700"

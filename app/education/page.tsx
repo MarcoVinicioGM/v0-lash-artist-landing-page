@@ -475,7 +475,7 @@ export default function EducationPage() {
         <div className="absolute inset-0">
           <Image
             src="/images/anna-makeup-room.jpg"
-            alt="Anna Garcia - Master Your Own Face"
+            alt="Anna Garcia teaching a makeup lesson in her studio"
             fill
             sizes="100vw"
             className="object-cover object-[center_20%]"
@@ -589,7 +589,7 @@ export default function EducationPage() {
             >
               <Image
                 src="/images/brow-photo.jpg"
-                alt="Precision Blending & Skin Prep"
+                alt="Close up of brow shaping technique"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -615,7 +615,7 @@ export default function EducationPage() {
             >
               <Image
                 src="/images/bridal-alt.jpg"
-                alt="Kit Audit & Hygiene Standards"
+                alt="Professional makeup kit setup"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -640,8 +640,8 @@ export default function EducationPage() {
               className="group relative aspect-[3/4] overflow-hidden rounded-3xl"
             >
               <Image
-                src="/images/wedding-group.jpg"
-                alt="Content Creation & Client Photos"
+                src="/images/GroupPhotoMakeup.jpg"
+                alt="Group of clients showcasing diverse makeup looks"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-110"

@@ -5,7 +5,6 @@ import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import { Award } from "lucide-react";
 
 const tabs = [
   { id: "makeup", label: "Makeup" },
@@ -33,7 +32,7 @@ const services = {
       id: 3,
       name: "On Location Glam",
       price: 225,
-      image: "/images/anna-glammed.jpeg",
+      image: "/images/DarkerSkinComplexion.jpg",
       description: "Starting at $225 in the New Orleans Metro Area",
     },
   ],
@@ -48,15 +47,13 @@ const services = {
       id: 2,
       name: "Signature Facial",
       price: 120,
-      image: "/images/anna-glammed.jpeg",
+      image: "/images/blonde.jpg",
     },
     {
       id: 3,
       name: "Brow Lamination Bundle",
       price: 75,
       image: "/images/brow-photo.jpg",
-      badge: "Best Seller",
-      badgeIcon: Award,
     },
   ],
   bridal: [
@@ -145,22 +142,14 @@ export function ServiceMenuSection({ showPrices = true, ...props }: { showPrices
                 {!showPrices && (
                   <Link href="/services" className="absolute inset-0 z-10" />
                 )}
-                <div className="relative aspect-[3/2] md:aspect-[4/3] overflow-hidden">
-                  <Image
-                    src={service.image || "/placeholder.svg"}
-                    alt={service.name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  {"badge" in service && (
-                    <div className="absolute left-3 top-3 md:left-4 md:top-4 flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 md:px-3 md:py-1.5 text-[10px] md:text-xs font-medium backdrop-blur-sm">
-                      {service.badgeIcon && (
-                        <service.badgeIcon className="h-3 w-3 md:h-3.5 md:w-3.5" />
-                      )}
-                      {service.badge}
-                    </div>
-                  )}
-                </div>
+                 <div className="relative aspect-[3/2] md:aspect-[4/3] overflow-hidden">
+                   <Image
+                     src={service.image || "/placeholder.svg"}
+                     alt={service.name}
+                     fill
+                     className="object-cover transition-transform duration-500 group-hover:scale-105"
+                   />
+                 </div>
 
                 <div className="flex flex-col flex-1 p-3 md:p-5">
                   <div className="flex items-start justify-between mb-0 md:mb-2">

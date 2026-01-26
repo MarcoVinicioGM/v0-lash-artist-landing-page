@@ -80,8 +80,8 @@ export function EducationClientPage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/anna-glammed.jpeg"
-            alt="Anna Garcia - Master Your Own Face"
+            src="/images/anna-makeup-room.jpg"
+            alt="Anna Garcia teaching a makeup lesson in her studio"
             fill
             className="object-cover object-center"
             priority

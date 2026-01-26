@@ -27,7 +27,7 @@ export function ShopSection(props: React.HTMLAttributes<HTMLElement>) {
             <div className="relative aspect-square md:aspect-[3/4] h-[300px] md:h-auto overflow-hidden rounded-none bg-zinc-900">
               <Image
                 src="/images/lash-glue.png"
-                alt="Amor Glam Professional Lash Adhesive"
+                alt="Bottle of Amor Glam Professional Lash Adhesive with pink cap"
                 fill
                 className="object-cover object-bottom"
               />

@@ -17,11 +17,11 @@ const tabs = [
 const galleryImages = {
   glam: [
     { src: "/images/DarkerSkinComplexion.jpg", alt: "Soft glam makeup look" },
-    { src: "/images/anna-glammed.jpeg", alt: "Full glam transformation" },
+    { src: "/images/blonde.jpg", alt: "Full glam transformation" },
     { src: "/images/famous-person-glammed.jpg", alt: "Celebrity-style glam" },
     { src: "/images/client-news.jpg", alt: "Natural beauty enhancement" },
     { src: "/images/GroupPhotoMakeup.jpg", alt: "Group glam session" },
-    { src: "/images/anna-profile.jpg", alt: "Signature soft glam" },
+    { src: "/images/wedding-example.jpg", alt: "Signature soft glam" },
   ],
   bridal: [
     { src: "/images/bridal-hero.jpg", alt: "Radiant bridal beauty" },
